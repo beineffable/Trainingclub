@@ -524,6 +524,17 @@
 .splash-exit {
   opacity: 0;
   visibility: hidden;
+  pointer-events: none; /* Prevent any interactions during exit animation */
+}
+
+/* iOS specific fixes */
+.ios-fix {
+  display: none !important;
+}
+
+.content-visible {
+  display: block !important;
+  opacity: 1 !important;
 }
 
 /* Responsive Design Adjustments */

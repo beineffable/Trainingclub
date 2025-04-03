@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Show splash screen only if user hasn't seen it in the last 24 hours
     if (hasSeenAnimation && lastSeen && (now - parseInt(lastSeen) < 24 * 60 * 60 * 1000)) {
         // Skip animation for returning visitors within 24 hours
-        hideSplashScreen();
+        hideSplashScreenImmediately();
     } else {
         // Show animation
         initSplashScreen();
@@ -24,58 +24,30 @@ document.addEventListener('DOMContentLoaded', function() {
         // Make sure splash screen is visible
         document.body.classList.add('splash-active');
         
-        // Add multiple event listeners for better mobile compatibility
-        // Standard click event
-        skipButton.addEventListener('click', hideSplashScreen);
+        // Simplified event handling for iOS compatibility
+        // Use a single click handler that works on both desktop and mobile
+        skipButton.onclick = function(e) {
+            e.stopPropagation(); // Prevent event bubbling
+            forceHideSplashScreen();
+            return false; // Prevent default and stop propagation
+        };
         
-        // Touch events for mobile devices
-        skipButton.addEventListener('touchstart', function(e) {
-            // Prevent default to avoid any potential issues
-            e.preventDefault();
-            hideSplashScreen();
-        }, { passive: false });
-        
-        // Backup touch event in case touchstart doesn't work
-        skipButton.addEventListener('touchend', function(e) {
-            e.preventDefault();
-            hideSplashScreen();
-        }, { passive: false });
-        
-        // Keyboard accessibility
-        skipButton.addEventListener('keypress', function(e) {
-            // Allow activation with Enter or Space key
-            if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                hideSplashScreen();
-            }
-        });
-        
-        // Add a global touch handler for the entire splash screen as a fallback
-        splashScreen.addEventListener('touchend', function(e) {
-            // Check if the touch is near the skip button area
-            const skipRect = skipButton.getBoundingClientRect();
-            const touchX = e.changedTouches[0].clientX;
-            const touchY = e.changedTouches[0].clientY;
-            
-            // Create a larger hit area around the button (add 20px padding)
-            if (touchX >= skipRect.left - 20 && 
-                touchX <= skipRect.right + 20 && 
-                touchY >= skipRect.top - 20 && 
-                touchY <= skipRect.bottom + 20) {
-                e.preventDefault();
-                hideSplashScreen();
-            }
-        }, { passive: false });
+        // Add a direct touchend handler without preventDefault
+        skipButton.ontouchend = function(e) {
+            e.stopPropagation(); // Prevent event bubbling
+            forceHideSplashScreen();
+            return false; // Prevent default and stop propagation
+        };
         
         // Set timeout to automatically transition after animation completes
-        setTimeout(hideSplashScreen, 5000); // 5 seconds
+        setTimeout(forceHideSplashScreen, 5000); // 5 seconds
         
         // Store that user has seen the animation
         localStorage.setItem('hasSeenSplashScreen', 'true');
         localStorage.setItem('lastSeenSplashScreen', now.toString());
     }
     
-    // Function to transition to main content
+    // Function to transition to main content with CSS
     function hideSplashScreen() {
         // Prevent multiple calls
         if (splashScreen.classList.contains('splash-exit')) {
@@ -88,6 +60,34 @@ document.addEventListener('DOMContentLoaded', function() {
         // After animation completes, hide splash and show main content
         setTimeout(function() {
             document.body.classList.remove('splash-active');
+            splashScreen.style.display = 'none';
+            mainContent.style.display = 'block';
         }, 1000); // Match this with the fadeOut animation duration
+    }
+    
+    // Function to immediately hide splash screen without animation
+    function hideSplashScreenImmediately() {
+        splashScreen.style.display = 'none';
+        document.body.classList.remove('splash-active');
+        mainContent.style.display = 'block';
+    }
+    
+    // Force hide with multiple approaches for maximum compatibility
+    function forceHideSplashScreen() {
+        try {
+            // Try the CSS transition approach first
+            hideSplashScreen();
+            
+            // As a backup, set a timeout to force-hide if the transition fails
+            setTimeout(function() {
+                // Force hide the splash screen directly
+                splashScreen.style.display = 'none';
+                document.body.classList.remove('splash-active');
+                mainContent.style.display = 'block';
+            }, 1500);
+        } catch (e) {
+            // If anything fails, use the direct approach
+            hideSplashScreenImmediately();
+        }
     }
 });
