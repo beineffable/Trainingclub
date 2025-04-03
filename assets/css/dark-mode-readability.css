@@ -1,0 +1,59 @@
+/* Dark Mode Text Readability Fix */
+
+/* Ensure proper text contrast in dark mode */
+body.dark-mode {
+  /* Text colors for dark mode */
+  --primary-black: #FFFFFF; /* White text for dark backgrounds */
+  --text-color-dark: #FFFFFF; /* White text for general content */
+  --text-color-muted: #CCCCCC; /* Slightly dimmed text for secondary content */
+}
+
+/* Fix text colors in dark mode */
+body.dark-mode p,
+body.dark-mode li,
+body.dark-mode span,
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6 {
+  color: var(--text-color-dark);
+}
+
+/* Fix secondary text */
+body.dark-mode .subtitle,
+body.dark-mode .meta,
+body.dark-mode .small-text {
+  color: var(--text-color-muted);
+}
+
+/* Ensure all dark backgrounds have light text */
+body.dark-mode .card,
+body.dark-mode .membership-tier,
+body.dark-mode section,
+body.dark-mode footer,
+body.dark-mode header {
+  color: var(--text-color-dark);
+}
+
+/* Fix form elements in dark mode */
+body.dark-mode input,
+body.dark-mode textarea,
+body.dark-mode select {
+  background-color: #2A2A2A; /* Slightly lighter than background */
+  color: #FFFFFF; /* White text */
+  border: 1px solid #444444;
+}
+
+/* Fix button text in dark mode */
+body.dark-mode .button,
+body.dark-mode .cta-button {
+  color: #FFFFFF; /* Ensure white text on orange buttons */
+}
+
+/* Fix any remaining dark text on dark backgrounds */
+body.dark-mode [class*="text-dark"],
+body.dark-mode [class*="text-black"] {
+  color: #FFFFFF !important;
+}
