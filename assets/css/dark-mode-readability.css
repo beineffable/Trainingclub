@@ -1,61 +1,149 @@
-/* Dark Mode Text Readability Fix */
+/* Dark Mode Readability Enhancements */
 
-/* Ensure proper text contrast in dark mode */
-body.dark-mode {
-  /* Text colors for dark mode */
-  --primary-black: #FFFFFF; /* White text for dark backgrounds */
-  --text-color-dark: #FFFFFF; /* White text for general content */
-  --text-color-muted: #CCCCCC; /* Slightly dimmed text for secondary content */
+/* Ensure all text has proper contrast in dark mode */
+body.dark-mode p,
+body.dark-mode span,
+body.dark-mode li,
+body.dark-mode a,
+body.dark-mode label,
+body.dark-mode .text,
+body.dark-mode .description {
+  color: var(--primary-black); /* Light text color */
 }
 
-/* Fix text colors in dark mode */
-body.dark-mode p,
-body.dark-mode li,
-body.dark-mode span,
+/* Ensure all headings have proper contrast */
 body.dark-mode h1,
 body.dark-mode h2,
 body.dark-mode h3,
 body.dark-mode h4,
 body.dark-mode h5,
 body.dark-mode h6 {
-  color: var(--text-color-dark);
+  color: var(--primary-black); /* Light text color */
 }
 
-/* Fix secondary text */
-body.dark-mode .subtitle,
-body.dark-mode .meta,
-body.dark-mode .small-text {
-  color: var(--text-color-muted);
+/* Ensure section titles and subtitles are visible */
+body.dark-mode .section-title,
+body.dark-mode .section-subtitle {
+  color: var(--primary-black);
 }
 
-/* Ensure all dark backgrounds have light text */
-body.dark-mode .card,
-body.dark-mode .membership-tier,
-body.dark-mode section,
-body.dark-mode footer,
-body.dark-mode header {
-  color: var(--text-color-dark);
+/* Fix membership tier content visibility */
+body.dark-mode .membership-tier p,
+body.dark-mode .membership-tier li,
+body.dark-mode .membership-tier .feature-list,
+body.dark-mode .price,
+body.dark-mode .membership-tier .price {
+  color: var(--primary-black);
 }
 
-/* Fix form elements in dark mode */
-body.dark-mode input,
-body.dark-mode textarea,
-body.dark-mode select {
-  background-color: #2A2A2A; /* Slightly lighter than background */
-  color: #FFFFFF; /* White text */
-  border: 1px solid #444444;
+/* Specifically fix the "Priceless" text */
+body.dark-mode .price,
+body.dark-mode .membership-tier .price {
+  color: var(--primary-black) !important;
+  font-weight: bold;
+  font-size: 2.5rem;
 }
 
-/* Fix button text in dark mode */
+/* Ensure consistent membership box styling */
+body.dark-mode .membership-tier {
+  background-color: var(--gray-light);
+  border: 2px solid var(--accent-orange);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Ensure all form labels and text are visible */
+body.dark-mode form label,
+body.dark-mode form p,
+body.dark-mode form .helper-text {
+  color: var(--primary-black);
+}
+
+/* Ensure all buttons have proper text contrast */
+body.dark-mode button,
 body.dark-mode .button,
-body.dark-mode .cta-button {
-  color: #FFFFFF; /* Ensure white text on orange buttons */
+body.dark-mode input[type="submit"],
+body.dark-mode input[type="button"] {
+  color: white;
 }
 
-/* Fix any remaining dark text on dark backgrounds */
-body.dark-mode [class*="text-dark"],
-body.dark-mode [class*="text-black"] {
-  color: #FFFFFF !important;
+/* Ensure all links have proper contrast */
+body.dark-mode a:not(.cta-button):not(.nav-menu a) {
+  color: var(--accent-orange);
+}
+
+body.dark-mode a:not(.cta-button):not(.nav-menu a):hover {
+  color: #FF6A33; /* Darker orange on hover */
+  text-decoration: underline;
+}
+
+/* Ensure copyright text is visible */
+body.dark-mode .copyright,
+body.dark-mode footer .copyright {
+  color: var(--primary-black);
+}
+
+/* Ensure all icons have proper contrast */
+body.dark-mode i.fa,
+body.dark-mode i.fas,
+body.dark-mode i.far,
+body.dark-mode i.fab {
+  color: var(--primary-black);
+}
+
+/* Ensure social media icons are visible */
+body.dark-mode .social-links a,
+body.dark-mode .social-icon {
+  color: var(--primary-black);
+}
+
+body.dark-mode .social-links a:hover,
+body.dark-mode .social-icon:hover {
+  color: var(--accent-orange);
+}
+
+/* Ensure all list items are visible */
+body.dark-mode ul li,
+body.dark-mode ol li {
+  color: var(--primary-black);
+}
+
+/* Ensure all table content is visible */
+body.dark-mode table,
+body.dark-mode th,
+body.dark-mode td {
+  color: var(--primary-black);
+  border-color: var(--gray-medium);
+}
+
+/* Ensure all blockquotes are visible */
+body.dark-mode blockquote,
+body.dark-mode q {
+  color: var(--primary-black);
+}
+
+/* Ensure all custom components have proper contrast */
+body.dark-mode .card-content,
+body.dark-mode .info-box,
+body.dark-mode .testimonial,
+body.dark-mode .feature {
+  color: var(--primary-black);
+}
+
+/* Add subtle text shadow to improve readability on dark backgrounds */
+body.dark-mode p,
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6 {
+  text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Fix checkmark visibility */
+body.dark-mode .membership-tier li:before,
+body.dark-mode .feature-list li:before {
+  color: var(--accent-orange);
 }
 
 /* Fix footer Quick Links and Members headings and links */

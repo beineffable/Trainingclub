@@ -35,6 +35,21 @@ body.dark-mode footer {
   color: var(--primary-black);
 }
 
+/* Fix footer links visibility in dark mode */
+body.dark-mode footer a,
+body.dark-mode footer h3,
+body.dark-mode footer p,
+body.dark-mode .quick-links a,
+body.dark-mode .members a,
+body.dark-mode footer .copyright {
+  color: var(--primary-black); /* Light text color */
+}
+
+body.dark-mode footer a:hover {
+  color: var(--accent-orange); /* Orange on hover */
+  text-decoration: underline;
+}
+
 /* Update button colors */
 body.dark-mode .cta-button {
   background-color: var(--accent-orange); /* Orange instead of blue */
@@ -76,6 +91,31 @@ body.dark-mode svg path[stroke="#4D8FFF"],
 body.dark-mode svg rect[stroke="#4D8FFF"],
 body.dark-mode svg circle[stroke="#4D8FFF"] {
   stroke: var(--accent-orange);
+}
+
+/* Ensure all footer section headings are visible */
+body.dark-mode .quick-links h3,
+body.dark-mode .members h3,
+body.dark-mode footer h3,
+body.dark-mode footer h4 {
+  color: var(--primary-black);
+}
+
+/* Fix any other potential dark text on dark background issues */
+body.dark-mode .section-title,
+body.dark-mode .section-subtitle,
+body.dark-mode .copyright {
+  color: var(--primary-black);
+}
+
+/* Ensure social media icons are visible */
+body.dark-mode .social-icon {
+  color: var(--primary-black);
+  background-color: transparent;
+}
+
+body.dark-mode .social-icon:hover {
+  color: var(--accent-orange);
 }
 
 /* Ensure consistent background colors for all elements */
