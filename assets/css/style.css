@@ -371,6 +371,15 @@ header {
   color: var(--accent-orange);
 }
 
+/* Membership Buttons */
+.membership-tier .cta-button {
+  width: 100%;
+  max-width: 220px;
+  margin: 0 auto;
+  display: block;
+  text-align: center;
+}
+
 /* Access Code Section */
 .access-code {
   background-color: var(--gray-light);
