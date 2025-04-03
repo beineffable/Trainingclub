@@ -1,0 +1,56 @@
+/* Splash Screen Pastel Colors for Light Mode */
+
+/* Override cloud colors for light mode */
+:root {
+  --sky-background-color: #ffffff;
+  --cloud-color: var(--accent-baby-blue);
+  --cloud-shadow-color: var(--accent-light-blue);
+}
+
+/* Update cloud styling for pastel theme */
+.cloud {
+  background: var(--cloud-color);
+  box-shadow: 0 8px 5px rgba(0, 0, 0, 0.1);
+}
+
+.cloud::before,
+.cloud::after {
+  background: var(--cloud-color);
+}
+
+/* Update title text color for light mode */
+.title-text {
+  color: var(--accent-light-pink);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Skip button styling for light mode */
+.skip-button {
+  background-color: var(--accent-baby-pink);
+  color: #333333;
+}
+
+.skip-button:hover {
+  background-color: var(--accent-light-pink);
+}
+
+/* Ensure dark mode still uses original colors */
+body.dark-mode {
+  --sky-background-color: #0a1929;
+  --cloud-color: #ffffff;
+  --cloud-shadow-color: #dddddd;
+}
+
+body.dark-mode .title-text {
+  color: #ffffff;
+  text-shadow: 0 0 15px rgba(77, 143, 255, 0.7);
+}
+
+body.dark-mode .skip-button {
+  background-color: rgba(255, 255, 255, 0.7);
+  color: #0a1929;
+}
+
+body.dark-mode .skip-button:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+}

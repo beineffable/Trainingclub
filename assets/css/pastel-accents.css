@@ -1,0 +1,136 @@
+/* Additional Pastel Accents for Light Mode */
+
+/* UI Element Accents */
+body:not(.dark-mode) {
+  /* Section backgrounds */
+  --section-bg-alt: #f8f9ff;
+  
+  /* Card and container accents */
+  --card-border-color: var(--accent-baby-blue);
+  --card-hover-shadow: 0 5px 15px rgba(165, 216, 255, 0.3);
+  
+  /* Progress bars and indicators */
+  --progress-bar-color: var(--accent-baby-blue);
+  --progress-bar-background: #e6f4ff;
+  
+  /* Dividers and separators */
+  --divider-color: var(--accent-baby-pink);
+  
+  /* Highlights and selections */
+  --highlight-color: var(--accent-baby-pink);
+  --selection-bg: rgba(165, 216, 255, 0.2);
+}
+
+/* Section styling */
+body:not(.dark-mode) section.alt-bg {
+  background-color: var(--section-bg-alt);
+}
+
+/* Card styling */
+body:not(.dark-mode) .card {
+  border-color: transparent;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+body:not(.dark-mode) .card:hover {
+  border-color: var(--card-border-color);
+  box-shadow: var(--card-hover-shadow);
+}
+
+/* Membership tier styling */
+body:not(.dark-mode) .membership-tier {
+  border-color: transparent;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+body:not(.dark-mode) .membership-tier:hover {
+  border-color: var(--card-border-color);
+  box-shadow: var(--card-hover-shadow);
+}
+
+body:not(.dark-mode) .membership-tier h3 {
+  color: var(--accent-light-blue);
+}
+
+/* Pricing elements */
+body:not(.dark-mode) .price {
+  color: var(--accent-baby-blue);
+}
+
+body:not(.dark-mode) .price-period {
+  color: var(--accent-light-pink);
+}
+
+/* Feature lists */
+body:not(.dark-mode) .feature-list li:before {
+  color: var(--accent-baby-blue);
+}
+
+/* Testimonial styling */
+body:not(.dark-mode) .testimonial {
+  border-left: 3px solid var(--accent-baby-pink);
+}
+
+body:not(.dark-mode) .testimonial-author {
+  color: var(--accent-light-blue);
+}
+
+/* Form elements */
+body:not(.dark-mode) input:focus,
+body:not(.dark-mode) textarea:focus,
+body:not(.dark-mode) select:focus {
+  border-color: var(--accent-baby-blue);
+  box-shadow: 0 0 0 2px rgba(165, 216, 255, 0.2);
+}
+
+/* Table styling */
+body:not(.dark-mode) table th {
+  background-color: var(--accent-baby-blue);
+  color: white;
+}
+
+body:not(.dark-mode) table tr:nth-child(even) {
+  background-color: var(--section-bg-alt);
+}
+
+/* Selection styling */
+body:not(.dark-mode) ::selection {
+  background-color: var(--selection-bg);
+  color: var(--accent-light-blue);
+}
+
+/* Scrollbar styling */
+body:not(.dark-mode)::-webkit-scrollbar-thumb {
+  background-color: var(--accent-baby-blue);
+}
+
+body:not(.dark-mode)::-webkit-scrollbar-track {
+  background-color: var(--section-bg-alt);
+}
+
+/* Horizontal dividers */
+body:not(.dark-mode) hr {
+  border-color: var(--divider-color);
+  opacity: 0.3;
+}
+
+/* Blockquote styling */
+body:not(.dark-mode) blockquote {
+  border-left: 3px solid var(--accent-baby-pink);
+  background-color: rgba(255, 209, 220, 0.1);
+}
+
+/* Ensure dark mode preserves original styling */
+body.dark-mode {
+  /* Reset to original dark mode values */
+  --section-bg-alt: var(--gray-light);
+  --card-border-color: var(--gray-medium);
+  --card-hover-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  --progress-bar-color: var(--accent-orange);
+  --progress-bar-background: var(--gray-medium);
+  --divider-color: var(--gray-medium);
+  --highlight-color: var(--accent-orange);
+  --selection-bg: rgba(255, 125, 77, 0.2);
+}
