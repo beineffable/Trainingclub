@@ -378,6 +378,12 @@ header {
   margin: 0 auto;
   display: block;
   text-align: center;
+  padding: 12px 20px;
+  height: 45px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  box-sizing: border-box;
 }
 
 /* Access Code Section */
