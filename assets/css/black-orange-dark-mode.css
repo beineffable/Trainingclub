@@ -7,8 +7,8 @@ body.dark-mode {
   --primary-white: #121212; /* Pure black background */
   --accent-orange: #FF7D4D; /* Keep orange accent */
   --accent-blue: #FF7D4D; /* Replace blue with orange */
-  --gray-light: #1E1E1E; /* Slightly lighter black */
-  --gray-medium: #2A2A2A; /* Medium dark gray */
+  --gray-light: #121212; /* Match pure black background */
+  --gray-medium: #1E1E1E; /* Slightly lighter black for contrast elements */
   --gray-dark: #DDDDDD; /* Light gray */
 }
 
@@ -26,7 +26,7 @@ body.dark-mode .nav-menu li a.active {
 
 /* Update hero section background */
 body.dark-mode .hero-content {
-  background-color: rgba(0, 0, 0, 0.7); /* Black with opacity instead of navy */
+  background-color: rgba(18, 18, 18, 0.9); /* Match pure black background */
 }
 
 /* Update footer to black */
@@ -76,4 +76,22 @@ body.dark-mode svg path[stroke="#4D8FFF"],
 body.dark-mode svg rect[stroke="#4D8FFF"],
 body.dark-mode svg circle[stroke="#4D8FFF"] {
   stroke: var(--accent-orange);
+}
+
+/* Ensure consistent background colors for all elements */
+body.dark-mode section,
+body.dark-mode .card,
+body.dark-mode .membership-tier,
+body.dark-mode .sidebar,
+body.dark-mode .main-content {
+  background-color: #121212;
+}
+
+/* Add subtle contrast for nested elements when needed */
+body.dark-mode .card,
+body.dark-mode .membership-tier,
+body.dark-mode .credit-status,
+body.dark-mode .session-card {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  border: 1px solid #1E1E1E;
 }

@@ -57,3 +57,27 @@ body.dark-mode [class*="text-dark"],
 body.dark-mode [class*="text-black"] {
   color: #FFFFFF !important;
 }
+
+/* Fix footer Quick Links and Members headings and links */
+body.dark-mode footer h4,
+body.dark-mode .footer-links h4,
+body.dark-mode .footer-legal h4,
+body.dark-mode .footer-newsletter h4 {
+  color: #FFFFFF !important;
+}
+
+body.dark-mode footer ul li a,
+body.dark-mode .footer-links ul li a,
+body.dark-mode .footer-legal ul li a {
+  color: #FFFFFF !important;
+}
+
+/* Fix sidebar menu text in members area */
+body.dark-mode .sidebar-menu li a {
+  color: #FFFFFF;
+}
+
+/* Ensure all footer text is visible */
+body.dark-mode footer * {
+  color: #FFFFFF;
+}
