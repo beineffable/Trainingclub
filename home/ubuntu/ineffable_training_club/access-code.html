@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Access Code System | Ineffable Training Club</title>
+    <meta name="description" content="Enter your exclusive access code to join Switzerland's premier mobile outdoor fitness experience.">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Additional styles specific to access code page */
+        .access-code-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 100px 20px;
+            background-color: var(--primary-black);
+            color: var(--primary-white);
+        }
+        
+        .access-code-box {
+            max-width: 500px;
+            width: 100%;
+            padding: 40px;
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .access-code-logo {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .access-code-logo img {
+            height: 60px;
+        }
+        
+        .access-code-title {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .access-code-form {
+            margin-bottom: 30px;
+        }
+        
+        .code-input {
+            display: flex;
+            margin-bottom: 20px;
+        }
+        
+        .code-input input {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--primary-white);
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            text-align: center;
+            border-radius: 4px 0 0 4px;
+        }
+        
+        .code-input button {
+            padding: 15px 25px;
+            background-color: var(--accent-orange);
+            color: var(--primary-white);
+            border: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            border-radius: 0 4px 4px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .code-input button:hover {
+            background-color: var(--primary-white);
+            color: var(--accent-orange);
+        }
+        
+        .access-code-info {
+            text-align: center;
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+        
+        .access-code-footer {
+            text-align: center;
+            margin-top: 30px;
+        }
+        
+        .access-code-footer a {
+            color: var(--accent-orange);
+        }
+        
+        .access-code-footer a:hover {
+            text-decoration: underline;
+        }
+        
+        .result-message {
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            display: none;
+        }
+        
+        .success-message {
+            background-color: rgba(76, 175, 80, 0.2);
+            border: 1px solid #4CAF50;
+        }
+        
+        .error-message {
+            background-color: rgba(244, 67, 54, 0.2);
+            border: 1px solid #F44336;
+        }
+        
+        @media (max-width: 768px) {
+            .access-code-box {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Access Code Container -->
+    <div class="access-code-container">
+        <div class="access-code-box">
+            <div class="access-code-logo">
+                <img src="assets/images/logo.png" alt="Ineffable Training Club Logo">
+            </div>
+            <div class="access-code-title">
+                <h1>EXCLUSIVE ACCESS</h1>
+                <p>Enter your code to join Switzerland's premier outdoor training experience</p>
+            </div>
+            
+            <!-- Success Message (hidden by default) -->
+            <div class="result-message success-message" id="successMessage">
+                <p>Valid access code! Redirecting you to registration...</p>
+            </div>
+            
+            <!-- Error Message (hidden by default) -->
+            <div class="result-message error-message" id="errorMessage">
+                <p>Invalid access code. Please check and try again.</p>
+            </div>
+            
+            <div class="access-code-form">
+                <form id="accessCodeForm">
+                    <div class="code-input">
+                        <input type="text" id="accessCode" placeholder="Enter your code" required>
+                        <button type="submit">Submit</button>
+                    </div>
+                </form>
+            </div>
+            <div class="access-code-info">
+                <p>Access codes are distributed by existing members or through special promotions. Each code is valid for a single use and expires after 14 days.</p>
+            </div>
+            <div class="access-code-footer">
+                <p>Don't have a code? <a href="index.html#contact">Request one here</a></p>
+                <p>Already a member? <a href="members-area.html">Login here</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const accessCodeForm = document.getElementById('accessCodeForm');
+            const successMessage = document.getElementById('successMessage');
+            const errorMessage = document.getElementById('errorMessage');
+            
+            accessCodeForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const codeInput = document.getElementById('accessCode').value.trim();
+                
+                // Example standard code format: TC-KNONAU-2025
+                const standardCodePattern = /^TC-[A-Z]+-\d{4}$/;
+                
+                // Example elite code format: ELITE-TC-2025
+                const eliteCodePattern = /^ELITE-TC-\d{4}$/;
+                
+                if (standardCodePattern.test(codeInput)) {
+                    // Standard membership code
+                    successMessage.style.display = 'block';
+                    errorMessage.style.display = 'none';
+                    
+                    // Simulate redirect after 2 seconds
+                    setTimeout(function() {
+                        window.location.href = 'index.html#membership';
+                    }, 2000);
+                } else if (eliteCodePattern.test(codeInput)) {
+                    // Elite membership code
+                    successMessage.style.display = 'block';
+                    errorMessage.style.display = 'none';
+                    
+                    // Simulate redirect after 2 seconds
+                    setTimeout(function() {
+                        window.location.href = 'index.html#membership';
+                    }, 2000);
+                } else {
+                    // Invalid code
+                    errorMessage.style.display = 'block';
+                    successMessage.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
