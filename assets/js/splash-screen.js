@@ -24,8 +24,24 @@ document.addEventListener('DOMContentLoaded', function() {
         // Make sure splash screen is visible
         document.body.classList.add('splash-active');
         
-        // Add event listeners to skip button
+        // Add multiple event listeners for better mobile compatibility
+        // Standard click event
         skipButton.addEventListener('click', hideSplashScreen);
+        
+        // Touch events for mobile devices
+        skipButton.addEventListener('touchstart', function(e) {
+            // Prevent default to avoid any potential issues
+            e.preventDefault();
+            hideSplashScreen();
+        }, { passive: false });
+        
+        // Backup touch event in case touchstart doesn't work
+        skipButton.addEventListener('touchend', function(e) {
+            e.preventDefault();
+            hideSplashScreen();
+        }, { passive: false });
+        
+        // Keyboard accessibility
         skipButton.addEventListener('keypress', function(e) {
             // Allow activation with Enter or Space key
             if (e.key === 'Enter' || e.key === ' ') {
@@ -33,6 +49,23 @@ document.addEventListener('DOMContentLoaded', function() {
                 hideSplashScreen();
             }
         });
+        
+        // Add a global touch handler for the entire splash screen as a fallback
+        splashScreen.addEventListener('touchend', function(e) {
+            // Check if the touch is near the skip button area
+            const skipRect = skipButton.getBoundingClientRect();
+            const touchX = e.changedTouches[0].clientX;
+            const touchY = e.changedTouches[0].clientY;
+            
+            // Create a larger hit area around the button (add 20px padding)
+            if (touchX >= skipRect.left - 20 && 
+                touchX <= skipRect.right + 20 && 
+                touchY >= skipRect.top - 20 && 
+                touchY <= skipRect.bottom + 20) {
+                e.preventDefault();
+                hideSplashScreen();
+            }
+        }, { passive: false });
         
         // Set timeout to automatically transition after animation completes
         setTimeout(hideSplashScreen, 5000); // 5 seconds

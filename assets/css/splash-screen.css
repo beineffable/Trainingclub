@@ -268,20 +268,28 @@
   position: absolute;
   bottom: 20px;
   right: 20px;
-  padding: 8px 16px;
-  background-color: rgba(255, 255, 255, 0.3);
+  padding: 12px 24px;
+  background-color: rgba(255, 255, 255, 0.5);
   color: white;
-  border-radius: 20px;
+  border-radius: 30px;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 16px;
   opacity: 0;
   animation: fadeIn 1s ease-in-out forwards;
-  animation-delay: 2s;
+  animation-delay: 1s;
   transition: background-color 0.3s;
+  /* Improve touch target */
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0.5);
+  touch-action: manipulation;
+  user-select: none;
+  /* Add a subtle shadow for better visibility */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  /* Ensure it's above other elements */
+  z-index: 10000;
 }
 
-.skip-button:hover {
-  background-color: rgba(255, 255, 255, 0.5);
+.skip-button:hover, .skip-button:active {
+  background-color: rgba(255, 255, 255, 0.7);
 }
 
 /* Loading Bar */
@@ -581,8 +589,12 @@
   
   /* Make skip button more prominent on mobile */
   .skip-button {
-    padding: 10px 20px;
-    font-size: 16px;
+    padding: 15px 30px;
+    font-size: 18px;
+    bottom: 30px;
+    right: 30px;
+    background-color: rgba(255, 255, 255, 0.7);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
   }
 }
 
