@@ -1,4 +1,4 @@
-// Splash Screen JavaScript
+// Splash Screen JavaScript - Fixed for Safari Compatibility
 document.addEventListener('DOMContentLoaded', function() {
     // Get elements
     const splashScreen = document.getElementById('splash-screen');
@@ -9,6 +9,25 @@ document.addEventListener('DOMContentLoaded', function() {
     const hasSeenAnimation = localStorage.getItem('hasSeenSplashScreen');
     const lastSeen = localStorage.getItem('lastSeenSplashScreen');
     const now = new Date().getTime();
+    
+    // Check for Safari browser
+    const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+    
+    // Check for iOS device
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+    
+    // Check for reduced motion preference
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    
+    // Add Safari-specific class if needed
+    if (isSafari || isIOS) {
+        document.body.classList.add('safari-browser');
+    }
+    
+    // Add reduced-motion class if needed
+    if (prefersReducedMotion) {
+        document.body.classList.add('reduced-motion');
+    }
     
     // Show splash screen only if user hasn't seen it in the last 24 hours
     if (hasSeenAnimation && lastSeen && (now - parseInt(lastSeen) < 24 * 60 * 60 * 1000)) {
@@ -24,20 +43,23 @@ document.addEventListener('DOMContentLoaded', function() {
         // Make sure splash screen is visible
         document.body.classList.add('splash-active');
         
+        // Apply cloud animations manually for Safari if needed
+        if (isSafari || isIOS) {
+            applyCloudAnimationsForSafari();
+        }
+        
         // Simplified event handling for iOS compatibility
         // Use a single click handler that works on both desktop and mobile
-        skipButton.onclick = function(e) {
+        skipButton.addEventListener('click', function(e) {
             e.stopPropagation(); // Prevent event bubbling
             forceHideSplashScreen();
-            return false; // Prevent default and stop propagation
-        };
+        });
         
         // Add a direct touchend handler without preventDefault
-        skipButton.ontouchend = function(e) {
+        skipButton.addEventListener('touchend', function(e) {
             e.stopPropagation(); // Prevent event bubbling
             forceHideSplashScreen();
-            return false; // Prevent default and stop propagation
-        };
+        });
         
         // Set timeout to automatically transition after animation completes
         setTimeout(forceHideSplashScreen, 5000); // 5 seconds
@@ -45,6 +67,29 @@ document.addEventListener('DOMContentLoaded', function() {
         // Store that user has seen the animation
         localStorage.setItem('hasSeenSplashScreen', 'true');
         localStorage.setItem('lastSeenSplashScreen', now.toString());
+    }
+    
+    // Apply cloud animations manually for Safari
+    function applyCloudAnimationsForSafari() {
+        // This function ensures animations are properly applied in Safari
+        const clouds = document.querySelectorAll('.cloud');
+        clouds.forEach(cloud => {
+            // Force a reflow to ensure animations are applied
+            void cloud.offsetWidth;
+            
+            // Make sure clouds are visible
+            setTimeout(() => {
+                cloud.style.opacity = '1';
+            }, parseInt(cloud.style.animationDelay || '0') * 1000);
+        });
+        
+        // Make sure title is visible
+        const titleText = document.querySelector('.title-text');
+        if (titleText) {
+            setTimeout(() => {
+                titleText.style.opacity = '1';
+            }, 1500); // Match the animation delay
+        }
     }
     
     // Function to transition to main content with CSS
@@ -90,4 +135,13 @@ document.addEventListener('DOMContentLoaded', function() {
             hideSplashScreenImmediately();
         }
     }
+    
+    // Add listener for reduced motion changes
+    window.matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change', function(e) {
+        if (e.matches) {
+            document.body.classList.add('reduced-motion');
+        } else {
+            document.body.classList.remove('reduced-motion');
+        }
+    });
 });
