@@ -1,0 +1,639 @@
+/* Splash Screen Styles */
+:root {
+  --sky-blue: #78d0f5;
+  --cloud-white: #ffffff;
+  --loading-bar-color: rgba(255, 255, 255, 0.7);
+}
+
+#splash-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 1s ease-out, visibility 1s ease-out;
+}
+
+.sky-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--sky-blue);
+  z-index: -1;
+}
+
+/* Cloud Styles */
+.clouds-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.cloud {
+  position: absolute;
+  background-color: var(--cloud-white);
+  border-radius: 50%;
+  opacity: 0;
+  animation-duration: 3s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-out;
+}
+
+/* Cloud shapes using multiple border-radius elements */
+.cloud::before,
+.cloud::after {
+  content: '';
+  position: absolute;
+  background-color: var(--cloud-white);
+  border-radius: 50%;
+}
+
+/* Individual cloud positioning and sizing */
+.cloud-1 {
+  width: 100px;
+  height: 60px;
+  top: 20%;
+  left: 10%;
+  animation-name: fadeInFloat1;
+  animation-delay: 0.2s;
+}
+
+.cloud-1::before {
+  width: 60px;
+  height: 60px;
+  top: -30px;
+  left: 15px;
+}
+
+.cloud-1::after {
+  width: 80px;
+  height: 80px;
+  top: -40px;
+  left: 45px;
+}
+
+.cloud-2 {
+  width: 120px;
+  height: 70px;
+  top: 30%;
+  left: 60%;
+  animation-name: fadeInFloat2;
+  animation-delay: 0.5s;
+}
+
+.cloud-2::before {
+  width: 70px;
+  height: 70px;
+  top: -35px;
+  left: 20px;
+}
+
+.cloud-2::after {
+  width: 90px;
+  height: 90px;
+  top: -45px;
+  left: 50px;
+}
+
+.cloud-3 {
+  width: 150px;
+  height: 80px;
+  top: 60%;
+  left: 25%;
+  animation-name: fadeInFloat3;
+  animation-delay: 0.7s;
+}
+
+.cloud-3::before {
+  width: 80px;
+  height: 80px;
+  top: -40px;
+  left: 25px;
+}
+
+.cloud-3::after {
+  width: 100px;
+  height: 100px;
+  top: -50px;
+  left: 60px;
+}
+
+.cloud-4 {
+  width: 90px;
+  height: 50px;
+  top: 15%;
+  left: 75%;
+  animation-name: fadeInFloat4;
+  animation-delay: 0.3s;
+}
+
+.cloud-4::before {
+  width: 50px;
+  height: 50px;
+  top: -25px;
+  left: 15px;
+}
+
+.cloud-4::after {
+  width: 70px;
+  height: 70px;
+  top: -35px;
+  left: 35px;
+}
+
+.cloud-5 {
+  width: 130px;
+  height: 75px;
+  top: 70%;
+  left: 70%;
+  animation-name: fadeInFloat5;
+  animation-delay: 0.6s;
+}
+
+.cloud-5::before {
+  width: 75px;
+  height: 75px;
+  top: -37px;
+  left: 20px;
+}
+
+.cloud-5::after {
+  width: 95px;
+  height: 95px;
+  top: -47px;
+  left: 55px;
+}
+
+.cloud-6 {
+  width: 110px;
+  height: 65px;
+  top: 40%;
+  left: 40%;
+  animation-name: fadeInFloat6;
+  animation-delay: 0.4s;
+}
+
+.cloud-6::before {
+  width: 65px;
+  height: 65px;
+  top: -32px;
+  left: 18px;
+}
+
+.cloud-6::after {
+  width: 85px;
+  height: 85px;
+  top: -42px;
+  left: 48px;
+}
+
+.cloud-7 {
+  width: 140px;
+  height: 85px;
+  top: 25%;
+  left: 30%;
+  animation-name: fadeInFloat7;
+  animation-delay: 0.8s;
+}
+
+.cloud-7::before {
+  width: 85px;
+  height: 85px;
+  top: -42px;
+  left: 22px;
+}
+
+.cloud-7::after {
+  width: 105px;
+  height: 105px;
+  top: -52px;
+  left: 62px;
+}
+
+.cloud-8 {
+  width: 160px;
+  height: 90px;
+  top: 50%;
+  left: 5%;
+  animation-name: fadeInFloat8;
+  animation-delay: 0.9s;
+}
+
+.cloud-8::before {
+  width: 90px;
+  height: 90px;
+  top: -45px;
+  left: 30px;
+}
+
+.cloud-8::after {
+  width: 110px;
+  height: 110px;
+  top: -55px;
+  left: 70px;
+}
+
+/* Title Styles */
+.title-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 100%;
+}
+
+.title-text {
+  font-size: 5rem;
+  font-weight: bold;
+  color: var(--cloud-white);
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  animation: fadeInTitle 2s ease-in-out forwards;
+  animation-delay: 1.5s;
+  letter-spacing: 2px;
+}
+
+/* Skip Button */
+.skip-button {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  padding: 8px 16px;
+  background-color: rgba(255, 255, 255, 0.3);
+  color: white;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  opacity: 0;
+  animation: fadeIn 1s ease-in-out forwards;
+  animation-delay: 2s;
+  transition: background-color 0.3s;
+}
+
+.skip-button:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Loading Bar */
+.loading-bar-container {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 4px;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.loading-bar {
+  height: 100%;
+  width: 0;
+  background-color: var(--loading-bar-color);
+  animation: loadingProgress 4s linear forwards;
+}
+
+/* Animations */
+@keyframes fadeInFloat1 {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    animation: float1 4s ease-in-out infinite alternate;
+  }
+}
+
+@keyframes fadeInFloat2 {
+  0% {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    animation: float2 5s ease-in-out infinite alternate;
+  }
+}
+
+@keyframes fadeInFloat3 {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+    animation: float3 6s ease-in-out infinite alternate;
+  }
+}
+
+@keyframes fadeInFloat4 {
+  0% {
+    opacity: 0;
+    transform: translateX(15px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+    animation: float4 4.5s ease-in-out infinite alternate;
+  }
+}
+
+@keyframes fadeInFloat5 {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    animation: float5 5.5s ease-in-out infinite alternate;
+  }
+}
+
+@keyframes fadeInFloat6 {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    animation: float6 4.2s ease-in-out infinite alternate;
+  }
+}
+
+@keyframes fadeInFloat7 {
+  0% {
+    opacity: 0;
+    transform: translateX(-15px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+    animation: float7 5.8s ease-in-out infinite alternate;
+  }
+}
+
+@keyframes fadeInFloat8 {
+  0% {
+    opacity: 0;
+    transform: translateX(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+    animation: float8 5.2s ease-in-out infinite alternate;
+  }
+}
+
+@keyframes float1 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(10px, -10px);
+  }
+}
+
+@keyframes float2 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(-15px, 15px);
+  }
+}
+
+@keyframes float3 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(20px, 10px);
+  }
+}
+
+@keyframes float4 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(-10px, -15px);
+  }
+}
+
+@keyframes float5 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(15px, 5px);
+  }
+}
+
+@keyframes float6 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(-5px, -10px);
+  }
+}
+
+@keyframes float7 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(10px, 15px);
+  }
+}
+
+@keyframes float8 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(-10px, 5px);
+  }
+}
+
+@keyframes fadeInTitle {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    animation: floatTitle 5s ease-in-out infinite alternate;
+  }
+}
+
+@keyframes floatTitle {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-15px);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes loadingProgress {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+/* Transition animation for splash screen exit */
+.splash-exit {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* Responsive Design Adjustments */
+@media screen and (max-width: 768px) {
+  /* Adjust title size for tablets */
+  .title-text {
+    font-size: 3.5rem;
+  }
+  
+  /* Adjust cloud sizes and positions for better mobile layout */
+  .cloud-1 {
+    width: 80px;
+    height: 50px;
+  }
+  
+  .cloud-1::before {
+    width: 50px;
+    height: 50px;
+    top: -25px;
+    left: 12px;
+  }
+  
+  .cloud-1::after {
+    width: 65px;
+    height: 65px;
+    top: -32px;
+    left: 35px;
+  }
+  
+  .cloud-2, .cloud-5, .cloud-7 {
+    transform: scale(0.85);
+  }
+  
+  .cloud-3, .cloud-6, .cloud-8 {
+    transform: scale(0.8);
+  }
+}
+
+@media screen and (max-width: 480px) {
+  /* Adjust title size for smartphones */
+  .title-text {
+    font-size: 2.5rem;
+    letter-spacing: 1px;
+  }
+  
+  /* Further reduce cloud sizes for mobile */
+  .cloud-1, .cloud-4 {
+    transform: scale(0.7);
+  }
+  
+  .cloud-2, .cloud-5, .cloud-7 {
+    transform: scale(0.65);
+  }
+  
+  .cloud-3, .cloud-6, .cloud-8 {
+    transform: scale(0.6);
+  }
+  
+  /* Adjust loading bar size */
+  .loading-bar-container {
+    width: 150px;
+  }
+  
+  /* Make skip button more prominent on mobile */
+  .skip-button {
+    padding: 10px 20px;
+    font-size: 16px;
+  }
+}
+
+/* Ensure proper orientation handling */
+@media screen and (orientation: landscape) and (max-height: 500px) {
+  /* Adjust for landscape mode on mobile devices */
+  .title-text {
+    font-size: 2rem;
+  }
+  
+  /* Reposition clouds for landscape view */
+  .cloud-1 {
+    top: 15%;
+  }
+  
+  .cloud-2 {
+    top: 20%;
+  }
+  
+  .cloud-3 {
+    top: 40%;
+  }
+  
+  .cloud-4 {
+    top: 10%;
+  }
+  
+  .cloud-5 {
+    top: 45%;
+  }
+  
+  .cloud-6 {
+    top: 25%;
+  }
+  
+  .cloud-7 {
+    top: 15%;
+  }
+  
+  .cloud-8 {
+    top: 30%;
+  }
+  
+  /* Adjust loading bar position */
+  .loading-bar-container {
+    bottom: 5px;
+  }
+  
+  /* Adjust skip button position */
+  .skip-button {
+    bottom: 10px;
+    right: 10px;
+  }
+}

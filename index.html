@@ -6,48 +6,85 @@
     <title>Ineffable Training Club | Elite Outdoor Training</title>
     <meta name="description" content="Join Switzerland's premier mobile outdoor fitness experience. Elite training in all weather conditions, year-round.">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/splash-screen.css">
+    <link rel="stylesheet" href="assets/css/splash-screen-integration.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="icon" href="assets/images/training_club_icon.png" type="image/png">
     <!-- Mobile Menu JavaScript -->
     <script src="assets/js/mobile-menu.js"></script>
+    <!-- Splash Screen JavaScript -->
+    <script src="assets/js/splash-screen.js"></script>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="container header-container">
-            <div class="logo">
-                <a href="index.html"><img src="assets/images/training_club_logo.png" alt="TRAINING CLUB Logo"></a>
-                <span class="logo-text"><a href="index.html" style="text-decoration: none; color: inherit;">TRAINING CLUB</a></span>
-            </div>
-            <div class="hamburger-menu">
-                <div class="bar1"></div>
-                <div class="bar2"></div>
-                <div class="bar3"></div>
-            </div>
-            <nav>
-                <ul class="nav-menu">
-                    <li><a href="#" class="active">Home</a></li>
-                    <li><a href="#training-model">Our Training</a></li>
-                    <li><a href="#membership">Membership</a></li>
-                    <li><a href="#calendar">Calendar</a></li>
-                    <li><a href="gallery.html">Gallery</a></li>
-                    <li><a href="faq.html">FAQ</a></li>
-                    <li><a href="#corporate">Corporate</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                    <li><a href="#" class="cta-button member-login">Member Login</a></li>
-                </ul>
-            </nav>
+    <!-- Splash Screen -->
+    <div id="splash-screen">
+        <!-- Sky background -->
+        <div class="sky-background"></div>
+        
+        <!-- Cloud elements -->
+        <div class="clouds-container">
+            <div class="cloud cloud-1"></div>
+            <div class="cloud cloud-2"></div>
+            <div class="cloud cloud-3"></div>
+            <div class="cloud cloud-4"></div>
+            <div class="cloud cloud-5"></div>
+            <div class="cloud cloud-6"></div>
+            <div class="cloud cloud-7"></div>
+            <div class="cloud cloud-8"></div>
         </div>
-    </header>
+        
+        <!-- Training Club text -->
+        <div class="title-container">
+            <div class="title-text">TRAINING CLUB</div>
+        </div>
+        
+        <!-- Skip button -->
+        <div class="skip-button" id="skip-button" tabindex="0" role="button" aria-label="Skip animation">Skip</div>
+        
+        <!-- Loading indicator -->
+        <div class="loading-bar-container">
+            <div class="loading-bar"></div>
+        </div>
+    </div>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <video class="hero-video" autoplay muted loop>
-            <source src="assets/videos/hero-video.mp4" type="video/mp4">
-        </video>
-        <div class="hero-content fade-in">
+    <!-- Main Content Wrapper -->
+    <div id="main-content">
+        <!-- Header -->
+        <header>
+            <div class="container header-container">
+                <div class="logo">
+                    <a href="index.html"><img src="assets/images/training_club_logo.png" alt="TRAINING CLUB Logo"></a>
+                    <span class="logo-text"><a href="index.html" style="text-decoration: none; color: inherit;">TRAINING CLUB</a></span>
+                </div>
+                <div class="hamburger-menu">
+                    <div class="bar1"></div>
+                    <div class="bar2"></div>
+                    <div class="bar3"></div>
+                </div>
+                <nav>
+                    <ul class="nav-menu">
+                        <li><a href="#" class="active">Home</a></li>
+                        <li><a href="#training-model">Our Training</a></li>
+                        <li><a href="#membership">Membership</a></li>
+                        <li><a href="#calendar">Calendar</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="#corporate">Corporate</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#" class="cta-button member-login">Member Login</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <video class="hero-video" autoplay muted loop>
+                <source src="assets/videos/hero-video.mp4" type="video/mp4">
+            </video>
+            <div class="hero-content fade-in">
             <h1>ELITE OUTDOOR TRAINING.<br>ANYWHERE. ALL YEAR.</h1>
             <p>Join Switzerland's premier mobile outdoor fitness experience. We deliver physically and mentally transformative group training using elite equipment in all weather conditions.</p>
             <div class="hero-buttons">
