@@ -1,0 +1,59 @@
+/* Light/Dark Mode Toggle Button Styles */
+.theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.1);
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.theme-toggle i {
+  font-size: 20px;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+/* Dark mode styles */
+body.dark-mode {
+  --primary-black: #f5f5f5;
+  --primary-white: #121212;
+  --gray-light: #333333;
+  --gray-medium: #555555;
+  --gray-dark: #dddddd;
+  background-color: var(--primary-white);
+  color: var(--primary-black);
+}
+
+/* Dark mode splash screen */
+body.dark-mode .sky-background {
+  background-color: #0a1929; /* Very dark navy */
+}
+
+/* Hide clouds in dark mode */
+body.dark-mode .cloud {
+  display: none;
+}
+
+/* Show rain in dark mode (will be created in the next step) */
+body.dark-mode .rain-container {
+  display: block;
+}
+
+/* Hide rain in light mode */
+.rain-container {
+  display: none;
+}
