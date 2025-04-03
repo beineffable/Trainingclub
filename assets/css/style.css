@@ -123,15 +123,15 @@ header {
 }
 
 .nav-menu li {
-  margin-left: 30px;
+  margin-left: 20px;
 }
 
 .nav-menu a {
   color: var(--primary-white);
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  font-size: 0.8rem;
 }
 
 .nav-menu a:hover {
