@@ -174,6 +174,7 @@ header {
     right: 20px;
     top: 25px;
     z-index: 1002;
+    cursor: pointer;
   }
   
   .header-container {
@@ -189,10 +190,11 @@ header {
     top: 70px;
   }
   
+  /* Hide the nav menu by default on mobile */
   .nav-menu {
-    display: none;
-    position: absolute;
-    top: 0;
+    display: none !important; /* Use !important to override any other styles */
+    position: fixed;
+    top: 80px;
     left: 0;
     flex-direction: column;
     background-color: rgba(0, 0, 0, 0.95);
@@ -200,16 +202,26 @@ header {
     text-align: center;
     transition: 0.3s;
     box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
-    padding: 20px 0;
+    padding: 10px 0; /* Reduced padding for more compact appearance */
     z-index: 1000;
+    max-height: 80vh; /* Limit height to prevent overflow */
+    overflow-y: auto; /* Allow scrolling if many menu items */
   }
   
+  /* Show the nav menu only when it has the active class */
   .nav-menu.active {
-    display: flex;
+    display: flex !important;
   }
   
+  /* Make menu items more compact */
   .nav-menu li {
-    margin: 15px 0;
+    margin: 8px 0; /* Reduced margin for more compact appearance */
+  }
+  
+  /* Adjust font size for mobile */
+  .nav-menu a {
+    font-size: 0.75rem; /* Smaller font size for mobile */
+    padding: 8px 0; /* Add padding for better tap targets */
   }
 }
 
