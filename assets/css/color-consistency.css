@@ -1,0 +1,218 @@
+/* Color Consistency Fixes for Blue Theme */
+
+/* Ensure consistent colors across all elements */
+body:not(.dark-mode) {
+  /* Main color variables */
+  --main-bg-color: #1E88E5;      /* Medium blue for main backgrounds */
+  --header-bg-color: #1565C0;    /* Darker blue for headers/footers */
+  --accent-bg-color: #0D47A1;    /* Very dark blue for accents */
+  --text-color: #FFFFFF;         /* White for all text */
+  --highlight-color: #000000;    /* Black for highlights/buttons */
+  
+  /* Apply consistent background color */
+  background-color: var(--main-bg-color);
+  color: var(--text-color);
+}
+
+/* Ensure consistent header/footer styling */
+body:not(.dark-mode) header,
+body:not(.dark-mode) footer,
+body:not(.dark-mode) .footer-content,
+body:not(.dark-mode) .footer-bottom {
+  background-color: var(--header-bg-color);
+  color: var(--text-color);
+}
+
+/* Fix section background colors */
+body:not(.dark-mode) .section,
+body:not(.dark-mode) .hero,
+body:not(.dark-mode) .page-header {
+  background-color: var(--main-bg-color);
+}
+
+/* Fix alternating section colors */
+body:not(.dark-mode) .section:nth-child(even),
+body:not(.dark-mode) .testimonials,
+body:not(.dark-mode) .all-weather {
+  background-color: var(--accent-bg-color);
+}
+
+/* Fix container backgrounds */
+body:not(.dark-mode) .container,
+body:not(.dark-mode) .header-container,
+body:not(.dark-mode) .footer-container {
+  background-color: transparent;
+}
+
+/* Fix card and box backgrounds */
+body:not(.dark-mode) .feature,
+body:not(.dark-mode) .condition,
+body:not(.dark-mode) .membership-tier,
+body:not(.dark-mode) .testimonial,
+body:not(.dark-mode) .contact-info,
+body:not(.dark-mode) .contact-form,
+body:not(.dark-mode) .faq-item,
+body:not(.dark-mode) .faq-question,
+body:not(.dark-mode) .faq-answer,
+body:not(.dark-mode) .stat-card,
+body:not(.dark-mode) .class-card,
+body:not(.dark-mode) .achievement {
+  background-color: var(--header-bg-color);
+  color: var(--text-color);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Fix featured elements */
+body:not(.dark-mode) .membership-tier.featured,
+body:not(.dark-mode) .faq-question.active {
+  background-color: var(--highlight-color);
+  color: var(--text-color);
+}
+
+/* Fix button colors */
+body:not(.dark-mode) .cta-button,
+body:not(.dark-mode) .nav-cta,
+body:not(.dark-mode) .skip-button,
+body:not(.dark-mode) button[type="submit"] {
+  background-color: var(--highlight-color);
+  color: var(--text-color);
+  border: 1px solid var(--text-color);
+}
+
+body:not(.dark-mode) .cta-button:hover,
+body:not(.dark-mode) .nav-cta:hover,
+body:not(.dark-mode) .skip-button:hover,
+body:not(.dark-mode) button[type="submit"]:hover {
+  background-color: var(--text-color);
+  color: var(--highlight-color);
+}
+
+body:not(.dark-mode) .secondary-button {
+  background-color: transparent;
+  color: var(--text-color);
+  border: 1px solid var(--text-color);
+}
+
+body:not(.dark-mode) .secondary-button:hover {
+  background-color: var(--text-color);
+  color: var(--main-bg-color);
+}
+
+/* Fix form elements */
+body:not(.dark-mode) input,
+body:not(.dark-mode) textarea,
+body:not(.dark-mode) select {
+  background-color: var(--header-bg-color);
+  color: var(--text-color);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+body:not(.dark-mode) input::placeholder,
+body:not(.dark-mode) textarea::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Fix icon colors */
+body:not(.dark-mode) .feature-icon i,
+body:not(.dark-mode) .social-icons i,
+body:not(.dark-mode) .info-item i,
+body:not(.dark-mode) .fas,
+body:not(.dark-mode) .fab,
+body:not(.dark-mode) .far {
+  color: var(--text-color);
+}
+
+/* Fix navigation menu */
+body:not(.dark-mode) .nav-menu a {
+  color: var(--text-color);
+}
+
+body:not(.dark-mode) .nav-menu a:hover,
+body:not(.dark-mode) .nav-menu a.active {
+  color: var(--highlight-color);
+  background-color: var(--text-color);
+}
+
+/* Fix mobile menu */
+body:not(.dark-mode) .hamburger .bar,
+body:not(.dark-mode) .bar1,
+body:not(.dark-mode) .bar2,
+body:not(.dark-mode) .bar3 {
+  background-color: var(--text-color);
+}
+
+@media (max-width: 768px) {
+  body:not(.dark-mode) .nav-menu {
+    background-color: var(--header-bg-color);
+  }
+}
+
+/* Fix splash screen */
+body:not(.dark-mode) #splash-screen,
+body:not(.dark-mode) .sky-background {
+  background-color: var(--main-bg-color);
+}
+
+body:not(.dark-mode) .splash-title {
+  color: var(--text-color);
+}
+
+/* Fix any remaining text elements */
+body:not(.dark-mode) h1,
+body:not(.dark-mode) h2,
+body:not(.dark-mode) h3,
+body:not(.dark-mode) h4,
+body:not(.dark-mode) h5,
+body:not(.dark-mode) h6,
+body:not(.dark-mode) p,
+body:not(.dark-mode) span,
+body:not(.dark-mode) li,
+body:not(.dark-mode) a,
+body:not(.dark-mode) label {
+  color: var(--text-color);
+}
+
+/* Fix table elements */
+body:not(.dark-mode) table,
+body:not(.dark-mode) th,
+body:not(.dark-mode) td {
+  border-color: rgba(255, 255, 255, 0.2);
+  color: var(--text-color);
+}
+
+body:not(.dark-mode) th {
+  background-color: var(--header-bg-color);
+}
+
+body:not(.dark-mode) tr:nth-child(even) {
+  background-color: rgba(21, 101, 192, 0.3); /* Slightly transparent header-bg-color */
+}
+
+/* Fix borders and dividers */
+body:not(.dark-mode) hr,
+body:not(.dark-mode) .divider {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Fix theme toggle */
+body:not(.dark-mode) .theme-toggle {
+  background-color: var(--header-bg-color);
+  color: var(--text-color);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+body:not(.dark-mode) .theme-toggle i {
+  color: var(--text-color);
+}
+
+/* Fix any remaining inconsistencies */
+body:not(.dark-mode) .logo-text,
+body:not(.dark-mode) .section-intro,
+body:not(.dark-mode) .section-title h2,
+body:not(.dark-mode) .footer-links a {
+  color: var(--text-color);
+}
+
+body:not(.dark-mode) .section-title h2:after {
+  background-color: var(--text-color);
+}

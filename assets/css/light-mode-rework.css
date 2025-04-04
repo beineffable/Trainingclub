@@ -1,0 +1,187 @@
+/* Light Mode Rework - Blue Background, White Text, Black Highlights */
+
+/* Override root variables for light mode */
+:root {
+  /* Primary colors */
+  --primary-blue: #1E88E5; /* Medium blue for backgrounds */
+  --primary-dark-blue: #1565C0; /* Darker blue for headers/footers */
+  --primary-light-blue: #64B5F6; /* Lighter blue for accents */
+  --primary-white: #FFFFFF; /* White for main text */
+  --primary-black: #000000; /* Black for highlights and accents */
+  
+  /* Gray shades */
+  --gray-light: #E3F2FD; /* Very light blue instead of light gray */
+  --gray-medium: #90CAF9; /* Light blue instead of medium gray */
+  --gray-dark: #1976D2; /* Darker blue instead of dark gray */
+}
+
+/* Base body styles for light mode */
+body:not(.dark-mode) {
+  background-color: var(--primary-blue);
+  color: var(--primary-white);
+}
+
+/* Header styles for light mode */
+body:not(.dark-mode) header {
+  background-color: var(--primary-dark-blue);
+}
+
+/* Text visibility fixes for light mode */
+body:not(.dark-mode) h1,
+body:not(.dark-mode) h2,
+body:not(.dark-mode) h3,
+body:not(.dark-mode) h4,
+body:not(.dark-mode) h5,
+body:not(.dark-mode) h6,
+body:not(.dark-mode) p,
+body:not(.dark-mode) li,
+body:not(.dark-mode) span {
+  color: var(--primary-white);
+}
+
+/* Link styles for light mode */
+body:not(.dark-mode) a {
+  color: var(--primary-white);
+}
+
+body:not(.dark-mode) a:hover {
+  color: var(--gray-light);
+}
+
+/* Navigation menu for light mode */
+body:not(.dark-mode) .nav-menu a {
+  color: var(--primary-white);
+}
+
+body:not(.dark-mode) .nav-menu a:hover,
+body:not(.dark-mode) .nav-menu a.active {
+  color: var(--primary-black);
+  background-color: var(--primary-white);
+}
+
+/* Button styles for light mode */
+body:not(.dark-mode) .cta-button {
+  background-color: var(--primary-black);
+  color: var(--primary-white);
+  border: 2px solid var(--primary-white);
+}
+
+body:not(.dark-mode) .cta-button:hover {
+  background-color: var(--primary-white);
+  color: var(--primary-black);
+  border: 2px solid var(--primary-black);
+}
+
+body:not(.dark-mode) .secondary-button {
+  background-color: transparent;
+  color: var(--primary-white);
+  border: 2px solid var(--primary-white);
+}
+
+body:not(.dark-mode) .secondary-button:hover {
+  background-color: var(--primary-white);
+  color: var(--primary-blue);
+}
+
+/* Section backgrounds for light mode */
+body:not(.dark-mode) .section {
+  background-color: var(--primary-blue);
+}
+
+body:not(.dark-mode) .section:nth-child(even) {
+  background-color: var(--primary-dark-blue);
+}
+
+/* Card and box styles for light mode */
+body:not(.dark-mode) .feature,
+body:not(.dark-mode) .condition,
+body:not(.dark-mode) .membership-tier,
+body:not(.dark-mode) .testimonial,
+body:not(.dark-mode) .contact-info,
+body:not(.dark-mode) .contact-form {
+  background-color: var(--primary-dark-blue);
+  color: var(--primary-white);
+  border: 1px solid var(--primary-white);
+}
+
+/* Featured membership tier */
+body:not(.dark-mode) .membership-tier.featured {
+  background-color: var(--primary-black);
+  border: 2px solid var(--primary-white);
+}
+
+/* Footer styles for light mode */
+body:not(.dark-mode) footer {
+  background-color: var(--primary-dark-blue);
+  color: var(--primary-white);
+}
+
+body:not(.dark-mode) .footer-section h3 {
+  color: var(--primary-white);
+}
+
+body:not(.dark-mode) .footer-section a {
+  color: var(--primary-white);
+}
+
+body:not(.dark-mode) .footer-section a:hover {
+  color: var(--gray-light);
+}
+
+/* Form elements for light mode */
+body:not(.dark-mode) input,
+body:not(.dark-mode) textarea,
+body:not(.dark-mode) select {
+  background-color: var(--primary-dark-blue);
+  color: var(--primary-white);
+  border: 1px solid var(--primary-white);
+}
+
+body:not(.dark-mode) input:focus,
+body:not(.dark-mode) textarea:focus,
+body:not(.dark-mode) select:focus {
+  border-color: var(--primary-black);
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+/* Fix for placeholder text */
+body:not(.dark-mode) input::placeholder,
+body:not(.dark-mode) textarea::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Hero section for light mode */
+body:not(.dark-mode) .hero {
+  background-color: var(--primary-blue);
+  color: var(--primary-white);
+}
+
+/* Testimonial section for light mode */
+body:not(.dark-mode) .testimonials {
+  background-color: var(--primary-dark-blue);
+}
+
+body:not(.dark-mode) .testimonial-content {
+  color: var(--primary-white);
+}
+
+/* Icon colors for light mode */
+body:not(.dark-mode) .feature-icon i,
+body:not(.dark-mode) .social-icons i,
+body:not(.dark-mode) .info-item i {
+  color: var(--primary-white);
+}
+
+/* Hamburger menu for light mode */
+body:not(.dark-mode) .bar1,
+body:not(.dark-mode) .bar2,
+body:not(.dark-mode) .bar3 {
+  background-color: var(--primary-white);
+}
+
+/* Mobile menu for light mode */
+@media (max-width: 768px) {
+  body:not(.dark-mode) .nav-menu {
+    background-color: var(--primary-dark-blue);
+  }
+}

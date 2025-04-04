@@ -1,0 +1,241 @@
+/* Header and Footer Consistency for Blue Theme */
+
+/* Ensure consistent header styling */
+body:not(.dark-mode) header {
+  background-color: var(--header-bg-color);
+  border-bottom: 2px solid var(--text-color);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Logo styling */
+body:not(.dark-mode) .logo img {
+  filter: brightness(0) invert(1); /* Make logo white */
+}
+
+body:not(.dark-mode) .logo-text {
+  color: var(--text-color);
+  font-weight: 900;
+  letter-spacing: 2px;
+}
+
+/* Navigation menu consistency */
+body:not(.dark-mode) .nav-menu {
+  display: flex;
+  align-items: center;
+}
+
+body:not(.dark-mode) .nav-menu li {
+  margin: 0 10px;
+}
+
+body:not(.dark-mode) .nav-menu a {
+  color: var(--text-color);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+body:not(.dark-mode) .nav-menu a:hover,
+body:not(.dark-mode) .nav-menu a.active {
+  background-color: var(--text-color);
+  color: var(--header-bg-color);
+}
+
+body:not(.dark-mode) .nav-menu a.nav-cta {
+  background-color: var(--highlight-color);
+  color: var(--text-color);
+  border: 1px solid var(--text-color);
+  padding: 8px 16px;
+}
+
+body:not(.dark-mode) .nav-menu a.nav-cta:hover {
+  background-color: var(--text-color);
+  color: var(--highlight-color);
+}
+
+/* Theme toggle in header */
+body:not(.dark-mode) .theme-toggle {
+  background-color: var(--header-bg-color);
+  border: 1px solid var(--text-color);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+body:not(.dark-mode) .theme-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+body:not(.dark-mode) .theme-toggle i {
+  color: var(--text-color);
+  font-size: 18px;
+}
+
+/* Footer consistency */
+body:not(.dark-mode) footer {
+  background-color: var(--header-bg-color);
+  color: var(--text-color);
+  border-top: 2px solid var(--text-color);
+  padding: 60px 0 20px;
+}
+
+body:not(.dark-mode) .footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+body:not(.dark-mode) .footer-section h3 {
+  color: var(--text-color);
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+body:not(.dark-mode) .footer-section h3:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 2px;
+  background-color: var(--text-color);
+}
+
+body:not(.dark-mode) .footer-section p,
+body:not(.dark-mode) .footer-section a {
+  color: var(--text-color);
+  margin-bottom: 10px;
+  display: block;
+}
+
+body:not(.dark-mode) .footer-section a:hover {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+body:not(.dark-mode) .footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+body:not(.dark-mode) .footer-section li {
+  margin-bottom: 10px;
+}
+
+body:not(.dark-mode) .social-icons {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+body:not(.dark-mode) .social-icons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+body:not(.dark-mode) .social-icons a:hover {
+  background-color: var(--text-color);
+}
+
+body:not(.dark-mode) .social-icons a:hover i {
+  color: var(--header-bg-color);
+}
+
+body:not(.dark-mode) .footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+body:not(.dark-mode) .footer-bottom p {
+  color: var(--text-color);
+  font-size: 0.9rem;
+}
+
+body:not(.dark-mode) .footer-links {
+  display: flex;
+  gap: 20px;
+}
+
+body:not(.dark-mode) .footer-links a {
+  color: var(--text-color);
+  font-size: 0.9rem;
+}
+
+/* Newsletter form in footer */
+body:not(.dark-mode) .newsletter-form {
+  display: flex;
+  margin-top: 15px;
+}
+
+body:not(.dark-mode) .newsletter-form input {
+  flex-grow: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 4px 0 0 4px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--text-color);
+}
+
+body:not(.dark-mode) .newsletter-form button {
+  padding: 10px 15px;
+  background-color: var(--highlight-color);
+  color: var(--text-color);
+  border: none;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+body:not(.dark-mode) .newsletter-form button:hover {
+  background-color: var(--text-color);
+  color: var(--highlight-color);
+}
+
+/* Mobile menu consistency */
+@media (max-width: 768px) {
+  body:not(.dark-mode) .header-container {
+    padding: 15px 20px;
+  }
+  
+  body:not(.dark-mode) .nav-menu {
+    background-color: var(--header-bg-color);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 20px 0;
+  }
+  
+  body:not(.dark-mode) .nav-menu li {
+    margin: 10px 0;
+    width: 100%;
+    text-align: center;
+  }
+  
+  body:not(.dark-mode) .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  body:not(.dark-mode) .footer-links {
+    margin-top: 15px;
+    justify-content: center;
+  }
+}
