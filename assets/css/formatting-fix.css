@@ -1,0 +1,117 @@
+/* Navigation Menu Fix - Removes bullet points and colored boxes */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 20px 0;
+  transition: all 0.3s ease;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none !important; /* Remove bullet points */
+}
+
+.nav-menu li {
+  margin-left: 20px;
+}
+
+.nav-menu a {
+  color: var(--primary-white);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 0.8rem;
+  background: none !important; /* Remove colored boxes */
+  padding: 8px 12px;
+  border-radius: 0;
+  border: none !important;
+}
+
+.nav-menu a:hover {
+  color: var(--accent-orange);
+}
+
+/* Fix for mobile menu */
+@media (max-width: 768px) {
+  .nav-menu {
+    display: none !important; /* Use !important to override any other styles */
+    position: fixed;
+    top: 80px;
+    left: 0;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.95);
+    width: 100%;
+    text-align: center;
+    transition: 0.3s;
+    box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+    padding: 10px 0;
+    z-index: 1000;
+    max-height: 80vh;
+    overflow-y: auto;
+    list-style-type: none !important;
+  }
+  
+  .nav-menu.active {
+    display: flex !important;
+  }
+  
+  .nav-menu li {
+    margin: 8px 0;
+  }
+  
+  .nav-menu a {
+    font-size: 0.75rem;
+    padding: 8px 0;
+    background: none !important;
+    border: none !important;
+  }
+}
+
+/* Remove any bullet styling from all navigation elements */
+nav ul, 
+nav ol,
+nav li,
+header ul,
+header ol,
+header li {
+  list-style-type: none !important;
+  list-style: none !important;
+  background: none !important;
+}
+
+/* Remove colored backgrounds from navigation links */
+nav a,
+header a {
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Exception for CTA buttons */
+.cta-button,
+.member-login {
+  background-color: var(--accent-orange) !important;
+  color: var(--primary-white) !important;
+  padding: 10px 20px !important;
+  border-radius: 4px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1px !important;
+  transition: all 0.3s ease !important;
+}
+
+.cta-button:hover,
+.member-login:hover {
+  background-color: var(--primary-white) !important;
+  color: var(--accent-orange) !important;
+}

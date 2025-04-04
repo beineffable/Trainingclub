@@ -1,0 +1,122 @@
+/* Dark Mode Color Scheme for Training Club Website */
+
+/* Dark mode variables override */
+body.dark-mode {
+  --primary-black: #f5f5f5;
+  --primary-white: #121212;
+  --accent-orange: #FF7D4D;
+  --accent-blue: #4D8FFF;
+  --gray-light: #333333;
+  --gray-medium: #555555;
+  --gray-dark: #dddddd;
+}
+
+/* Dark mode header styles */
+body.dark-mode header {
+  background-color: rgba(10, 25, 41, 0.95);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-mode .logo-text {
+  color: var(--primary-black);
+}
+
+body.dark-mode .nav-menu li a {
+  color: var(--primary-black);
+}
+
+body.dark-mode .nav-menu li a:hover {
+  color: var(--accent-blue);
+}
+
+body.dark-mode .nav-menu li a.active {
+  color: var(--accent-blue);
+}
+
+/* Dark mode hamburger menu */
+body.dark-mode .hamburger-menu .bar1,
+body.dark-mode .hamburger-menu .bar2,
+body.dark-mode .hamburger-menu .bar3 {
+  background-color: var(--primary-black);
+}
+
+/* Dark mode hero section */
+body.dark-mode .hero-content {
+  background-color: rgba(10, 25, 41, 0.7);
+}
+
+body.dark-mode .hero-content h1,
+body.dark-mode .hero-content p {
+  color: var(--primary-black);
+}
+
+/* Dark mode sections */
+body.dark-mode section {
+  background-color: var(--primary-white);
+}
+
+body.dark-mode section.alt-bg {
+  background-color: var(--gray-light);
+}
+
+/* Dark mode cards and membership tiers */
+body.dark-mode .card,
+body.dark-mode .membership-tier {
+  background-color: var(--gray-light);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .card h3,
+body.dark-mode .membership-tier h3 {
+  color: var(--primary-black);
+}
+
+/* Dark mode buttons */
+body.dark-mode .cta-button {
+  background-color: var(--accent-blue);
+  color: white;
+}
+
+body.dark-mode .cta-button:hover {
+  background-color: #3A7FEF;
+}
+
+body.dark-mode .cta-button.request-code {
+  background-color: var(--accent-orange);
+}
+
+body.dark-mode .cta-button.request-code:hover {
+  background-color: #FF6A33;
+}
+
+/* Dark mode footer */
+body.dark-mode footer {
+  background-color: #0A1929;
+  color: var(--primary-black);
+}
+
+/* Dark mode form elements */
+body.dark-mode input,
+body.dark-mode textarea,
+body.dark-mode select {
+  background-color: var(--gray-light);
+  color: var(--primary-black);
+  border: 1px solid var(--gray-medium);
+}
+
+body.dark-mode input:focus,
+body.dark-mode textarea:focus,
+body.dark-mode select:focus {
+  border-color: var(--accent-blue);
+}
+
+/* Dark mode images - slightly reduce brightness */
+body.dark-mode img {
+  filter: brightness(0.9);
+}
+
+/* Dark mode transitions */
+body.dark-mode,
+body.dark-mode * {
+  transition: background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease;
+}

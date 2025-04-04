@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery | TRAINING CLUB By Ineffable</title>
+    <meta name="description" content="View our outdoor training sessions, equipment, and community in action.">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="assets/images/training_club_icon.png" type="image/png">
+    <!-- Lightbox CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
+    <style>
+        /* Gallery specific styles */
+        .gallery-container {
+            margin: 100px auto 50px;
+        }
+        
+        .gallery-categories {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+        
+        .gallery-category {
+            padding: 10px 20px;
+            margin: 0 10px;
+            background-color: var(--gray-light);
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .gallery-category.active {
+            background-color: var(--primary-black);
+            color: var(--primary-white);
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            aspect-ratio: 1;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        .gallery-item-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            padding: 20px;
+            color: white;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .gallery-item:hover .gallery-item-overlay {
+            opacity: 1;
+        }
+        
+        .gallery-section {
+            margin-bottom: 50px;
+        }
+        
+        .gallery-section-title {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        @media (max-width: 992px) {
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .gallery-categories {
+                flex-wrap: wrap;
+            }
+            
+            .gallery-category {
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <a href="index.html"><img src="assets/images/training_club_logo.png" alt="TRAINING CLUB Logo"></a>
+                <span class="logo-text"><a href="index.html" style="text-decoration: none; color: inherit;">TRAINING CLUB</a></span>
+            </div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#training-model">Our Training</a></li>
+                    <li><a href="index.html#membership">Membership</a></li>
+                    <li><a href="index.html#calendar">Calendar</a></li>
+                    <li><a href="index.html#corporate">Corporate</a></li>
+                    <li><a href="gallery.html" class="active">Gallery</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                    <li><a href="#" class="cta-button member-login">Member Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Gallery Section -->
+    <section class="section gallery-container">
+        <div class="container">
+            <div class="section-title">
+                <h2>TRAINING GALLERY</h2>
+                <p>Experience the intensity and community of our outdoor training sessions</p>
+            </div>
+            
+            <div class="gallery-categories">
+                <div class="gallery-category active" data-category="all">All</div>
+                <div class="gallery-category" data-category="training">Training Sessions</div>
+                <div class="gallery-category" data-category="equipment">Equipment</div>
+                <div class="gallery-category" data-category="community">Community</div>
+                <div class="gallery-category" data-category="locations">Locations</div>
+            </div>
+            
+            <!-- Training Sessions Section -->
+            <div class="gallery-section" id="training">
+                <div class="gallery-section-title">
+                    <h3>TRAINING SESSIONS</h3>
+                </div>
+                <div class="gallery-grid">
+                    <div class="gallery-item" data-category="training">
+                        <a href="assets/images/gallery/training-1.jpg" data-lightbox="training" data-title="Morning Circuit Training">
+                            <img src="assets/images/gallery/training-1.jpg" alt="Morning Circuit Training">
+                            <div class="gallery-item-overlay">
+                                <h4>Morning Circuit Training</h4>
+                                <p>6-station circuit with focus on full-body conditioning</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="gallery-item" data-category="training">
+                        <a href="assets/images/gallery/training-2.jpg" data-lightbox="training" data-title="Burner Challenge">
+                            <img src="assets/images/gallery/training-2.jpg" alt="Burner Challenge">
+                            <div class="gallery-item-overlay">
+                                <h4>Burner Challenge</h4>
+                                <p>Mental conditioning through high-intensity finishers</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="gallery-item" data-category="training">
+                        <a href="assets/images/gallery/training-3.jpg" data-lightbox="training" data-title="Strength Focus Day">
+                            <img src="assets/images/gallery/training-3.jpg" alt="Strength Focus Day">
+                            <div class="gallery-item-overlay">
+                                <h4>Strength Focus Day</h4>
+                                <p>Building foundational strength with compound movements</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="gallery-item" data-category="training">
+                        <a href="assets/images/gallery/training-4.jpg" data-lightbox="training" data-title="Winter Training">
+                            <img src="assets/images/gallery/training-4.jpg" alt="Winter Training">
+                            <div class="gallery-item-overlay">
+                                <h4>Winter Training</h4>
+                                <p>All-weather conditioning in the snow</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="gallery-item" data-category="training">
+                        <a href="assets/images/gallery/training-5.jpg" data-lightbox="training" data-title="Group Warm-Up">
+                            <img src="assets/images/gallery/training-5.jpg" alt="Group Warm-Up">
+                            <div class="gallery-item-overlay">
+                                <h4>Group Warm-Up</h4>
+                                <p>Dynamic mobility preparation before the main workout</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="gallery-item" data-category="training">
+                        <a href="assets/images/gallery/training-6.jpg" data-lightbox="training" data-title="Partner Exercises">
+                            <img src="assets/images/gallery/training-6.jpg" alt="Partner Exercises">
+                            <div class="gallery-item-overlay">
+                                <h4>Partner Exercises</h4>
+                                <p>Building community through collaborative training</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Equipment Section -->
+            <div class="gallery-section" id="equipment">
+                <div class="gallery-section-title">
+                    <h3>PREMIUM EQUIPMENT</h3>
+                </div>
+                <div class="gallery-grid">
+                    <div class="gallery-item" data-category="equipment">
+                        <a href="assets/images/gallery/equipment-1.jpg" data-lightbox="equipment" data-title="Mobile Gym Setup">
+                            <img src="assets/images/gallery/equipment-1.jpg" alt="Mobile Gym Setup">
+                            <div class="gallery-item-overlay">
+                                <h4>Mobile Gym Setup</h4>
+                                <p>Our custom trailer transforms any location into a premium gym</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="gallery-item" data-category="equipment">
+                        <a href="assets/images/gallery/equipment-2.jpg" data-lightbox="equipment" data-title="Kettlebell Station">
+                            <img src="assets/images/gallery/equipment-2.jpg" alt="Kettlebell Station">
+                            <div class="gallery-item-overlay">
+                                <h4>Kettlebell Station</h4>
+                                <p>Professional-grade kettlebells for functional strength</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="gallery-item" data-category="equipment">
+                        <a href="assets/images/gallery/equipment-3.jpg" data-lightbox="equipment" data-title="Battle Ropes">
+                            <img src="assets/images/gallery/equipment-3.jpg" alt="Battle Ropes">
+                            <div class="gallery-item-overlay">
+                                <h4>Battle Ropes</h4>
+                                <p>High-intensity conditioning tools for power and endurance</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="gallery-item" data-category="equipment">
+                        <a href="assets/images/gallery/equipment-4.jpg" data-lightbox="equipment" data-title="TRX Systems">
+                            <img src="assets/images/gallery/equipment-4.jpg" alt="TRX Systems">
+                            <div class="gallery-item-overlay">
+                                <h4>TRX Systems</h4>
+                                <p>Suspension training for core stability and functional movement</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="gallery-item" data-category="equipment">
+                        <a href="assets/images/gallery/equipment-5.jpg" data-lightbox="equipment" data-title="Barbell Setup">
+                            <img src="assets/images/gallery/equipment-5.jpg" alt="Barbell Setup">
+                            <div class="gallery-item-overlay">
+                                <h4>Barbell Setup</h4>
+                                <p>Olympic bars and plates for serious strength development</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="gallery-item" data-category="equipment">
+                        <a href="assets/images/gallery/equipment-6.jpg" data-lightbox="equipment" data-title="Conditioning Tools">
+                            <img src="assets/images/gallery/equipment-6.jpg" alt="Conditioning Tools">
+                            <div class="gallery-item-overlay">
+                                <h4>Conditioning Tools</h4>
+                                <p>Specialized equipment for metabolic conditioning</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Community Section -->
+            <div class="gallery-section" id="community">
+                <div class="gallery-section-title">
+                    <h3>OUR COMMUNITY</h3>
+                </div>
+                <div class="gallery-grid">
+                    <div class="gallery-item" data-category="community">
+                        <a href="assets/images/gallery/community-1.jpg" data-lightbox="community" data-title="Team Challenge">
+                            <img src="assets/images/gallery/community-1.jpg" alt="Team Challenge">
+                            <div class="gallery-item-overlay">
+                                <h4>Team Challenge</h4>
+                                <p>Building camaraderie through group competitions</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="gallery-item" data-category="community">
+                        <a href="assets/images/gallery/community-2.jpg" data-lightbox="community" data-title="Post-Workout Celebration">
+                            <img src="assets/images/gallery/community-2.jpg" alt="Post-Workout Celebration">
+                            <div class="gallery-item-overlay">
+                                <h4>Post-Workout Celebration</h4>
+                                <p>Celebrating achievements after an intense session</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="gallery-item" data-category="community">
+                        <a href="assets/images/gallery/community-3.jpg" data-lightbox="community" data-title="Community Event">
+                            <img src="assets/images/gallery/community-3.jpg" alt="Community Event">
+                            <div class="gallery-item-overlay">
+                                <h4>Community Event</h4>
+                                <p>Special training day with all Training Club groups</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="gallery-item" data-category="community">
+                        <a href="assets/images/gallery/community-4.jpg" data-lightbox="community" data-title="Member Transformation">
+                            <img src="assets/images/gallery/community-4.jpg" alt="Member Transformation">
+                            <div class="gallery-item-overlay">
+                                <h4>Member Transformation</h4>
+                                <p>Real results from consistent training</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="gallery-item" data-category="community">
+                        <a href="assets/images/gallery/community-5.jpg" data-lightbox="community" data-title="Coach Instruction">
+                            <img src="assets/images/gallery/community-5.jpg" alt="Coach Instruction">
+                            <div class="gallery-item-overlay">
+                                <h4>Coach Instruction</h4>
+                                <p>Expert guidance ensures proper form and technique</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="gallery-item" data-category="community">
+                        <a href="assets/images/gallery/community-6.jpg" data-lightbox="community" data-title="Group Photo">
+                            <img src="assets/images/gallery/community-6.jpg" alt="Group Photo">
+                            <div class="gallery-item-overlay">
+                                <h4>Group Photo</h4>
+                                <p>The Training Club family growing stronger together</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Locations Section -->
+            <div class="gallery-section" id="locations">
+                <div class="gallery-section-title">
+                    <h3>OUR LOCATIONS</h3>
+                </div>
+                <div class="gallery-grid">
+                    <div class="gallery-item" data-category="locations">
+                        <a href="assets/images/gallery/location-1.jpg" data-lightbox="locations" data-title="Knonau Park">
+                            <img src="assets/images/gallery/location-1.jpg" alt="Knonau Park">
+                            <div class="gallery-item-overlay">
+                                <h4>Knonau Park</h4>
+                                <p>Our primary training location with 6 active groups</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="gallery-item" data-category="locations">
+                        <a href="assets/images/gallery/location-2.jpg" data-lightbox="locations" data-title="Forest Training">
+                            <img src="assets/images/gallery/location-2.jpg" alt="Forest Training">
+                            <div class="gallery-item-overlay">
+                                <h4>Forest Training</h4>
+                                <p>Natural terrain creates unique training challenges</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="gallery-item" data-category="locations">
+                        <a href="assets/images/gallery/location-3.jpg" data-lightbox="locations" data-title="Corporate Location">
+                            <img src="assets/images/gallery/location-3.jpg" alt="Corporate Location">
+                            <div class="gallery-item-overlay">
+                                <h4>Corporate Location</h4>
+                                <p>On-site training for corporate wellness programs</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="gallery-item" data-category="locations">
+                        <a href="assets/images/gallery/location-4.jpg" data-lightbox="locations" data-title="Lakeside Training">
+                            <img src="assets/images/gallery/location-4.jpg" alt="Lakeside Training">
+                            <div class="gallery-item-overlay">
+                                <h4>Lakeside Training</h4>
+                                <p>Special summer sessions with water elements</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="gallery-item" data-category="locations">
+                        <a href="assets/images/gallery/location-5.jpg" data-lightbox="locations" data-title="Urban Setting">
+                            <img src="assets/images/gallery/location-5.jpg" alt="Urban Setting">
+                            <div class="gallery-item-overlay">
+                                <h4>Urban Setting</h4>
+                                <p>City-based training incorporating urban elements</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="gallery-item" data-category="locations">
+                        <a href="assets/images/gallery/location-6.jpg" data-lightbox="locations" data-title="Mountain Training">
+                            <img src="assets/images/gallery/location-6.jpg" alt="Mountain Training">
+                            <div class="gallery-item-overlay">
+                                <h4>Mountain Training</h4>
+                                <p>Elevation training for enhanced cardiovascular development</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Join CTA Section -->
+    <section class="section cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>READY TO JOIN OUR COMMUNITY?</h2>
+                <p>Experience the Training Club difference with our premium outdoor fitness program</p>
+                <div class="cta-buttons">
+                    <a href="index.html#membership" class="cta-button">View Membership Options</a>
+                    <a href="index.html#contact" class="cta-button">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="assets/images/training_club_logo.png" alt="TRAINING CLUB Logo">
+                    <p>TRAINING CLUB By Ineffable</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html#training-model">Our Training</a></li>
+                        <li><a href="index.html#membership">Membership</a></li>
+                        <li><a href="index.html#calendar">Calendar</a></li>
+                        <li><a href="index.html#corporate">Corporate</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-legal">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-newsletter">
+                    <h4>Stay Updated</h4>
+                    <p>Subscribe to our newsletter for training tips and updates</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email address">
+                        <button type="submit" class="cta-button">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 TRAINING CLUB By Ineffable. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <!-- Lightbox JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+    <script>
+        // Gallery filtering
+        document.addEventListener('DOMContentLoaded', function() {
+            const categories = document.querySelectorAll('.gallery-category');
+            const items = document.querySelectorAll('.gallery-item');
+            
+            categories.forEach(category => {
+                category.addEventListener('click', function() {
+                    // Update active class
+                    categories.forEach(c => c.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    const selectedCategory = this.getAttribute('data-category');
+                    
+                    // Filter items
+                    items.forEach(item => {
+                        if (selectedCategory === 'all' || item.getAttribute('data-category') === selectedCategory) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+            
+            // Initialize lightbox
+            lightbox.option({
+                'resizeDuration': 200,
+                'wrapAround': true,
+                'albumLabel': "Image %1 of %2"
+            });
+        });
+    </script>
+</body>
+</html>

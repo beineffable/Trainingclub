@@ -1,0 +1,44 @@
+/* Additional CSS to ensure theme toggle works properly in both splash screen and header */
+header .theme-toggle {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  margin-left: 15px;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Fix for header theme toggle in dark mode */
+body.dark-mode header .theme-toggle {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+body.dark-mode header .theme-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+/* Ensure proper icon visibility in header */
+header .theme-toggle i {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+  color: white;
+}
+
+/* Only show the appropriate icon based on theme in header */
+body:not(.dark-mode) header .theme-toggle i.fa-moon {
+  display: none;
+}
+
+body.dark-mode header .theme-toggle i.fa-sun {
+  display: none;
+}
+
+body.dark-mode header .theme-toggle i.fa-moon {
+  display: block;
+}
+
+body:not(.dark-mode) header .theme-toggle i.fa-sun {
+  display: block;
+}

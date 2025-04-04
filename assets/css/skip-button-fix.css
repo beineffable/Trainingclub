@@ -1,0 +1,70 @@
+/* Skip Button - Fixed Version */
+.skip-button {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  padding: 12px 24px;
+  background-color: rgba(255, 255, 255, 0.5);
+  color: #333;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  opacity: 0;
+  animation: fadeIn 1s ease-in-out forwards;
+  animation-delay: 1s;
+  transition: all 0.3s ease;
+  /* Improve touch target */
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0.5);
+  touch-action: manipulation;
+  user-select: none;
+  /* Add a subtle shadow for better visibility */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  /* Ensure it's above other elements */
+  z-index: 10000;
+  /* Ensure text is centered */
+  text-align: center;
+  line-height: 1;
+}
+
+.skip-button:hover, .skip-button:active {
+  background-color: rgba(255, 255, 255, 0.8);
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Ensure skip button is visible in dark mode */
+body.dark-mode .skip-button {
+  background-color: rgba(255, 255, 255, 0.3);
+  color: #fff;
+}
+
+body.dark-mode .skip-button:hover, 
+body.dark-mode .skip-button:active {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Add focus state for accessibility */
+.skip-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.7), 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Ensure button is visible on all backgrounds */
+.skip-button::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  border-radius: 35px;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Active state for better feedback */
+.skip-button:active {
+  transform: scale(0.98);
+}

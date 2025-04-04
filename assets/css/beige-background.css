@@ -1,0 +1,65 @@
+/* Light Mode Beige Background Update */
+
+/* Update primary colors for light mode */
+:root {
+  /* Replace black with extremely light beige */
+  --primary-black: #000000; /* Keep for text color */
+  --primary-white: #F9F7F4; /* Extremely light beige instead of white */
+  --background-beige: #F9F7F4; /* Extremely light beige for backgrounds */
+  --text-color: #333333; /* Slightly softer than pure black for text */
+}
+
+/* Apply beige background to body in light mode */
+body:not(.dark-mode) {
+  background-color: var(--background-beige);
+}
+
+/* Update any elements that might have black backgrounds */
+body:not(.dark-mode) section,
+body:not(.dark-mode) .container,
+body:not(.dark-mode) .card,
+body:not(.dark-mode) .membership-tier {
+  background-color: var(--background-beige);
+}
+
+/* Ensure section backgrounds use beige */
+body:not(.dark-mode) section.alt-bg {
+  background-color: #F0EDE8; /* Slightly darker beige for alternating sections */
+}
+
+/* Update form elements */
+body:not(.dark-mode) input,
+body:not(.dark-mode) textarea,
+body:not(.dark-mode) select {
+  background-color: #FFFFFF; /* Keep inputs white for contrast */
+  border: 1px solid #E5E0D9; /* Light beige border */
+}
+
+/* Update modal and popup backgrounds */
+body:not(.dark-mode) .modal,
+body:not(.dark-mode) .popup {
+  background-color: var(--background-beige);
+}
+
+/* Soften text color slightly */
+body:not(.dark-mode) p,
+body:not(.dark-mode) li,
+body:not(.dark-mode) span {
+  color: var(--text-color);
+}
+
+/* Keep headings strong */
+body:not(.dark-mode) h1,
+body:not(.dark-mode) h2,
+body:not(.dark-mode) h3,
+body:not(.dark-mode) h4,
+body:not(.dark-mode) h5,
+body:not(.dark-mode) h6 {
+  color: #222222; /* Near-black for headings */
+}
+
+/* Ensure dark mode is not affected */
+body.dark-mode {
+  --primary-white: #121212; /* Keep dark background for dark mode */
+  --background-beige: #121212; /* Not used in dark mode */
+}

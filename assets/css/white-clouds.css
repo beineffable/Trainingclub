@@ -1,0 +1,20 @@
+.cloud {
+  position: absolute;
+  background-color: #ffffff; /* Explicit white color instead of variable */
+  border-radius: 50%;
+  opacity: 0.95; /* Increased opacity for better visibility */
+  animation-duration: 3s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-out;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.8); /* Add subtle glow effect */
+}
+
+/* Cloud shapes using multiple border-radius elements */
+.cloud::before,
+.cloud::after {
+  content: '';
+  position: absolute;
+  background-color: #ffffff; /* Explicit white color instead of variable */
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.8); /* Add subtle glow effect */
+}

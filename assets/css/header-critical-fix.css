@@ -1,0 +1,144 @@
+/* CSS Reset to ensure consistent styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Fix for inconsistent header display across pages */
+header {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  z-index: 1000 !important;
+  background-color: rgba(0, 0, 0, 0.8) !important;
+  padding: 20px 0 !important;
+  transition: all 0.3s ease !important;
+}
+
+/* Ensure header container is properly aligned */
+.header-container {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  padding: 0 20px !important;
+}
+
+/* Fix for logo display */
+.logo {
+  display: flex !important;
+  align-items: center !important;
+}
+
+.logo img {
+  height: 50px !important;
+}
+
+.logo-text {
+  color: var(--primary-white) !important;
+  font-family: var(--font-heading) !important;
+  font-weight: 900 !important;
+  font-size: 1.5rem !important;
+  letter-spacing: 2px !important;
+  margin-left: 10px !important;
+}
+
+/* Fix for navigation menu - CRITICAL FIXES */
+nav {
+  display: block !important;
+}
+
+.nav-menu {
+  display: flex !important;
+  list-style-type: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.nav-menu li {
+  margin-left: 20px !important;
+  list-style-type: none !important;
+  list-style-image: none !important;
+  background: none !important;
+}
+
+.nav-menu li::before,
+.nav-menu li::after {
+  display: none !important;
+  content: none !important;
+}
+
+.nav-menu a {
+  color: var(--primary-white) !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  font-size: 0.8rem !important;
+  background: none !important;
+  border: none !important;
+  padding: 8px 12px !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  text-decoration: none !important;
+}
+
+.nav-menu a:hover {
+  color: var(--accent-orange) !important;
+}
+
+/* Special styling for CTA buttons in navigation */
+.nav-menu a.cta-button,
+.nav-menu a.member-login {
+  background-color: var(--accent-orange) !important;
+  color: var(--primary-white) !important;
+  padding: 10px 20px !important;
+  border-radius: 4px !important;
+}
+
+.nav-menu a.cta-button:hover,
+.nav-menu a.member-login:hover {
+  background-color: var(--primary-white) !important;
+  color: var(--accent-orange) !important;
+}
+
+/* Mobile menu fixes */
+@media (max-width: 768px) {
+  .hamburger-menu {
+    display: block !important;
+    cursor: pointer !important;
+    z-index: 1001 !important;
+  }
+  
+  .nav-menu {
+    display: none !important;
+    position: fixed !important;
+    top: 80px !important;
+    left: 0 !important;
+    flex-direction: column !important;
+    background-color: rgba(0, 0, 0, 0.95) !important;
+    width: 100% !important;
+    text-align: center !important;
+    transition: 0.3s !important;
+    box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05) !important;
+    padding: 10px 0 !important;
+    z-index: 1000 !important;
+    max-height: 80vh !important;
+    overflow-y: auto !important;
+  }
+  
+  .nav-menu.active {
+    display: flex !important;
+  }
+  
+  .nav-menu li {
+    margin: 8px 0 !important;
+  }
+  
+  .nav-menu a {
+    font-size: 0.75rem !important;
+    padding: 8px 0 !important;
+  }
+}

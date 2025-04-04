@@ -1,0 +1,11 @@
+{
+  "name": "training-club-website",
+  "version": "1.0.0",
+  "description": "Training Club Website with fixed animation, theme toggle, and skip button",
+  "public": true,
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "github": {
+    "silent": true
+  }
+}

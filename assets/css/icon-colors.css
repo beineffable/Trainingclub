@@ -1,0 +1,85 @@
+/* Icon and Logo Color Adjustments for Light Mode */
+
+/* Logo colors for light mode */
+:root {
+  --logo-primary-color: var(--accent-baby-blue);
+  --logo-secondary-color: var(--accent-baby-pink);
+  --icon-primary-color: var(--accent-baby-blue);
+  --icon-secondary-color: var(--accent-light-blue);
+  --icon-highlight-color: var(--accent-light-pink);
+}
+
+/* Logo styling for light mode */
+.logo img {
+  filter: hue-rotate(225deg) saturate(70%); /* Transform orange to baby blue */
+}
+
+/* Only apply in light mode */
+body:not(.dark-mode) .logo img {
+  filter: hue-rotate(225deg) saturate(70%);
+}
+
+/* Icon colors for light mode */
+body:not(.dark-mode) .feature-icon i,
+body:not(.dark-mode) .social-icon i,
+body:not(.dark-mode) .nav-icon i {
+  color: var(--accent-baby-blue);
+}
+
+body:not(.dark-mode) .feature-icon i:hover,
+body:not(.dark-mode) .social-icon i:hover,
+body:not(.dark-mode) .nav-icon i:hover {
+  color: var(--accent-light-blue);
+}
+
+/* Theme toggle icon for light mode */
+body:not(.dark-mode) #theme-toggle i {
+  color: var(--accent-baby-blue);
+}
+
+body:not(.dark-mode) #theme-toggle:hover i {
+  color: var(--accent-light-blue);
+}
+
+/* Hamburger menu icon for light mode */
+body:not(.dark-mode) .hamburger-menu .bar1,
+body:not(.dark-mode) .hamburger-menu .bar2,
+body:not(.dark-mode) .hamburger-menu .bar3 {
+  background-color: var(--accent-baby-blue);
+}
+
+/* Preserve dark mode icon colors */
+body.dark-mode {
+  --logo-primary-color: var(--accent-orange);
+  --logo-secondary-color: var(--accent-blue);
+  --icon-primary-color: var(--accent-orange);
+  --icon-secondary-color: var(--accent-blue);
+  --icon-highlight-color: var(--accent-orange);
+}
+
+/* Reset filter for dark mode */
+body.dark-mode .logo img {
+  filter: none;
+}
+
+/* SVG icons inline color adjustment */
+body:not(.dark-mode) svg path[fill="#FF5722"],
+body:not(.dark-mode) svg rect[fill="#FF5722"],
+body:not(.dark-mode) svg circle[fill="#FF5722"] {
+  fill: var(--accent-baby-blue);
+}
+
+body:not(.dark-mode) svg path[stroke="#FF5722"],
+body:not(.dark-mode) svg rect[stroke="#FF5722"],
+body:not(.dark-mode) svg circle[stroke="#FF5722"] {
+  stroke: var(--accent-baby-blue);
+}
+
+/* CSS-based icon colors */
+body:not(.dark-mode) [class*="icon-"] {
+  color: var(--accent-baby-blue);
+}
+
+body:not(.dark-mode) [class*="icon-"]:hover {
+  color: var(--accent-light-blue);
+}
