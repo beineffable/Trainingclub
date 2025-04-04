@@ -1,11 +1,15 @@
 {
-  "name": "training-club-website",
-  "version": "1.0.0",
-  "description": "Training Club Website with fixed animation, theme toggle, and skip button",
+  "version": 2,
   "public": true,
-  "cleanUrls": true,
-  "trailingSlash": false,
   "github": {
-    "silent": true
-  }
+    "enabled": true,
+    "silent": false,
+    "autoAlias": true
+  },
+  "builds": [
+    { "src": "**/*", "use": "@vercel/static" }
+  ],
+  "routes": [
+    { "src": "/(.*)", "dest": "/$1" }
+  ]
 }
