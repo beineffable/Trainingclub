@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FAQ | TRAINING CLUB By Ineffable</title>
-    <meta name="description" content="Frequently asked questions about our outdoor bootcamp training sessions, membership options, and more.">
+    <title>FAQ - Training Club</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/theme-toggle.css">
     <link rel="stylesheet" href="assets/css/dark-mode.css">
@@ -14,6 +13,7 @@
     <link rel="stylesheet" href="assets/css/header-critical-fix.css">
     <link rel="stylesheet" href="assets/css/formatting-fix.css">
     <link rel="stylesheet" href="assets/css/body-formatting-fix.css">
+    <link rel="stylesheet" href="assets/css/booking/booking.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -152,461 +152,254 @@
 <body>
     <!-- Header -->
     <header>
-        <div class="container header-container">
-            <div class="logo">
-                <a href="index.html"><img src="assets/images/training_club_logo.png" alt="TRAINING CLUB Logo"></a>
-                <span class="logo-text"><a href="index.html" style="text-decoration: none; color: inherit;">TRAINING CLUB</a></span>
+        <div class="container">
+            <div class="header-container">
+                <div class="logo">
+                    <a href="index.html">TRAINING CLUB</a>
+                </div>
+                
+                <nav>
+                    <ul class="nav-menu">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="#our-training">Our Training</a></li>
+                        <li><a href="#membership">Membership</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="faq.html" class="active">FAQ</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="members-area.html" class="nav-cta">Members Area</a></li>
+                    </ul>
+                    
+                    <div class="hamburger">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </div>
+                </nav>
             </div>
-            <nav>
-                <ul class="nav-menu">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="index.html#training-model">Our Training</a></li>
-                    <li><a href="index.html#membership">Membership</a></li>
-                    <li><a href="index.html#calendar">Calendar</a></li>
-                    <li><a href="index.html#corporate">Corporate</a></li>
-                    <li><a href="gallery.html">Gallery</a></li>
-                    <li><a href="faq.html" class="active">FAQ</a></li>
-                    <li><a href="index.html#contact">Contact</a></li>
-                    <li><a href="#" class="cta-button member-login">Member Login</a></li>
-                </ul>
-            </nav>
         </div>
     </header>
 
-    <!-- FAQ Section -->
-    <section class="section faq-container">
+    <!-- Main Content -->
+    <section class="page-header">
         <div class="container">
-            <div class="section-title">
-                <h2>FREQUENTLY ASKED QUESTIONS</h2>
-                <p>Everything you need to know about TRAINING CLUB</p>
-            </div>
-            
-            <div class="search-container">
-                <input type="text" class="search-box" placeholder="Search for questions..." id="faq-search">
+            <h1>Frequently Asked Questions</h1>
+            <p>Find answers to common questions about Training Club</p>
+        </div>
+    </section>
+
+    <section class="faq-section">
+        <div class="container">
+            <div class="faq-search-container">
+                <input type="text" id="faq-search" placeholder="Search questions...">
+                <i class="fas fa-search"></i>
             </div>
             
             <div class="faq-categories">
-                <div class="faq-category active" data-category="all">All Questions</div>
-                <div class="faq-category" data-category="general">General</div>
-                <div class="faq-category" data-category="membership">Membership</div>
-                <div class="faq-category" data-category="training">Training</div>
-                <div class="faq-category" data-category="equipment">Equipment</div>
-                <div class="faq-category" data-category="locations">Locations</div>
+                <button class="faq-category active" data-category="all">All</button>
+                <button class="faq-category" data-category="membership">Membership</button>
+                <button class="faq-category" data-category="classes">Classes</button>
+                <button class="faq-category" data-category="booking">Booking</button>
+                <button class="faq-category" data-category="payment">Payment</button>
             </div>
             
-            <!-- General Questions -->
-            <div class="faq-section" id="general">
-                <div class="faq-section-title">
-                    <h3>GENERAL QUESTIONS</h3>
-                </div>
-                
-                <div class="faq-item" data-category="general">
-                    <div class="faq-question">
-                        What is TRAINING CLUB?
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-content">
-                            <p>TRAINING CLUB is a premium outdoor bootcamp fitness program operated by Ineffable GmbH in Switzerland. We deliver physically and mentally transformative group fitness using elite equipment and structured coaching in all weather conditions, year-round.</p>
-                            <p>Our unique mobile setup allows us to bring a complete gym environment to various outdoor locations, providing a fresh and challenging training experience that can't be found in traditional gyms.</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="faq-item" data-category="general">
-                    <div class="faq-question">
-                        What makes TRAINING CLUB different from other bootcamps?
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-content">
-                            <p>TRAINING CLUB stands apart from other bootcamps in several key ways:</p>
-                            <ul>
-                                <li><strong>Premium Equipment:</strong> We bring a fully-equipped mobile gym to every session, including squat racks, pull-up bars, kettlebells, barbells, and TRXs.</li>
-                                <li><strong>All-Weather Training:</strong> We train outdoors year-round, regardless of weather conditions, building mental resilience alongside physical strength.</li>
-                                <li><strong>Structured Programming:</strong> Our sessions follow a carefully designed 90-minute structure with warm-up, circuit training, mental conditioning "burner" finisher, and cooldown.</li>
-                                <li><strong>Community Focus:</strong> We foster a tight-knit community of like-minded individuals who enjoy working hard, having fun, and challenging themselves.</li>
-                                <li><strong>Exclusive Membership:</strong> Our access-code system ensures our community consists of motivated individuals who are referred by existing members.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="faq-item" data-category="general">
-                    <div class="faq-question">
-                        Who can join TRAINING CLUB?
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-content">
-                            <p>TRAINING CLUB welcomes anyone who wants to challenge themselves and improve their fitness, regardless of their starting point. Our members range from motivated beginners to experienced athletes.</p>
-                            <p>The only requirements are:</p>
-                            <ul>
-                                <li>You must have an access code (obtained through our referral system)</li>
-                                <li>A positive attitude and willingness to push yourself</li>
-                                <li>Commitment to respecting our community values</li>
-                            </ul>
-                            <p>Our coaches are skilled at scaling exercises to accommodate different fitness levels, ensuring everyone gets an appropriate challenge.</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="faq-item" data-category="general">
-                    <div class="faq-question">
-                        How do I get started?
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-content">
-                            <p>To get started with TRAINING CLUB:</p>
-                            <ol>
-                                <li><strong>Obtain an Access Code:</strong> You'll need a referral code from an existing member or directly from our team.</li>
-                                <li><strong>Register:</strong> Use your access code to create an account on our website.</li>
-                                <li><strong>Choose Your Membership:</strong> Select from our various membership options.</li>
-                                <li><strong>Book Your First Session:</strong> Use our online booking system to reserve your spot.</li>
-                                <li><strong>Show Up:</strong> Arrive 10 minutes early for your first session to meet your coach and get oriented.</li>
-                            </ol>
-                            <p>If you don't have an access code but are interested in joining, you can contact us directly, and we'll connect you with a current member who can provide a referral.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Membership Questions -->
-            <div class="faq-section" id="membership">
-                <div class="faq-section-title">
-                    <h3>MEMBERSHIP QUESTIONS</h3>
-                </div>
-                
+            <div class="faq-container">
+                <!-- Membership FAQs -->
                 <div class="faq-item" data-category="membership">
                     <div class="faq-question">
-                        What membership options do you offer?
-                        <i class="fas fa-chevron-down"></i>
+                        <h3>What membership options do you offer?</h3>
+                        <span class="toggle-icon"><i class="fas fa-plus"></i></span>
                     </div>
                     <div class="faq-answer">
                         <div class="faq-answer-content">
-                            <p>We offer several flexible membership options to suit different needs:</p>
+                            <p>We offer two membership tiers:</p>
                             <ul>
-                                <li><strong>Standard Membership:</strong> 100 CHF access fee (requires access code)</li>
-                                <li><strong>Session Pricing:</strong> 35 CHF per session</li>
-                                <li><strong>10-Session Package:</strong> 330 CHF (6-month validity)</li>
-                                <li><strong>20-Session Package:</strong> 630 CHF (5% discount, 12-month validity)</li>
-                                <li><strong>Monthly Membership:</strong> 150 CHF/month (4 sessions, 3-month commitment)</li>
-                                <li><strong>Unlimited Membership:</strong> 450 CHF/month (unlimited sessions, 3-month commitment)</li>
+                                <li><strong>Standard Membership:</strong> Access to all regular classes at your home location</li>
+                                <li><strong>Elite Membership:</strong> Access to all classes at all locations, priority booking, and exclusive events</li>
                             </ul>
-                            <p>We also offer Elite membership options with additional benefits for our most dedicated members. Contact us for details about Elite membership.</p>
+                            <p>Both tiers are available as monthly subscriptions, term packages, or annual memberships. You can view all options on our <a href="booking-memberships.html">memberships page</a>.</p>
                         </div>
                     </div>
                 </div>
                 
                 <div class="faq-item" data-category="membership">
                     <div class="faq-question">
-                        What is the access code system?
-                        <i class="fas fa-chevron-down"></i>
+                        <h3>How do I join Training Club?</h3>
+                        <span class="toggle-icon"><i class="fas fa-plus"></i></span>
                     </div>
                     <div class="faq-answer">
                         <div class="faq-answer-content">
-                            <p>Our access code system is designed to maintain the quality and community aspect of TRAINING CLUB:</p>
-                            <ul>
-                                <li><strong>Standard Codes:</strong> These are distributed by existing members through our referral system (e.g., TC-KNONAU-2025).</li>
-                                <li><strong>Purpose:</strong> The system ensures our community grows through trusted connections and maintains a high level of commitment and motivation among members.</li>
-                                <li><strong>Obtaining a Code:</strong> You can get an access code by being referred by a current member or by contacting us directly if you don't know any current members.</li>
-                                <li><strong>Usage:</strong> Each code can only be used once and expires after a certain period.</li>
-                            </ul>
-                            <p>This referral-based growth helps us maintain our unique training atmosphere and community spirit.</p>
+                            <p>Training Club is an exclusive fitness community that operates on a referral basis. To join, you'll need an access code from a current member or directly from our team. Once you have your code, you can register through our <a href="booking-register.html">registration page</a>.</p>
                         </div>
                     </div>
                 </div>
                 
                 <div class="faq-item" data-category="membership">
                     <div class="faq-question">
-                        How does the referral system work?
-                        <i class="fas fa-chevron-down"></i>
+                        <h3>Can I pause my membership when I'm on holiday?</h3>
+                        <span class="toggle-icon"><i class="fas fa-plus"></i></span>
                     </div>
                     <div class="faq-answer">
                         <div class="faq-answer-content">
-                            <p>Our referral system rewards members for growing our community:</p>
-                            <ul>
-                                <li><strong>Code Distribution:</strong> Members can request up to 3 standard access codes per quarter.</li>
-                                <li><strong>Rewards:</strong> Each successful referral (someone who joins using your code) earns you a session credit or free term extension.</li>
-                                <li><strong>Tracking:</strong> You can monitor your referrals and rewards through your member dashboard.</li>
-                                <li><strong>Purpose:</strong> This system helps us grow organically through trusted connections while rewarding our members for their support.</li>
-                            </ul>
-                            <p>The referral system is one of the ways we maintain our community's quality while providing additional value to our loyal members.</p>
+                            <p>Yes! We offer a holiday pause feature that allows you to temporarily suspend your membership when you're away. You can pause for up to 28 days per year. This can be managed through your <a href="booking-profile.html?tab=membership">member profile</a>.</p>
                         </div>
                     </div>
                 </div>
                 
-                <div class="faq-item" data-category="membership">
+                <!-- Classes FAQs -->
+                <div class="faq-item" data-category="classes">
                     <div class="faq-question">
-                        What happens if I need to pause my membership?
-                        <i class="fas fa-chevron-down"></i>
+                        <h3>What types of classes do you offer?</h3>
+                        <span class="toggle-icon"><i class="fas fa-plus"></i></span>
                     </div>
                     <div class="faq-answer">
                         <div class="faq-answer-content">
-                            <p>We understand that life sometimes requires flexibility:</p>
+                            <p>We offer a variety of outdoor training sessions including:</p>
                             <ul>
-                                <li><strong>Holiday Flexibility:</strong> Credits remain valid during holidays, and we can extend expiration windows by 1-3 weeks upon request.</li>
-                                <li><strong>Membership Freeze:</strong> Monthly and unlimited memberships can be frozen for up to 4 weeks per year with advance notice.</li>
-                                <li><strong>Medical Reasons:</strong> For medical issues requiring extended breaks, we offer customized solutions - just contact us with documentation.</li>
-                                <li><strong>Automatic Holiday Adjustments:</strong> During official Swiss holiday periods, you can opt for automatic membership freezing.</li>
+                                <li>High-Intensity Interval Training (HIIT)</li>
+                                <li>Strength & Conditioning</li>
+                                <li>Mobility & Recovery</li>
+                                <li>Endurance Training</li>
+                                <li>Specialized sessions (trail running, hill sprints, etc.)</li>
                             </ul>
-                            <p>Our goal is to accommodate reasonable flexibility while maintaining the commitment that makes our community special.</p>
+                            <p>All classes are conducted outdoors in various weather conditions, which is a core part of our training philosophy.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item" data-category="classes">
+                    <div class="faq-question">
+                        <h3>Do you train in all weather conditions?</h3>
+                        <span class="toggle-icon"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>Yes! Training in all weather conditions is a fundamental aspect of our approach. We believe that challenging yourself in different environments builds both physical and mental resilience.</p>
+                            <p>We train in rain, snow, heat, and cold. The only exceptions are during severe weather warnings or dangerous conditions (lightning, extreme storms, etc.) where safety would be compromised.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item" data-category="classes">
+                    <div class="faq-question">
+                        <h3>What should I bring to a training session?</h3>
+                        <span class="toggle-icon"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>For every session, you should bring:</p>
+                            <ul>
+                                <li>Water bottle</li>
+                                <li>Small towel</li>
+                                <li>Appropriate footwear (trail running shoes recommended)</li>
+                                <li>Weather-appropriate clothing (layers are best)</li>
+                                <li>Your Training Club membership card or app</li>
+                            </ul>
+                            <p>We provide all necessary equipment for the workout.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Booking FAQs -->
+                <div class="faq-item" data-category="booking">
+                    <div class="faq-question">
+                        <h3>How do I book a class?</h3>
+                        <span class="toggle-icon"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>You can book classes through:</p>
+                            <ul>
+                                <li>Our mobile app (recommended)</li>
+                                <li>The <a href="booking-classes.html">online booking portal</a></li>
+                                <li>Calling your local Training Club location</li>
+                            </ul>
+                            <p>Bookings open 7 days in advance and close 1 hour before the class starts.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item" data-category="booking">
+                    <div class="faq-question">
+                        <h3>What is your cancellation policy?</h3>
+                        <span class="toggle-icon"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>You can cancel a booking up to 12 hours before the class starts without penalty. Cancellations made less than 12 hours before the class will incur a late cancellation fee of 10 CHF or the deduction of one class credit.</p>
+                            <p>No-shows (failing to attend without cancellation) will result in a 20 CHF fee or the deduction of two class credits.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item" data-category="booking">
+                    <div class="faq-question">
+                        <h3>Can I join a waiting list if a class is full?</h3>
+                        <span class="toggle-icon"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>Yes, we maintain waiting lists for all classes. If a spot becomes available, the system will automatically notify the next person on the list. You'll have 2 hours to confirm your spot before it's offered to the next person.</p>
+                            <p>Elite members receive priority on waiting lists.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Payment FAQs -->
+                <div class="faq-item" data-category="payment">
+                    <div class="faq-question">
+                        <h3>What payment methods do you accept?</h3>
+                        <span class="toggle-icon"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>We accept the following payment methods:</p>
+                            <ul>
+                                <li>Credit/Debit cards (Visa, Mastercard, American Express)</li>
+                                <li>TWINT</li>
+                                <li>Bank transfer</li>
+                                <li>Apple Pay and Google Pay (in-app only)</li>
+                            </ul>
+                            <p>All recurring memberships require a valid payment method on file.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item" data-category="payment">
+                    <div class="faq-question">
+                        <h3>How do I update my payment information?</h3>
+                        <span class="toggle-icon"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>You can update your payment information through your <a href="booking-profile.html?tab=payment">member profile</a> under the "Payment Methods" section. For security reasons, some changes may require verification.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item" data-category="payment">
+                    <div class="faq-question">
+                        <h3>Do you offer any discounts?</h3>
+                        <span class="toggle-icon"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>We offer the following discounts:</p>
+                            <ul>
+                                <li>10% off annual memberships</li>
+                                <li>15% family discount when 2+ members join from the same household</li>
+                                <li>Corporate rates for companies with 5+ employees joining</li>
+                                <li>Seasonal promotions (announced via email and social media)</li>
+                            </ul>
+                            <p>Discounts cannot be combined. Contact us for more information about eligibility.</p>
                         </div>
                     </div>
                 </div>
             </div>
             
-            <!-- Training Questions -->
-            <div class="faq-section" id="training">
-                <div class="faq-section-title">
-                    <h3>TRAINING QUESTIONS</h3>
-                </div>
-                
-                <div class="faq-item" data-category="training">
-                    <div class="faq-question">
-                        What is the structure of a typical session?
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-content">
-                            <p>Each TRAINING CLUB session follows a carefully designed 90-minute structure:</p>
-                            <ol>
-                                <li><strong>Warm-up (15 minutes):</strong> Dynamic mobility work and movement preparation to prepare the body for the workout.</li>
-                                <li><strong>Circuit Training (60 minutes):</strong> 6-station circuit with a mix of strength, conditioning, and skill work. Each station is coached with proper technique instruction.</li>
-                                <li><strong>Burner Finisher (10 minutes):</strong> High-intensity challenge designed to push mental limits and build resilience.</li>
-                                <li><strong>Cooldown (5 minutes):</strong> Mobility work and stretching to aid recovery.</li>
-                            </ol>
-                            <p>This structure ensures a comprehensive workout that develops strength, endurance, and mental toughness while minimizing injury risk through proper preparation and recovery.</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="faq-item" data-category="training">
-                    <div class="faq-question">
-                        What is the "Burner" and why is it important?
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-content">
-                            <p>The "Burner" is a signature element of TRAINING CLUB sessions and serves as a mental conditioning highlight:</p>
-                            <ul>
-                                <li><strong>Format:</strong> A high-intensity, challenging finisher that pushes you beyond your perceived limits.</li>
-                                <li><strong>Purpose:</strong> To develop mental resilience, grit, and the ability to perform under fatigue - skills that transfer to all areas of life.</li>
-                                <li><strong>Variety:</strong> Burners change regularly and might include AMRAP (As Many Rounds As Possible), EMOM (Every Minute On the Minute), or team challenges.</li>
-                                <li><strong>Community:</strong> The shared experience of completing challenging burners creates strong bonds among members.</li>
-                            </ul>
-                            <p>While physically demanding, the real benefit of the Burner is psychological - teaching you that you're capable of more than you think and building confidence that extends beyond the training session.</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="faq-item" data-category="training">
-                    <div class="faq-question">
-                        Do you train in all weather conditions?
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-content">
-                            <p>Yes, we train outdoors year-round in all weather conditions, which is a core part of our philosophy:</p>
-                            <ul>
-                                <li><strong>Rain or Shine:</strong> Sessions continue in rain, snow, heat, or cold - we adapt the workout as needed for safety.</li>
-                                <li><strong>Mental Benefits:</strong> Training in challenging conditions builds mental toughness and resilience that transfers to all areas of life.</li>
-                                <li><strong>Preparation:</strong> We provide guidance on appropriate clothing and preparation for different weather conditions.</li>
-                                <li><strong>Safety First:</strong> In extreme weather conditions (severe storms, dangerous winds), we may modify or reschedule sessions for safety.</li>
-                            </ul>
-                            <p>Our all-weather approach is one of the things that makes TRAINING CLUB unique and effective. There's something special about completing a challenging workout in the rain or snow that builds character in ways indoor training simply cannot match.</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="faq-item" data-category="training">
-                    <div class="faq-question">
-                        What is the annual training calendar?
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-content">
-                            <p>Our annual training calendar is divided into four distinct terms, each with specific focus areas:</p>
-                            <ul>
-                                <li><strong>Term 1: Strength & Athletic Base (Jan–Apr)</strong><br>Focus on building foundational strength and athletic capacity after the holiday season.</li>
-                                <li><strong>Term 2: Athletic Performance & Fat Loss (May–Jul)</strong><br>Emphasis on explosive power, speed, and metabolic conditioning for summer readiness.</li>
-                                <li><strong>Term 3: Hypertrophy & Work Capacity (Aug–Oct)</strong><br>Concentration on muscle development and increasing overall work capacity.</li>
-                                <li><strong>Term 4: Mental Fortitude & Peak Strength (Oct–Dec)</strong><br>Challenging sessions focused on mental toughness and achieving peak strength before year-end.</li>
-                            </ul>
-                            <p>Each term includes custom programming and periodic assessments to track progress. This structured approach ensures balanced development throughout the year and prevents training plateaus.</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="faq-item" data-category="training">
-                    <div class="faq-question">
-                        I'm a beginner. Is TRAINING CLUB too advanced for me?
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-content">
-                            <p>TRAINING CLUB is designed to be challenging but accessible to all fitness levels, including beginners:</p>
-                            <ul>
-                                <li><strong>Scalable Exercises:</strong> All movements can be modified to match your current ability level while still providing an appropriate challenge.</li>
-                                <li><strong>Coached Sessions:</strong> Our trainers provide individual attention to ensure proper form and appropriate intensity.</li>
-                                <li><strong>Supportive Community:</strong> Our members are encouraging and remember their own starting points.</li>
-                                <li><strong>Progressive Development:</strong> We focus on building skills and strength gradually over time.</li>
-                            </ul>
-                            <p>The most important qualities for success at TRAINING CLUB are not your current fitness level, but rather your attitude, willingness to learn, and commitment to showing up consistently. Many of our most dedicated members started as complete beginners.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Equipment Questions -->
-            <div class="faq-section" id="equipment">
-                <div class="faq-section-title">
-                    <h3>EQUIPMENT QUESTIONS</h3>
-                </div>
-                
-                <div class="faq-item" data-category="equipment">
-                    <div class="faq-question">
-                        What equipment do you use in sessions?
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-content">
-                            <p>TRAINING CLUB utilizes a comprehensive range of premium fitness equipment that we transport to each location via our mobile trailer setup:</p>
-                            <ul>
-                                <li><strong>Strength Equipment:</strong> Squat racks, barbells, weight plates, dumbbells, kettlebells</li>
-                                <li><strong>Functional Training:</strong> TRX suspension trainers, battle ropes, sandbags, medicine balls</li>
-                                <li><strong>Conditioning Tools:</strong> Assault bikes, rowing machines, sleds, jump ropes</li>
-                                <li><strong>Mobility Equipment:</strong> Foam rollers, resistance bands, yoga mats</li>
-                                <li><strong>Specialized Gear:</strong> Plyo boxes, agility ladders, cones, gymnastics rings</li>
-                            </ul>
-                            <p>This extensive equipment selection allows us to create varied, challenging workouts that develop all aspects of fitness while keeping sessions fresh and engaging.</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="faq-item" data-category="equipment">
-                    <div class="faq-question">
-                        How does the mobile trailer concept work?
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-content">
-                            <p>Our mobile trailer concept is what makes TRAINING CLUB unique:</p>
-                            <ul>
-                                <li><strong>Custom-Built Trailer:</strong> We've designed a specialized trailer that efficiently stores and transports all our premium equipment.</li>
-                                <li><strong>Quick Setup:</strong> Our team arrives before each session to transform the outdoor space into a complete gym environment.</li>
-                                <li><strong>Location Flexibility:</strong> The mobile concept allows us to train in various locations while maintaining consistent equipment quality.</li>
-                                <li><strong>All-Weather Design:</strong> Our equipment is selected and maintained to perform in all weather conditions.</li>
-                                <li><strong>Full Gym Experience:</strong> Despite being outdoors, you'll have access to the same quality equipment you'd find in a premium gym.</li>
-                            </ul>
-                            <p>This mobile approach combines the benefits of outdoor training with the equipment variety of a fully-equipped gym, creating a unique training experience that can't be found elsewhere.</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="faq-item" data-category="equipment">
-                    <div class="faq-question">
-                        What should I bring to a session?
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-content">
-                            <p>For a successful TRAINING CLUB session, we recommend bringing:</p>
-                            <ul>
-                                <li><strong>Water Bottle:</strong> Stay hydrated throughout the session.</li>
-                                <li><strong>Appropriate Clothing:</strong> Comfortable workout clothes suitable for the weather conditions. Layers are recommended in cooler months.</li>
-                                <li><strong>Training Shoes:</strong> Supportive athletic shoes with good traction for outdoor surfaces.</li>
-                                <li><strong>Small Towel:</strong> For personal use during the workout.</li>
-                                <li><strong>Positive Attitude:</strong> The most important thing to bring!</li>
-                            </ul>
-                            <p>Optional items that some members find helpful:</p>
-                            <ul>
-                                <li>Lifting gloves (for hand protection)</li>
-                                <li>Heart rate monitor</li>
-                                <li>Light rain jacket (in uncertain weather)</li>
-                                <li>Post-workout snack</li>
-                            </ul>
-                            <p>We provide all the necessary equipment for the workout itself, so you don't need to bring any fitness gear.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Location Questions -->
-            <div class="faq-section" id="locations">
-                <div class="faq-section-title">
-                    <h3>LOCATION QUESTIONS</h3>
-                </div>
-                
-                <div class="faq-item" data-category="locations">
-                    <div class="faq-question">
-                        Where are your current training locations?
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-content">
-                            <p>TRAINING CLUB currently operates in the following locations:</p>
-                            <ul>
-                                <li><strong>Knonau:</strong> Our primary location with 6 active training groups</li>
-                            </ul>
-                            <p>We have plans to expand to the following areas in the near future:</p>
-                            <ul>
-                                <li>Zug</li>
-                                <li>Zurich</li>
-                                <li>Luzern</li>
-                            </ul>
-                            <p>Our long-term vision includes national and international expansion while maintaining our premium quality and community focus.</p>
-                            <p>If you're interested in bringing TRAINING CLUB to your area, please contact us to discuss potential expansion opportunities.</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="faq-item" data-category="locations">
-                    <div class="faq-question">
-                        Do you offer corporate training?
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-content">
-                            <p>Yes, we offer specialized corporate training programs:</p>
-                            <ul>
-                                <li><strong>On-site Options:</strong> We can bring our mobile gym setup directly to your company location.</li>
-                                <li><strong>Park-based Options:</strong> Sessions can be held at a nearby park or outdoor space.</li>
-                                <li><strong>Pricing:</strong> Corporate rates start at 30 CHF per employee per session, with package discounts available.</li>
-                                <li><strong>Benefits:</strong> Corporate training programs help improve employee energy, morale, and retention while promoting team building.</li>
-                                <li><strong>Free Trial:</strong> We offer a complimentary trial session for HR teams to experience our training approach.</li>
-                            </ul>
-                            <p>Corporate programs can be customized to your company's specific needs, schedule, and fitness goals. Contact us for a detailed proposal for your organization.</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="faq-item" data-category="locations">
-                    <div class="faq-question">
-                        What happens in case of extreme weather?
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-content">
-                            <p>While we train in most weather conditions, safety is our priority:</p>
-                            <ul>
-                                <li><strong>Normal Conditions:</strong> Rain, snow, cold, and heat are all considered normal training conditions, and sessions proceed as scheduled with appropriate modifications.</li>
-                                <li><strong>Extreme Weather:</strong> In cases of severe lightning storms, dangerous winds, or other safety hazards, we may modify or reschedule sessions.</li>
-                                <li><strong>Notification System:</strong> If a session needs to be modified or rescheduled, we'll notify all registered participants at least 2 hours in advance via email and text message.</li>
-                                <li><strong>Credits:</strong> If we need to cancel a session due to extreme conditions, your credit will be automatically returned to your account.</li>
-                            </ul>
-                            <p>Weather-related modifications are rare, as training in challenging conditions is part of what makes TRAINING CLUB unique and effective for building mental resilience.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Contact Prompt -->
             <div class="contact-prompt">
-                <h3>DIDN'T FIND YOUR ANSWER?</h3>
-                <p>We're here to help with any questions you might have about TRAINING CLUB</p>
-                <a href="index.html#contact" class="cta-button">Contact Us</a>
+                <h3>Didn't find what you're looking for?</h3>
+                <p>Contact our team for personalized assistance</p>
+                <a href="#contact" class="cta-button">Contact Us</a>
             </div>
         </div>
     </section>
@@ -615,122 +408,144 @@
     <footer>
         <div class="container">
             <div class="footer-content">
-                <div class="footer-logo">
-                    <img src="assets/images/training_club_logo.png" alt="TRAINING CLUB Logo">
-                    <p>TRAINING CLUB By Ineffable</p>
+                <div class="footer-section">
+                    <h3>TRAINING CLUB</h3>
+                    <p>Elite outdoor training in all weather conditions.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
                 </div>
-                <div class="footer-links">
-                    <h4>Quick Links</h4>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
                     <ul>
-                        <li><a href="index.html#training-model">Our Training</a></li>
-                        <li><a href="index.html#membership">Membership</a></li>
-                        <li><a href="index.html#calendar">Calendar</a></li>
-                        <li><a href="index.html#corporate">Corporate</a></li>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="#our-training">Our Training</a></li>
+                        <li><a href="#membership">Membership</a></li>
                         <li><a href="gallery.html">Gallery</a></li>
                         <li><a href="faq.html">FAQ</a></li>
-                        <li><a href="index.html#contact">Contact</a></li>
+                        <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
-                <div class="footer-legal">
-                    <h4>Legal</h4>
-                    <ul>
-                        <li><a href="#">Terms & Conditions</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Cookie Policy</a></li>
-                    </ul>
+                
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Zurich, Switzerland</p>
+                    <p><i class="fas fa-phone"></i> +41 123 456 789</p>
+                    <p><i class="fas fa-envelope"></i> info@trainingclub.ch</p>
                 </div>
-                <div class="footer-newsletter">
-                    <h4>Stay Updated</h4>
-                    <p>Subscribe to our newsletter for training tips and updates</p>
+                
+                <div class="footer-section">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to our newsletter for training tips and updates.</p>
                     <form class="newsletter-form">
                         <input type="email" placeholder="Your email address">
-                        <button type="submit" class="cta-button">Subscribe</button>
+                        <button type="submit">Subscribe</button>
                     </form>
                 </div>
             </div>
+            
             <div class="footer-bottom">
-                <p>&copy; 2025 TRAINING CLUB By Ineffable. All rights reserved.</p>
+                <p>&copy; 2023 Training Club. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
             </div>
         </div>
     </footer>
 
-    <script src="assets/js/main.js"></script>
+    <!-- JavaScript -->
+    <script src="assets/js/theme-toggle.js"></script>
     <script>
+        // FAQ Functionality
         document.addEventListener('DOMContentLoaded', function() {
-            // FAQ accordion functionality
-            const questions = document.querySelectorAll('.faq-question');
+            // FAQ Category Filtering
+            const categoryButtons = document.querySelectorAll('.faq-category');
+            const faqItems = document.querySelectorAll('.faq-item');
             
-            questions.forEach(question => {
-                question.addEventListener('click', function() {
-                    const answer = this.nextElementSibling;
-                    const isActive = this.classList.contains('active');
+            categoryButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    categoryButtons.forEach(btn => btn.classList.remove('active'));
                     
-                    // Close all other answers
-                    questions.forEach(q => {
-                        q.classList.remove('active');
-                        q.nextElementSibling.classList.remove('active');
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    // Get category to filter
+                    const category = this.getAttribute('data-category');
+                    
+                    // Show/hide FAQ items based on category
+                    faqItems.forEach(item => {
+                        if (category === 'all' || item.getAttribute('data-category') === category) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
                     });
+                });
+            });
+            
+            // FAQ Accordion
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', function() {
+                    // Toggle active class on question
+                    this.classList.toggle('active');
                     
-                    // Toggle current answer
-                    if (!isActive) {
-                        this.classList.add('active');
+                    // Toggle icon
+                    const icon = this.querySelector('i');
+                    if (this.classList.contains('active')) {
+                        icon.classList.remove('fa-plus');
+                        icon.classList.add('fa-minus');
+                    } else {
+                        icon.classList.remove('fa-minus');
+                        icon.classList.add('fa-plus');
+                    }
+                    
+                    // Toggle answer visibility
+                    const answer = this.nextElementSibling;
+                    if (this.classList.contains('active')) {
                         answer.classList.add('active');
+                    } else {
+                        answer.classList.remove('active');
                     }
                 });
             });
             
-            // Category filtering
-            const categories = document.querySelectorAll('.faq-category');
-            const items = document.querySelectorAll('.faq-item');
+            // Search Functionality
+            const searchInput = document.getElementById('faq-search');
             
-            categories.forEach(category => {
-                category.addEventListener('click', function() {
-                    // Update active class
-                    categories.forEach(c => c.classList.remove('active'));
-                    this.classList.add('active');
-                    
-                    const selectedCategory = this.getAttribute('data-category');
-                    
-                    // Filter items
-                    items.forEach(item => {
-                        if (selectedCategory === 'all' || item.getAttribute('data-category') === selectedCategory) {
-                            item.style.display = 'block';
-                        } else {
-                            item.style.display = 'none';
-                        }
-                    });
-                });
-            });
-            
-            // Search functionality
-            const searchBox = document.getElementById('faq-search');
-            
-            searchBox.addEventListener('input', function() {
+            searchInput.addEventListener('input', function() {
                 const searchTerm = this.value.toLowerCase();
                 
-                if (searchTerm.length > 2) {
-                    items.forEach(item => {
-                        const question = item.querySelector('.faq-question').textContent.toLowerCase();
-                        const answer = item.querySelector('.faq-answer-content').textContent.toLowerCase();
-                        
-                        if (question.includes(searchTerm) || answer.includes(searchTerm)) {
-                            item.style.display = 'block';
-                        } else {
-                            item.style.display = 'none';
-                        }
-                    });
+                faqItems.forEach(item => {
+                    const question = item.querySelector('.faq-question h3').textContent.toLowerCase();
+                    const answer = item.querySelector('.faq-answer-content').textContent.toLowerCase();
                     
-                    // Show all categories
-                    categories.forEach(c => c.classList.remove('active'));
-                    categories[0].classList.add('active');
-                }
-                
-                if (searchTerm.length === 0) {
-                    // Reset to show all
-                    items.forEach(item => {
+                    if (question.includes(searchTerm) || answer.includes(searchTerm)) {
                         item.style.display = 'block';
-                    });
-                }
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+                
+                // Reset category buttons
+                categoryButtons.forEach(btn => btn.classList.remove('active'));
+                document.querySelector('[data-category="all"]').classList.add('active');
+            });
+            
+            // Mobile Menu
+            const hamburger = document.querySelector('.hamburger');
+            const navMenu = document.querySelector('.nav-menu');
+            
+            hamburger.addEventListener('click', function() {
+                this.classList.toggle('active');
+                navMenu.classList.toggle('active');
             });
         });
     </script>

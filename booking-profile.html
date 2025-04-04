@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile - Training Club</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/booking/booking.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-container">
+                <div class="logo">
+                    <a href="index.html">TRAINING CLUB</a>
+                </div>
+                
+                <nav>
+                    <ul class="nav-menu">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="#our-training">Our Training</a></li>
+                        <li><a href="#membership">Membership</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="members-area.html" class="nav-cta">Members Area</a></li>
+                    </ul>
+                    
+                    <div class="hamburger">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <section class="page-header">
+        <div class="container">
+            <h1>My Profile</h1>
+            <p>Manage your account and membership</p>
+        </div>
+    </section>
+
+    <section class="profile-section">
+        <div class="container">
+            <div class="booking-container">
+                <div class="profile-container">
+                    <div class="profile-sidebar">
+                        <div class="profile-avatar">
+                            <span>JS</span>
+                        </div>
+                        <div class="profile-name">John Smith</div>
+                        <div class="profile-membership">Elite Membership</div>
+                        
+                        <div class="profile-stats">
+                            <div class="profile-stat">
+                                <div class="profile-stat-value">8/10</div>
+                                <div class="profile-stat-label">Credits</div>
+                            </div>
+                            <div class="profile-stat">
+                                <div class="profile-stat-value">24</div>
+                                <div class="profile-stat-label">Sessions</div>
+                            </div>
+                        </div>
+                        
+                        <ul class="profile-menu">
+                            <li class="profile-menu-item">
+                                <a href="#" class="profile-menu-link active" data-tab="overview">Overview</a>
+                            </li>
+                            <li class="profile-menu-item">
+                                <a href="#" class="profile-menu-link" data-tab="bookings">My Bookings</a>
+                            </li>
+                            <li class="profile-menu-item">
+                                <a href="#" class="profile-menu-link" data-tab="membership">Membership</a>
+                            </li>
+                            <li class="profile-menu-item">
+                                <a href="#" class="profile-menu-link" data-tab="credits">Credits</a>
+                            </li>
+                            <li class="profile-menu-item">
+                                <a href="#" class="profile-menu-link" data-tab="stats">Statistics</a>
+                            </li>
+                            <li class="profile-menu-item">
+                                <a href="#" class="profile-menu-link" data-tab="referrals">Referrals</a>
+                            </li>
+                            <li class="profile-menu-item">
+                                <a href="#" class="profile-menu-link" data-tab="settings">Account Settings</a>
+                            </li>
+                        </ul>
+                        
+                        <button id="logout-button" class="logout-button">
+                            <i class="fas fa-sign-out-alt"></i> Logout
+                        </button>
+                    </div>
+                    
+                    <div class="profile-content">
+                        <!-- Overview Tab -->
+                        <div class="profile-tab active" data-tab="overview">
+                            <h2>Welcome back, <span class="user-name">John</span>!</h2>
+                            
+                            <div class="quick-stats">
+                                <div class="stat-card">
+                                    <div class="stat-icon">
+                                        <i class="fas fa-calendar-check"></i>
+                                    </div>
+                                    <div class="stat-content">
+                                        <div class="stat-value">2</div>
+                                        <div class="stat-label">Upcoming Classes</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="stat-card">
+                                    <div class="stat-icon">
+                                        <i class="fas fa-credit-card"></i>
+                                    </div>
+                                    <div class="stat-content">
+                                        <div class="stat-value">8/10</div>
+                                        <div class="stat-label">Credits Remaining</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="stat-card">
+                                    <div class="stat-icon">
+                                        <i class="fas fa-fire"></i>
+                                    </div>
+                                    <div class="stat-content">
+                                        <div class="stat-value">3</div>
+                                        <div class="stat-label">Current Streak</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="next-class">
+                                <h3>Your Next Class</h3>
+                                <div class="class-card">
+                                    <div class="class-date">
+                                        <div class="date-day">Wed</div>
+                                        <div class="date-number">5</div>
+                                        <div class="date-month">Apr</div>
+                                    </div>
+                                    <div class="class-details">
+                                        <div class="class-name">HIIT Session</div>
+                                        <div class="class-time">18:30 - 19:30</div>
+                                        <div class="class-location">Zurich</div>
+                                    </div>
+                                    <div class="class-actions">
+                                        <button class="class-action">
+                                            <i class="fas fa-calendar-times"></i> Cancel
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="quick-actions">
+                                <h3>Quick Actions</h3>
+                                <div class="action-buttons">
+                                    <a href="booking-classes.html" class="action-button">
+                                        <i class="fas fa-calendar-plus"></i>
+                                        <span>Book a Class</span>
+                                    </a>
+                                    <a href="#" class="action-button" data-tab="credits">
+                                        <i class="fas fa-coins"></i>
+                                        <span>View Credits</span>
+                                    </a>
+                                    <a href="#" class="action-button" data-tab="referrals">
+                                        <i class="fas fa-user-plus"></i>
+                                        <span>Refer a Friend</span>
+                                    </a>
+                                    <a href="#" class="action-button" data-tab="membership">
+                                        <i class="fas fa-id-card"></i>
+                                        <span>Manage Membership</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Bookings Tab -->
+                        <div class="profile-tab" data-tab="bookings">
+                            <h2>My Bookings</h2>
+                            
+                            <div class="booking-history">
+                                <div class="booking-history-header">
+                                    <div class="booking-history-title">Upcoming Bookings</div>
+                                    <div class="booking-history-filter">
+                                        <button class="active">All</button>
+                                        <button>Upcoming</button>
+                                        <button>Past</button>
+                                        <button>Cancelled</button>
+                                    </div>
+                                </div>
+                                
+                                <div class="booking-list">
+                                    <div class="booking-item">
+                                        <div class="booking-date">Wed, Apr 5</div>
+                                        <div class="booking-class">HIIT Session</div>
+                                        <div class="booking-location">Zurich</div>
+                                        <div class="booking-status confirmed">Confirmed</div>
+                                        <div class="booking-actions">
+                                            <button class="booking-action">
+                                                <i class="fas fa-calendar-times"></i> Cancel
+                                            </button>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="booking-item">
+                                        <div class="booking-date">Sun, Apr 9</div>
+                                        <div class="booking-class">Strength Training</div>
+                                        <div class="booking-location">Zurich</div>
+                                        <div class="booking-status confirmed">Confirmed</div>
+                                        <div class="booking-actions">
+                                            <button class="booking-action">
+                                                <i class="fas fa-calendar-times"></i> Cancel
+                                            </button>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="booking-item">
+                                        <div class="booking-date">Wed, Apr 2</div>
+                                        <div class="booking-class">Morning Bootcamp</div>
+                                        <div class="booking-location">Zurich</div>
+                                        <div class="booking-status completed">Completed</div>
+                                        <div class="booking-actions">
+                                            <button class="booking-action">
+                                                <i class="fas fa-redo"></i> Book Again
+                                            </button>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="booking-item">
+                                        <div class="booking-date">Mon, Mar 30</div>
+                                        <div class="booking-class">Elite Performance</div>
+                                        <div class="booking-location">Geneva</div>
+                                        <div class="booking-status cancelled">Cancelled</div>
+                                        <div class="booking-actions">
+                                            <button class="booking-action">
+                                                <i class="fas fa-redo"></i> Book Again
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="booking-actions-footer">
+                                <a href="booking-classes.html" class="cta-button">Book a New Class</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Membership Tab -->
+                        <div class="profile-tab" data-tab="membership">
+                            <h2>My Membership</h2>
+                            
+                            <div class="membership-details">
+                                <div class="membership-card">
+                                    <div class="membership-header">
+                                        <div class="membership-type">Elite Membership</div>
+                                        <div class="membership-status active">Active</div>
+                                    </div>
+                                    
+                                    <div class="membership-info">
+                                        <div class="info-item">
+                                            <div class="info-label">Plan</div>
+                                            <div class="info-value">Monthly Unlimited</div>
+                                        </div>
+                                        <div class="info-item">
+                                            <div class="info-label">Billing Cycle</div>
+                                            <div class="info-value">Monthly (CHF 299)</div>
+                                        </div>
+                                        <div class="info-item">
+                                            <div class="info-label">Next Billing Date</div>
+                                            <div class="info-value">April 15, 2025</div>
+                                        </div>
+                                        <div class="info-item">
+                                            <div class="info-label">Member Since</div>
+                                            <div class="info-value">January 10, 2025</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="holiday-pause">
+                                <h3>Holiday Pause</h3>
+                                <p>You can pause your membership when you're away. You have 28 days of holiday pause available per year.</p>
+                                
+                                <div class="pause-status">
+                                    <div class="status-item">
+                                        <div class="status-label">Available Pause Days</div>
+                                        <div class="status-value">28</div>
+                                    </div>
+                                    <div class="status-item">
+                                        <div class="status-label">Used Pause Days</div>
+                                        <div class="status-value">0</div>
+                                    </div>
+                                </div>
+                                
+                                <button class="cta-button">Request Holiday Pause</button>
+                            </div>
+                            
+                            <div class="membership-actions">
+                                <h3>Membership Actions</h3>
+                                <div class="action-buttons">
+                                    <button class="action-button secondary">
+                                        <i class="fas fa-exchange-alt"></i>
+                                        <span>Change Plan</span>
+                                    </button>
+                                    <button class="action-button secondary">
+                                        <i class="fas fa-credit-card"></i>
+                                        <span>Update Payment Method</span>
+                                    </button>
+                                    <button class="action-button danger">
+                                        <i class="fas fa-times-circle"></i>
+                                        <span>Cancel Membership</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Credits Tab -->
+                        <div class="profile-tab" data-tab="credits">
+                            <h2>My Credits</h2>
+                            
+                            <div class="credits-summary">
+                                <div class="credit-progress">
+                                    <div class="progress-bar">
+                                        <div class="progress" style="width: 80%;"></div>
+                                    </div>
+                                    <div class="progress-text">8/10 Credits Remaining</div>
+                                </div>
+                                
+                                <div class="credit-expiry">
+                                    <i class="fas fa-clock"></i>
+                                    <span>Credits expire on June 15, 2025</span>
+                                </div>
+                            </div>
+                            
+                            <div class="credit-history">
+                                <h3>Credit History</h3>
+                                
+                                <div class="credit-transactions">
+                                    <div class="transaction">
+                                        <div class="transaction-date">Apr 2, 2025</div>
+                                        <div class="transaction-description">Class Booking: Morning Bootcamp</div>
+                                        <div class="transaction-amount debit">-1</div>
+                                        <div class="transaction-balance">8</div>
+                                    </div>
+                                    
+                                    <div class="transaction">
+                                        <div class="transaction-date">Mar 30, 2025</div>
+                                        <div class="transaction-description">Class Cancellation: Elite Performance</div>
+                                        <div class="transaction-amount credit">+1</div>
+                                        <div class="transaction-balance">9</div>
+                                    </div>
+                                    
+                                    <div class="transaction">
+                                        <div class="transaction-date">Mar 28, 2025</div>
+                                        <div class="transaction-description">Class Booking: Elite Performance</div>
+                                        <div class="transaction-amount debit">-1</div>
+                                        <div class="transaction-balance">8</div>
+                                    </div>
+                                    
+                                    <div class="transaction">
+                                        <div class="transaction-date">Mar 25, 2025</div>
+                                        <div class="transaction-description">Class Booking: HIIT Session</div>
+                                        <div class="transaction-amount debit">-1</div>
+                                        <div class="transaction-balance">9</div>
+                                    </div>
+                                    
+                                    <div class="transaction">
+                                        <div class="transaction-date">Mar 15, 2025</div>
+                                        <div class="transaction-description">Package Purchase: 10 Sessions</div>
+                                        <div class="transaction-amount credit">+10</div>
+                                        <div class="transaction-balance">10</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="credit-actions">
+                                <a href="booking-memberships.html" class="cta-button">Purchase More Credits</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Statistics Tab -->
+                        <div class="profile-tab" data-tab="stats">
+                            <h2>My Statistics</h2>
+                            
+                            <div class="stats-summary">
+                                <div class="stat-card">
+                                    <div class="stat-icon">
+                                        <i class="fas fa-calendar-check"></i>
+                                    </div>
+                                    <div class="stat-content">
+                                        <div class="stat-value">24</div>
+                                        <div class="stat-label">Total Sessions</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="stat-card">
+                                    <div class="stat-icon">
+                                        <i class="fas fa-fire"></i>
+                                    </div>
+                                    <div class="stat-content">
+                                        <div class="stat-value">3</div>
+                                        <div class="stat-label">Current Streak</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="stat-card">
+                                    <div class="stat-icon">
+                                        <i class="fas fa-bolt"></i>
+                                    </div>
+                                    <div class="stat-content">
+                                        <div class="stat-value">8</div>
+                                        <div class="stat-label">Best Streak</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="stat-card">
+                                    <div class="stat-icon">
+                                        <i class="fas fa-clock"></i>
+                                    </div>
+                                    <div class="stat-content">
+                                        <div class="stat-value">24h</div>
+                                        <div class="stat-label">Total Training Time</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="stats-charts">
+                                <div class="chart-container">
+                                    <h3>Monthly Activity</h3>
+                                    <div class="chart-placeholder">
+                                        <div class="chart-bars">
+                                            <div class="chart-bar" style="height: 30%;">
+                                                <div class="bar-value">3</div>
+                                            </div>
+                                            <div class="chart-bar" style="height: 50%;">
+                                                <div class="bar-value">5</div>
+                                            </div>
+                                            <div class="chart-bar" style="height: 80%;">
+                                                <div class="bar-value">8</div>
+                                            </div>
+                                            <div class="chart-bar active" style="height: 60%;">
+                                                <div class="bar-value">6</div>
+                                            </div>
+                                        </div>
+                                        <div class="chart-labels">
+                                            <div class="chart-label">Jan</div>
+                                            <div class="chart-label">Feb</div>
+                                            <div class="chart-label">Mar</div>
+                                            <div class="chart-label">Apr</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="chart-container">
+                                    <h3>Class Breakdown</h3>
+                                    <div class="chart-placeholder">
+                                        <div class="pie-chart">
+                                            <div class="pie-segment" style="--percentage: 40%; --color: #4f46e5;"></div>
+                                            <div class="pie-segment" style="--percentage: 30%; --color: #10b981; --offset: 40%;"></div>
+                                            <div class="pie-segment" style="--percentage: 20%; --color: #f59e0b; --offset: 70%;"></div>
+                                            <div class="pie-segment" style="--percentage: 10%; --color: #ef4444; --offset: 90%;"></div>
+                                        </div>
+                                        <div class="pie-legend">
+                                            <div class="legend-item">
+                                                <div class="legend-color" style="background-color: #4f46e5;"></div>
+                                                <div class="legend-label">HIIT (40%)</div>
+                                            </div>
+                                            <div class="legend-item">
+                                                <div class="legend-color" style="background-color: #10b981;"></div>
+                                                <div class="legend-label">Strength (30%)</div>
+                                            </div>
+                                            <div class="legend-item">
+                                                <div class="legend-color" style="background-color: #f59e0b;"></div>
+                                                <div class="legend-label">Bootcamp (20%)</div>
+                                            </div>
+                                            <div class="legend-item">
+                                                <div class="legend-color" style="background-color: #ef4444;"></div>
+                                                <div class="legend-label">Elite (10%)</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="stats-leaderboard">
+                                <h3>Member Leaderboard</h3>
+                                <p>See how you compare to other members this month. Opt in to appear on the leaderboard.</p>
+                                
+                                <div class="leaderboard-toggle">
+                                    <label class="toggle">
+                                        <input type="checkbox" checked>
+                                        <span class="toggle-slider"></span>
+                                    </label>
+                                    <span>Show me on the leaderboard</span>
+                                </div>
+                                
+                                <div class="leaderboard-list">
+                                    <div class="leaderboard-item">
+                                        <div class="leaderboard-rank">1</div>
+                                        <div class="leaderboard-name">Sarah J.</div>
+                                        <div class="leaderboard-value">12 sessions</div>
+                                    </div>
+                                    <div class="leaderboard-item">
+                                        <div class="leaderboard-rank">2</div>
+                                        <div class="leaderboard-name">Michael T.</div>
+                                        <div class="leaderboard-value">10 sessions</div>
+                                    </div>
+                                    <div class="leaderboard-item">
+                                        <div class="leaderboard-rank">3</div>
+                                        <div class="leaderboard-name">Emma R.</div>
+                                        <div class="leaderboard-value">9 sessions</div>
+                                    </div>
+                                    <div class="leaderboard-item highlighted">
+                                        <div class="leaderboard-rank">4</div>
+                                        <div class="leaderboard-name">John S. (You)</div>
+                                        <div class="leaderboard-value">6 sessions</div>
+                                    </div>
+                                    <div class="leaderboard-item">
+                                        <div class="leaderboard-rank">5</div>
+                                        <div class="leaderboard-name">David L.</div>
+                                        <div class="leaderboard-value">5 sessions</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Referrals Tab -->
+                        <div class="profile-tab" data-tab="referrals">
+                            <h2>Refer a Friend</h2>
+                            
+                            <div class="referral-program">
+                                <div class="referral-info">
+                                    <p>Share your unique referral code with friends and family. When they join Training Club, you'll both receive 2 free training credits!</p>
+                                </div>
+                                
+                                <div class="referral-code">
+                                    <div class="code-label">Your Referral Code</div>
+                                    <div class="code-value">JOHN2025</div>
+                                    <button class="copy-button">
+                                        <i class="fas fa-copy"></i> Copy
+                                    </button>
+                                </div>
+                                
+                                <div class="referral-share">
+                                    <div class="share-label">Share via</div>
+                                    <div class="share-buttons">
+                                        <button class="share-button">
+                                            <i class="fas fa-envelope"></i> Email
+                                        </button>
+                                        <button class="share-button">
+                                            <i class="fab fa-whatsapp"></i> WhatsApp
+                                        </button>
+                                        <button class="share-button">
+                                            <i class="fas fa-link"></i> Copy Link
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="referral-stats">
+                                <div class="stat-card">
+                                    <div class="stat-icon">
+                                        <i class="fas fa-user-plus"></i>
+                                    </div>
+                                    <div class="stat-content">
+                                        <div class="stat-value">3</div>
+                                        <div class="stat-label">Friends Referred</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="stat-card">
+                                    <div class="stat-icon">
+                                        <i class="fas fa-gift"></i>
+                                    </div>
+                                    <div class="stat-content">
+                                        <div class="stat-value">6</div>
+                                        <div class="stat-label">Credits Earned</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="referral-history">
+                                <h3>Referral History</h3>
+                                
+                                <div class="referral-list">
+                                    <div class="referral-item">
+                                        <div class="referral-name">Emma Wilson</div>
+                                        <div class="referral-date">Mar 15, 2025</div>
+                                        <div class="referral-status">Joined</div>
+                                        <div class="referral-reward">+2 credits</div>
+                                    </div>
+                                    
+                                    <div class="referral-item">
+                                        <div class="referral-name">David Chen</div>
+                                        <div class="referral-date">Feb 28, 2025</div>
+                                        <div class="referral-status">Joined</div>
+                                        <div class="referral-reward">+2 credits</div>
+                                    </div>
+                                    
+                                    <div class="referral-item">
+                                        <div class="referral-name">Sarah Johnson</div>
+                                        <div class="referral-date">Feb 10, 2025</div>
+                                        <div class="referral-status">Joined</div>
+                                        <div class="referral-reward">+2 credits</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Settings Tab -->
+                        <div class="profile-tab" data-tab="settings">
+                            <h2>Account Settings</h2>
+                            
+                            <div class="settings-form">
+                                <form id="profile-settings-form">
+                                    <div class="form-section">
+                                        <h3>Personal Information</h3>
+                                        
+                                        <div class="form-group">
+                                            <label for="settings-name">Full Name</label>
+                                            <input type="text" id="settings-name" name="name" value="John Smith">
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label for="settings-email">Email</label>
+                                            <input type="email" id="settings-email" name="email" value="john@example.com">
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label for="settings-phone">Phone Number</label>
+                                            <input type="tel" id="settings-phone" name="phone" value="+41 XX XXX XX XX">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-section">
+                                        <h3>Change Password</h3>
+                                        
+                                        <div class="form-group">
+                                            <label for="settings-current-password">Current Password</label>
+                                            <input type="password" id="settings-current-password" name="current-password">
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label for="settings-new-password">New Password</label>
+                                            <input type="password" id="settings-new-password" name="new-password">
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label for="settings-confirm-password">Confirm New Password</label>
+                                            <input type="password" id="settings-confirm-password" name="confirm-password">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-section">
+                                        <h3>Notification Preferences</h3>
+                                        
+                                        <div class="form-group checkbox">
+                                            <input type="checkbox" id="settings-email-notifications" name="email-notifications" checked>
+                                            <label for="settings-email-notifications">Email Notifications</label>
+                                        </div>
+                                        
+                                        <div class="form-group checkbox">
+                                            <input type="checkbox" id="settings-sms-notifications" name="sms-notifications" checked>
+                                            <label for="settings-sms-notifications">SMS Notifications</label>
+                                        </div>
+                                        
+                                        <div class="form-group checkbox">
+                                            <input type="checkbox" id="settings-marketing-emails" name="marketing-emails">
+                                            <label for="settings-marketing-emails">Marketing Emails</label>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-actions">
+                                        <button type="submit" class="form-submit">Save Changes</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-column">
+                    <h3>TRAINING CLUB</h3>
+                    <p>Switzerland's premier mobile outdoor fitness experience, delivering elite training in all weather conditions.</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>QUICK LINKS</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="#our-training">Our Training</a></li>
+                        <li><a href="#membership">Membership</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>MEMBERS</h3>
+                    <ul>
+                        <li><a href="members-area.html">Member Login</a></li>
+                        <li><a href="booking-classes.html">Training Schedule</a></li>
+                        <li><a href="booking-memberships.html">Membership Options</a></li>
+                        <li><a href="booking-profile.html">My Profile</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>FOLLOW US</h3>
+                    <div class="social-media">
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Training Club. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/booking/booking.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Tab switching functionality
+            const tabLinks = document.querySelectorAll('.profile-menu-link');
+            const tabContents = document.querySelectorAll('.profile-tab');
+            
+            tabLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const tabId = this.getAttribute('data-tab');
+                    
+                    // Update active tab link
+                    tabLinks.forEach(link => link.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Show active tab content
+                    tabContents.forEach(tab => {
+                        if (tab.getAttribute('data-tab') === tabId) {
+                            tab.classList.add('active');
+                        } else {
+                            tab.classList.remove('active');
+                        }
+                    });
+                });
+            });
+            
+            // Quick action buttons
+            const actionButtons = document.querySelectorAll('.action-button[data-tab]');
+            actionButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const tabId = this.getAttribute('data-tab');
+                    
+                    // Find and click the corresponding tab link
+                    const tabLink = document.querySelector(`.profile-menu-link[data-tab="${tabId}"]`);
+                    if (tabLink) {
+                        tabLink.click();
+                    }
+                });
+            });
+            
+            // Copy referral code functionality
+            const copyButton = document.querySelector('.copy-button');
+            if (copyButton) {
+                copyButton.addEventListener('click', function() {
+                    const codeValue = document.querySelector('.code-value').textContent;
+                    
+                    // Create a temporary input element
+                    const tempInput = document.createElement('input');
+                    tempInput.value = codeValue;
+                    document.body.appendChild(tempInput);
+                    
+                    // Select and copy the text
+                    tempInput.select();
+                    document.execCommand('copy');
+                    
+                    // Remove the temporary element
+                    document.body.removeChild(tempInput);
+                    
+                    // Update button text temporarily
+                    const originalText = this.innerHTML;
+                    this.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                    
+                    // Reset button text after a delay
+                    setTimeout(() => {
+                        this.innerHTML = originalText;
+                    }, 2000);
+                });
+            }
+            
+            // Settings form submission
+            const settingsForm = document.getElementById('profile-settings-form');
+            if (settingsForm) {
+                settingsForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Simulate saving settings
+                    alert('Settings saved successfully!');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
