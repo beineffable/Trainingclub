@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="assets/css/splash-screen-pastel.css">
     <link rel="stylesheet" href="assets/css/theme-toggle.css">
     <link rel="stylesheet" href="assets/css/splash-theme-toggle.css">
+    <link rel="stylesheet" href="assets/css/theme-toggle-compatibility.css">
     <link rel="stylesheet" href="assets/css/dark-mode.css">
     <link rel="stylesheet" href="assets/css/black-orange-dark-mode.css">
     <link rel="stylesheet" href="assets/css/dark-mode-readability.css">
@@ -41,6 +42,8 @@
     <script src="assets/js/splash-screen.js"></script>
     <!-- Theme Toggle JavaScript -->
     <script src="assets/js/theme-toggle.js"></script>
+    <!-- Splash Theme Integration JavaScript -->
+    <script src="assets/js/splash-theme-integration.js"></script>
 </head>
 <body>
     <!-- Splash Screen -->
@@ -70,7 +73,7 @@
         
         <!-- Theme toggle in splash screen -->
         <div class="splash-theme-toggle">
-            <div class="theme-toggle" aria-label="Toggle dark mode">
+            <div class="theme-toggle" aria-label="Toggle dark mode" role="button" tabindex="0">
                 <i class="fas fa-sun"></i>
                 <i class="fas fa-moon"></i>
             </div>

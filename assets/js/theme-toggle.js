@@ -1,13 +1,10 @@
-// Theme Toggle JavaScript
+// Enhanced Theme Toggle JavaScript
 document.addEventListener('DOMContentLoaded', function() {
     // Check for saved user preference
     checkUserThemePreference();
     
-    // Initialize theme toggle functionality
+    // Initialize theme toggle functionality for both splash screen and main site
     initThemeToggle();
-    
-    // Create rain elements for dark mode
-    createRainElements();
 });
 
 // Check if user has a saved theme preference
@@ -40,6 +37,16 @@ function initThemeToggle() {
                 toggleTheme();
             }
         });
+        
+        // Add tabindex for keyboard navigation if not already present
+        if (!themeToggle.hasAttribute('tabindex')) {
+            themeToggle.setAttribute('tabindex', '0');
+        }
+        
+        // Add role for accessibility
+        if (!themeToggle.hasAttribute('role')) {
+            themeToggle.setAttribute('role', 'button');
+        }
     });
 }
 
@@ -53,93 +60,27 @@ function toggleTheme() {
     // Save user preference
     localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
     
-    // Handle animation changes
-    handleAnimationChanges(isDarkMode);
+    // Announce theme change for screen readers
+    announceThemeChange(isDarkMode);
 }
 
 // Update the theme toggle icon based on current mode
 function updateThemeIcon(isDarkMode) {
-    // Update all theme toggle icons
-    const icons = document.querySelectorAll('.theme-toggle i');
-    
-    icons.forEach(icon => {
-        if (isDarkMode) {
-            // Change to moon icon for dark mode
-            if (icon.classList.contains('fa-sun')) {
-                icon.classList.remove('fa-sun');
-                icon.classList.add('fa-moon');
-            }
-        } else {
-            // Change to sun icon for light mode
-            if (icon.classList.contains('fa-moon')) {
-                icon.classList.remove('fa-moon');
-                icon.classList.add('fa-sun');
-            }
-        }
-    });
+    // No need to manually change icons - CSS handles display based on dark-mode class
+    // This simplifies the JavaScript and makes it more maintainable
 }
 
-// Handle animation changes when switching modes
-function handleAnimationChanges(isDarkMode) {
-    const splashScreen = document.getElementById('splash-screen');
+// Announce theme change for screen readers
+function announceThemeChange(isDarkMode) {
+    // Create an announcement for screen readers
+    const announcement = document.createElement('div');
+    announcement.setAttribute('aria-live', 'polite');
+    announcement.classList.add('sr-only');
+    announcement.textContent = isDarkMode ? 'Dark mode enabled' : 'Light mode enabled';
     
-    // Only apply if splash screen is visible
-    if (splashScreen && getComputedStyle(splashScreen).display !== 'none') {
-        if (isDarkMode) {
-            // Activate lightning for dark mode
-            activateLightning();
-        }
-    }
-}
-
-// Create rain elements for dark mode
-function createRainElements() {
-    const splashScreen = document.getElementById('splash-screen');
-    
-    if (splashScreen) {
-        // Create rain container
-        const rainContainer = document.createElement('div');
-        rainContainer.className = 'rain-container';
-        
-        // Create raindrops
-        for (let i = 1; i <= 20; i++) {
-            const raindrop = document.createElement('div');
-            raindrop.className = 'raindrop';
-            rainContainer.appendChild(raindrop);
-        }
-        
-        // Create lightning element
-        const lightning = document.createElement('div');
-        lightning.className = 'lightning';
-        lightning.id = 'lightning';
-        
-        // Add rain and lightning to splash screen
-        splashScreen.appendChild(rainContainer);
-        splashScreen.appendChild(lightning);
-    }
-}
-
-// Activate lightning effect randomly
-function activateLightning() {
-    const lightning = document.getElementById('lightning');
-    
-    if (lightning) {
-        // Random lightning flashes
-        const flashLightning = () => {
-            lightning.style.animation = 'lightning-flash 5s';
-            
-            // Reset animation after it completes
-            setTimeout(() => {
-                lightning.style.animation = 'none';
-                
-                // Schedule next lightning after random delay
-                if (document.body.classList.contains('dark-mode')) {
-                    setTimeout(flashLightning, Math.random() * 5000 + 2000);
-                }
-            }, 5000);
-        };
-        
-        // Start lightning effect
-        flashLightning();
-    }
+    // Add to document, then remove after announcement is made
+    document.body.appendChild(announcement);
+    setTimeout(() => {
+        document.body.removeChild(announcement);
+    }, 1000);
 }

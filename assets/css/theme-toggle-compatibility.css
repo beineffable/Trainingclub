@@ -1,0 +1,75 @@
+/* Additional CSS for cross-browser compatibility */
+/* Ensure theme toggle works consistently across browsers */
+
+/* Safari-specific fixes */
+.safari-browser .splash-theme-toggle .theme-toggle {
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Firefox-specific fixes */
+@-moz-document url-prefix() {
+  .splash-theme-toggle .theme-toggle {
+    transition: transform 0.3s ease;
+  }
+}
+
+/* Edge/IE-specific fixes */
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .splash-theme-toggle .theme-toggle {
+    background-color: rgba(255, 255, 255, 0.4);
+  }
+}
+
+/* Mobile device optimizations */
+@media (max-width: 480px) {
+  .splash-theme-toggle {
+    top: 15px;
+    right: 15px;
+  }
+  
+  .splash-theme-toggle .theme-toggle {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .splash-theme-toggle .theme-toggle i {
+    font-size: 18px;
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) {
+  .splash-theme-toggle .theme-toggle {
+    background-color: rgba(255, 255, 255, 0.4);
+  }
+  
+  .splash-theme-toggle::after {
+    display: none;
+  }
+}
+
+/* High contrast mode support */
+@media (forced-colors: active) {
+  .splash-theme-toggle .theme-toggle {
+    border: 2px solid ButtonText;
+    background-color: ButtonFace;
+  }
+  
+  .splash-theme-toggle .theme-toggle i {
+    color: ButtonText;
+  }
+}
+
+/* Screen reader only class */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
