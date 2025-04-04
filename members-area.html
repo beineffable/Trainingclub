@@ -3,458 +3,330 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Membership Area | Ineffable Training Club</title>
-    <meta name="description" content="Access your exclusive membership benefits, book sessions, and track your progress.">
+    <title>Members Area - Training Club</title>
     <link rel="stylesheet" href="assets/css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="icon" href="assets/images/training_club_icon.png" type="image/png">
-    <style>
-        /* Additional styles specific to members area */
-        .dashboard-container {
-            display: grid;
-            grid-template-columns: 1fr 3fr;
-            gap: 30px;
-            margin-top: 100px;
-            min-height: calc(100vh - 100px);
-        }
-        
-        .sidebar {
-            background-color: var(--gray-light);
-            padding: 30px;
-            border-radius: 8px;
-        }
-        
-        .sidebar-menu {
-            list-style: none;
-        }
-        
-        .sidebar-menu li {
-            margin-bottom: 15px;
-        }
-        
-        .sidebar-menu a {
-            display: flex;
-            align-items: center;
-            padding: 10px 15px;
-            border-radius: 4px;
-            transition: all 0.3s ease;
-        }
-        
-        .sidebar-menu a:hover, .sidebar-menu a.active {
-            background-color: var(--primary-black);
-            color: var(--primary-white);
-        }
-        
-        .sidebar-menu i {
-            margin-right: 10px;
-            width: 20px;
-            text-align: center;
-        }
-        
-        .main-content {
-            padding: 30px;
-            background-color: var(--primary-white);
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-        }
-        
-        .dashboard-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 30px;
-        }
-        
-        .user-welcome h2 {
-            margin-bottom: 5px;
-        }
-        
-        .credit-status {
-            background-color: var(--gray-light);
-            padding: 15px 20px;
-            border-radius: 8px;
-            text-align: center;
-        }
-        
-        .credit-count {
-            font-size: 2rem;
-            font-weight: 900;
-            color: var(--accent-orange);
-            margin-bottom: 5px;
-        }
-        
-        .upcoming-sessions {
-            margin-top: 40px;
-        }
-        
-        .session-card {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px;
-            background-color: var(--gray-light);
-            border-radius: 8px;
-            margin-bottom: 15px;
-            transition: all 0.3s ease;
-        }
-        
-        .session-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-        
-        .session-info h4 {
-            margin-bottom: 5px;
-        }
-        
-        .session-date {
-            color: var(--gray-dark);
-            font-size: 0.9rem;
-        }
-        
-        .session-location {
-            display: flex;
-            align-items: center;
-            font-size: 0.9rem;
-            margin-top: 5px;
-        }
-        
-        .session-location i {
-            margin-right: 5px;
-            color: var(--accent-orange);
-        }
-        
-        .session-actions button {
-            background-color: var(--primary-black);
-            color: var(--primary-white);
-            border: none;
-            padding: 8px 15px;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .session-actions button:hover {
-            background-color: var(--accent-orange);
-        }
-        
-        .achievements {
-            margin-top: 40px;
-        }
-        
-        .badges-container {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 15px;
-            margin-top: 20px;
-        }
-        
-        .badge {
-            text-align: center;
-            padding: 15px;
-            border-radius: 8px;
-            background-color: var(--gray-light);
-        }
-        
-        .badge-icon {
-            font-size: 2rem;
-            color: var(--accent-orange);
-            margin-bottom: 10px;
-        }
-        
-        .badge.locked {
-            opacity: 0.5;
-        }
-        
-        .badge.locked .badge-icon {
-            color: var(--gray-dark);
-        }
-        
-        .calendar-container {
-            margin-top: 40px;
-        }
-        
-        .calendar-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-        
-        .calendar-nav button {
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--primary-black);
-        }
-        
-        .calendar-grid {
-            display: grid;
-            grid-template-columns: repeat(7, 1fr);
-            gap: 10px;
-        }
-        
-        .calendar-day {
-            aspect-ratio: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            background-color: var(--gray-light);
-            border-radius: 8px;
-            padding: 10px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .calendar-day:hover {
-            background-color: var(--gray-medium);
-        }
-        
-        .calendar-day.has-session {
-            background-color: rgba(255, 87, 34, 0.1);
-            border: 1px solid var(--accent-orange);
-        }
-        
-        .day-number {
-            font-weight: 700;
-            font-size: 1.2rem;
-        }
-        
-        .day-sessions {
-            font-size: 0.8rem;
-            margin-top: 5px;
-        }
-        
-        @media (max-width: 992px) {
-            .dashboard-container {
-                grid-template-columns: 1fr;
-            }
-            
-            .badges-container {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="assets/css/booking/booking.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
     <!-- Header -->
     <header>
-        <div class="container header-container">
-            <div class="logo">
-                <a href="index.html"><img src="assets/images/training_club_logo.png" alt="TRAINING CLUB Logo"></a>
-                <span class="logo-text"><a href="index.html" style="text-decoration: none; color: inherit;">TRAINING CLUB</a></span>
+        <div class="container">
+            <div class="header-container">
+                <div class="logo">
+                    <a href="index.html">TRAINING CLUB</a>
+                </div>
+                
+                <nav>
+                    <ul class="nav-menu">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="#our-training">Our Training</a></li>
+                        <li><a href="#membership">Membership</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="members-area.html" class="nav-cta active">Members Area</a></li>
+                    </ul>
+                    
+                    <div class="hamburger">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </div>
+                </nav>
             </div>
-            <nav>
-                <ul class="nav-menu">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="index.html#training-model">Our Training</a></li>
-                    <li><a href="index.html#membership">Membership</a></li>
-                    <li><a href="index.html#calendar">Calendar</a></li>
-                    <li><a href="gallery.html">Gallery</a></li>
-                    <li><a href="faq.html">FAQ</a></li>
-                    <li><a href="index.html#corporate">Corporate</a></li>
-                    <li><a href="index.html#contact">Contact</a></li>
-                    <li><a href="#" class="cta-button">Logout</a></li>
-                </ul>
-            </nav>
         </div>
     </header>
 
-    <!-- Dashboard Container -->
-    <div class="container dashboard-container">
-        <!-- Sidebar -->
-        <div class="sidebar">
-            <h3>MEMBER DASHBOARD</h3>
-            <ul class="sidebar-menu">
-                <li><a href="#" class="active"><i class="fas fa-home"></i> Dashboard</a></li>
-                <li><a href="#"><i class="fas fa-calendar-alt"></i> Book Sessions</a></li>
-                <li><a href="#"><i class="fas fa-credit-card"></i> Manage Credits</a></li>
-                <li><a href="#"><i class="fas fa-user-friends"></i> Referrals</a></li>
-                <li><a href="#"><i class="fas fa-trophy"></i> Progress</a></li>
-                <li><a href="#"><i class="fas fa-video"></i> Content Library</a></li>
-                <li><a href="#"><i class="fas fa-cog"></i> Account Settings</a></li>
-            </ul>
+    <!-- Main Content -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Members Area</h1>
+            <p>Access your account and manage your training</p>
         </div>
+    </section>
 
-        <!-- Main Content -->
-        <div class="main-content">
-            <div class="dashboard-header">
-                <div class="user-welcome">
-                    <h2>Welcome back, Thomas</h2>
-                    <p>Your next session is tomorrow at 18:30 in Knonau</p>
-                </div>
-                <div class="credit-status">
-                    <div class="credit-count">8</div>
-                    <p>Credits Remaining</p>
-                    <small>Valid until: 30.09.2025</small>
-                </div>
-            </div>
-
-            <!-- Upcoming Sessions -->
-            <div class="upcoming-sessions">
-                <h3>YOUR UPCOMING SESSIONS</h3>
-                <div class="session-card">
-                    <div class="session-info">
-                        <h4>Strength & Athletic Base</h4>
-                        <div class="session-date">Thursday, April 3, 2025 • 18:30 - 20:00</div>
-                        <div class="session-location"><i class="fas fa-map-marker-alt"></i> Knonau</div>
-                    </div>
-                    <div class="session-actions">
-                        <button>Cancel Booking</button>
+    <section class="members-section">
+        <div class="container">
+            <div class="members-container">
+                <!-- Member Login/Welcome Section -->
+                <div class="member-welcome" id="member-welcome-logged-out">
+                    <h2>Welcome to the Training Club Members Area</h2>
+                    <p>Please log in to access your account, book classes, and manage your membership.</p>
+                    
+                    <div class="member-actions">
+                        <a href="booking-login.html" class="cta-button login-button">Log In</a>
+                        <a href="booking-register.html" class="secondary-button">Register</a>
                     </div>
                 </div>
-                <div class="session-card">
-                    <div class="session-info">
-                        <h4>Strength & Athletic Base</h4>
-                        <div class="session-date">Monday, April 7, 2025 • 18:30 - 20:00</div>
-                        <div class="session-location"><i class="fas fa-map-marker-alt"></i> Knonau</div>
-                    </div>
-                    <div class="session-actions">
-                        <button>Cancel Booking</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Achievements -->
-            <div class="achievements">
-                <h3>YOUR ACHIEVEMENTS</h3>
-                <div class="badges-container">
-                    <div class="badge">
-                        <div class="badge-icon"><i class="fas fa-fire"></i></div>
-                        <h4>First Burner</h4>
-                        <p>Completed your first burner challenge</p>
-                    </div>
-                    <div class="badge">
-                        <div class="badge-icon"><i class="fas fa-calendar-check"></i></div>
-                        <h4>Consistent</h4>
-                        <p>Attended 10 consecutive sessions</p>
-                    </div>
-                    <div class="badge">
-                        <div class="badge-icon"><i class="fas fa-snowflake"></i></div>
-                        <h4>Winter Warrior</h4>
-                        <p>Trained in sub-zero temperatures</p>
-                    </div>
-                    <div class="badge locked">
-                        <div class="badge-icon"><i class="fas fa-dumbbell"></i></div>
-                        <h4>Strength Master</h4>
-                        <p>Improved strength by 50%</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Booking Calendar -->
-            <div class="calendar-container">
-                <div class="calendar-header">
-                    <h3>APRIL 2025</h3>
-                    <div class="calendar-nav">
-                        <button><i class="fas fa-chevron-left"></i></button>
-                        <button><i class="fas fa-chevron-right"></i></button>
-                    </div>
-                </div>
-                <div class="calendar-grid">
-                    <!-- Week days -->
-                    <div class="calendar-day">
-                        <div class="day-name">Mon</div>
-                    </div>
-                    <div class="calendar-day">
-                        <div class="day-name">Tue</div>
-                    </div>
-                    <div class="calendar-day">
-                        <div class="day-name">Wed</div>
-                    </div>
-                    <div class="calendar-day">
-                        <div class="day-name">Thu</div>
-                    </div>
-                    <div class="calendar-day">
-                        <div class="day-name">Fri</div>
-                    </div>
-                    <div class="calendar-day">
-                        <div class="day-name">Sat</div>
-                    </div>
-                    <div class="calendar-day">
-                        <div class="day-name">Sun</div>
+                
+                <div class="member-welcome" id="member-welcome-logged-in" style="display: none;">
+                    <h2>Welcome back, <span class="user-name">Member</span>!</h2>
+                    <p>Access your account, book classes, and manage your membership below.</p>
+                    
+                    <div class="quick-stats">
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-calendar-check"></i>
+                            </div>
+                            <div class="stat-content">
+                                <div class="stat-value">12</div>
+                                <div class="stat-label">Upcoming Classes</div>
+                            </div>
+                        </div>
+                        
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="stat-content">
+                                <div class="stat-value">8</div>
+                                <div class="stat-label">Credits Remaining</div>
+                            </div>
+                        </div>
+                        
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-trophy"></i>
+                            </div>
+                            <div class="stat-content">
+                                <div class="stat-value">24</div>
+                                <div class="stat-label">Sessions Completed</div>
+                            </div>
+                        </div>
                     </div>
                     
-                    <!-- Calendar days -->
-                    <div class="calendar-day">
-                        <div class="day-number">1</div>
-                        <div class="day-sessions">No sessions</div>
+                    <div class="member-actions">
+                        <a href="booking-profile.html" class="cta-button">My Profile</a>
+                        <a href="booking-classes.html" class="secondary-button">Book a Class</a>
+                        <button class="danger-button logout-button">Log Out</button>
                     </div>
-                    <div class="calendar-day">
-                        <div class="day-number">2</div>
-                        <div class="day-sessions">No sessions</div>
+                </div>
+                
+                <!-- Member Features -->
+                <div class="member-features">
+                    <h2>Member Benefits</h2>
+                    
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-calendar-alt"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h3>Class Booking</h3>
+                                <p>Book and manage your training sessions with our easy-to-use scheduling system.</p>
+                                <a href="booking-classes.html" class="feature-link">View Schedule</a>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-id-card"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h3>Membership Management</h3>
+                                <p>View and manage your membership details, including billing and plan options.</p>
+                                <a href="booking-profile.html?tab=membership" class="feature-link">Manage Membership</a>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h3>Progress Tracking</h3>
+                                <p>Track your training progress, attendance, and achievements over time.</p>
+                                <a href="booking-profile.html?tab=stats" class="feature-link">View Statistics</a>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h3>Referral Program</h3>
+                                <p>Refer friends and earn free training credits when they join Training Club.</p>
+                                <a href="booking-profile.html?tab=referrals" class="feature-link">Get Referral Code</a>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h3>Credit System</h3>
+                                <p>Manage your training credits, view your balance, and track usage history.</p>
+                                <a href="booking-profile.html?tab=credits" class="feature-link">View Credits</a>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-plane"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h3>Holiday Pause</h3>
+                                <p>Pause your membership when you're away and resume when you return.</p>
+                                <a href="booking-profile.html?tab=membership" class="feature-link">Manage Pauses</a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="calendar-day has-session">
-                        <div class="day-number">3</div>
-                        <div class="day-sessions">18:30 - Booked</div>
+                </div>
+                
+                <!-- Next Classes -->
+                <div class="next-classes" id="next-classes-section" style="display: none;">
+                    <h2>Your Upcoming Classes</h2>
+                    
+                    <div class="classes-list">
+                        <div class="class-card">
+                            <div class="class-date">
+                                <div class="date-day">Mon</div>
+                                <div class="date-number">10</div>
+                                <div class="date-month">Apr</div>
+                            </div>
+                            
+                            <div class="class-details">
+                                <div class="class-name">Morning Bootcamp</div>
+                                <div class="class-time">06:30 - 07:30</div>
+                                <div class="class-location">Zurich - Seefeld</div>
+                            </div>
+                            
+                            <div class="class-actions">
+                                <button class="class-action">
+                                    <i class="fas fa-times"></i> Cancel
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="class-card">
+                            <div class="class-date">
+                                <div class="date-day">Wed</div>
+                                <div class="date-number">12</div>
+                                <div class="date-month">Apr</div>
+                            </div>
+                            
+                            <div class="class-details">
+                                <div class="class-name">HIIT Session</div>
+                                <div class="class-time">18:00 - 19:00</div>
+                                <div class="class-location">Zurich - Oerlikon</div>
+                            </div>
+                            
+                            <div class="class-actions">
+                                <button class="class-action">
+                                    <i class="fas fa-times"></i> Cancel
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="class-card">
+                            <div class="class-date">
+                                <div class="date-day">Fri</div>
+                                <div class="date-number">14</div>
+                                <div class="date-month">Apr</div>
+                            </div>
+                            
+                            <div class="class-details">
+                                <div class="class-name">Strength & Conditioning</div>
+                                <div class="class-time">17:30 - 18:30</div>
+                                <div class="class-location">Zurich - Seefeld</div>
+                            </div>
+                            
+                            <div class="class-actions">
+                                <button class="class-action">
+                                    <i class="fas fa-times"></i> Cancel
+                                </button>
+                            </div>
+                        </div>
                     </div>
-                    <div class="calendar-day">
-                        <div class="day-number">4</div>
-                        <div class="day-sessions">No sessions</div>
+                    
+                    <div class="classes-actions">
+                        <a href="booking-classes.html" class="cta-button">Book More Classes</a>
+                        <a href="booking-profile.html?tab=bookings" class="secondary-button">View All Bookings</a>
                     </div>
-                    <div class="calendar-day">
-                        <div class="day-number">5</div>
-                        <div class="day-sessions">No sessions</div>
-                    </div>
-                    <div class="calendar-day">
-                        <div class="day-number">6</div>
-                        <div class="day-sessions">No sessions</div>
-                    </div>
-                    <div class="calendar-day has-session">
-                        <div class="day-number">7</div>
-                        <div class="day-sessions">18:30 - Booked</div>
-                    </div>
-                    <!-- More days would continue here -->
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
     <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-container">
                 <div class="footer-column">
-                    <h3>INEFFABLE TRAINING CLUB</h3>
-                    <p>Elite outdoor training delivered via mobile trailer. Premium equipment, structured coaching, all weather conditions, year-round.</p>
-                    <div class="social-links">
-                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
+                    <h3>TRAINING CLUB</h3>
+                    <p>Switzerland's premier mobile outdoor fitness experience, delivering elite training in all weather conditions.</p>
                 </div>
+                
                 <div class="footer-column">
                     <h3>QUICK LINKS</h3>
-                    <ul class="footer-links">
-                        <li><a href="index.html#training-model">Our Training Model</a></li>
-                        <li><a href="index.html#membership">Membership Options</a></li>
-                        <li><a href="index.html#calendar">Training Calendar</a></li>
-                        <li><a href="index.html#corporate">Corporate Training</a></li>
-                        <li><a href="index.html#contact">Contact Us</a></li>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="#our-training">Our Training</a></li>
+                        <li><a href="#membership">Membership</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
+                
                 <div class="footer-column">
                     <h3>MEMBERS</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">Book a Session</a></li>
-                        <li><a href="#">Manage Credits</a></li>
-                        <li><a href="#">Request Referral Code</a></li>
-                        <li><a href="#">Member Resources</a></li>
-                        <li><a href="#">Account Settings</a></li>
+                    <ul>
+                        <li><a href="members-area.html">Member Login</a></li>
+                        <li><a href="booking-classes.html">Training Schedule</a></li>
+                        <li><a href="booking-memberships.html">Membership Options</a></li>
+                        <li><a href="booking-profile.html">My Profile</a></li>
                     </ul>
                 </div>
+                
+                <div class="footer-column">
+                    <h3>FOLLOW US</h3>
+                    <div class="social-media">
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
             </div>
+            
             <div class="footer-bottom">
-                <p>&copy; 2025 Ineffable Training Club. A division of Ineffable GmbH. All rights reserved.</p>
+                <p>&copy; 2025 Training Club. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
     <!-- JavaScript -->
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/booking/booking.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check login status
+            const isLoggedIn = sessionStorage.getItem('isLoggedIn') === 'true';
+            
+            // Show appropriate welcome section
+            const loggedOutSection = document.getElementById('member-welcome-logged-out');
+            const loggedInSection = document.getElementById('member-welcome-logged-in');
+            const nextClassesSection = document.getElementById('next-classes-section');
+            
+            if (isLoggedIn) {
+                loggedOutSection.style.display = 'none';
+                loggedInSection.style.display = 'block';
+                nextClassesSection.style.display = 'block';
+                
+                // Update user name if available
+                const userName = sessionStorage.getItem('userName');
+                if (userName) {
+                    document.querySelector('.user-name').textContent = userName;
+                }
+            } else {
+                loggedOutSection.style.display = 'block';
+                loggedInSection.style.display = 'none';
+                nextClassesSection.style.display = 'none';
+            }
+        });
+    </script>
 </body>
 </html>

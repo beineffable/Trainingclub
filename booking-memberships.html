@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memberships - Training Club</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/booking/booking.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-container">
+                <div class="logo">
+                    <a href="index.html">TRAINING CLUB</a>
+                </div>
+                
+                <nav>
+                    <ul class="nav-menu">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="#our-training">Our Training</a></li>
+                        <li><a href="#membership">Membership</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="members-area.html" class="nav-cta">Members Area</a></li>
+                    </ul>
+                    
+                    <div class="hamburger">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Membership Options</h1>
+            <p>Choose the membership that fits your training goals</p>
+        </div>
+    </section>
+
+    <section class="membership-section">
+        <div class="container">
+            <div class="booking-container">
+                <div class="booking-header">
+                    <h2>Select Your Membership</h2>
+                    <p>Join our exclusive community and start your fitness journey</p>
+                </div>
+
+                <div class="membership-tiers">
+                    <div class="tier-toggle">
+                        <button class="tier-button active" data-tier="standard">Standard</button>
+                        <button class="tier-button" data-tier="elite">Elite</button>
+                    </div>
+                    <p class="tier-description">
+                        <span class="standard-description">Standard membership gives you access to all regular classes with flexible scheduling options.</span>
+                        <span class="elite-description hidden">Elite membership provides unlimited access to all classes including exclusive Elite Performance sessions.</span>
+                    </p>
+                </div>
+
+                <div class="membership-options">
+                    <!-- Standard Tier Options -->
+                    <div class="membership-card" data-tier="standard">
+                        <div class="membership-name">10 Sessions</div>
+                        <div class="membership-price">CHF 290 <span>/ package</span></div>
+                        <div class="membership-features">
+                            <div class="membership-feature">
+                                <i class="fas fa-check"></i>
+                                <span>10 training credits</span>
+                            </div>
+                            <div class="membership-feature">
+                                <i class="fas fa-check"></i>
+                                <span>Valid for 3 months</span>
+                            </div>
+                            <div class="membership-feature">
+                                <i class="fas fa-check"></i>
+                                <span>Access to all standard classes</span>
+                            </div>
+                            <div class="membership-feature">
+                                <i class="fas fa-check"></i>
+                                <span>Flexible scheduling</span>
+                            </div>
+                        </div>
+                        <button class="select-button" data-plan="standard-10">Select Plan</button>
+                    </div>
+
+                    <div class="membership-card" data-tier="standard">
+                        <div class="membership-name">20 Sessions</div>
+                        <div class="membership-price">CHF 520 <span>/ package</span></div>
+                        <div class="membership-features">
+                            <div class="membership-feature">
+                                <i class="fas fa-check"></i>
+                                <span>20 training credits</span>
+                            </div>
+                            <div class="membership-feature">
+                                <i class="fas fa-check"></i>
+                                <span>Valid for 6 months</span>
+                            </div>
+                            <div class="membership-feature">
+                                <i class="fas fa-check"></i>
+                                <span>Access to all standard classes</span>
+                            </div>
+                            <div class="membership-feature">
+                                <i class="fas fa-check"></i>
+                                <span>Flexible scheduling</span>
+                            </div>
+                            <div class="membership-feature">
+                                <i class="fas fa-check"></i>
+                                <span>10% discount on package price</span>
+                            </div>
+                        </div>
+                        <button class="select-button" data-plan="standard-20">Select Plan</button>
+                    </div>
+
+                    <div class="membership-card featured" data-tier="standard">
+                        <div class="membership-name">Monthly Unlimited</div>
+                        <div class="membership-price">CHF 199 <span>/ month</span></div>
+                        <div class="membership-features">
+                            <div class="membership-feature">
+                                <i class="fas fa-check"></i>
+                                <span>Unlimited training credits</span>
+                            </div>
+                            <div class="membership-feature">
+                                <i class="fas fa-check"></i>
+                                <span>Monthly auto-renewal</span>
+                            </div>
+                            <div class="membership-feature">
+                                <i class="fas fa-check"></i>
+                                <span>Access to all standard classes</span>
+                            </div>
+                            <div class="membership-feature">
+                                <i class="fas fa-check"></i>
+                                <span>Flexible scheduling</span>
+                            </div>
+                            <div class="membership-feature">
+                                <i class="fas fa-check"></i>
+                                <span>28 days holiday pause per year</span>
+                            </div>
+                        </div>
+                        <button class="select-button" data-plan="standard-monthly">Select Plan</button>
+                    </div>
+
+                    <!-- Elite Tier Options (Hidden by Default) -->
+                    <div class="membership-card hidden" data-tier="elite">
+                        <div class="membership-name">10 Elite Sessions</div>
+                        <div class="membership-price">CHF 390 <span>/ package</span></div>
+                        <div class="membership-features">
+                            <div class="membership-feature">
+                                <i class="fas fa-check"></i>
+                                <span>10 elite training credits</span>
+                            </div>
+                            <div class="membership-feature">
+                                <i class="fas fa-check"></i>
+                                <span>Valid for 3 months</span>
+                            </div>
+                            <div class="membership-feature">
+                                <i class="fas fa-check"></i>
+                                <span>Access to ALL classes including Elite</span>
+                            </div>
+                            <div class="membership-feature">
+                                <i class="fas fa-check"></i>
+                                <span>Priority booking</span>
+                            </div>
+                            <div class="membership-feature">
+                                <i class="fas fa-check"></i>
+                                <span>Performance tracking</span>
+                            </div>
+                        </div>
+                        <button class="select-button" data-plan="elite-10">Select Plan</button>
+                    </div>
+
+                    <div class="membership-card hidden" data-tier="elite">
+                        <div class="membership-name">20 Elite Sessions</div>
+                        <div class="membership-price">CHF 700 <span>/ package</span></div>
+                        <div class="membership-features">
+                            <div class="membership-feature">
+                                <i class="fas fa-check"></i>
+                                <span>20 elite training credits</span>
+                            </div>
+                            <div class="membership-feature">
+                                <i class="fas fa-check"></i>
+                                <span>Valid for 6 months</span>
+                            </div>
+                            <div class="membership-feature">
+                                <i class="fas fa-check"></i>
+                                <span>Access to ALL classes including Elite</span>
+                            </div>
+                            <div class="membership-feature">
+                                <i class="fas fa-check"></i>
+                                <span>Priority booking</span>
+                            </div>
+                            <div class="membership-feature">
+                                <i class="fas fa-check"></i>
+                                <span>Performance tracking</span>
+                            </div>
+                            <div class="membership-feature">
+                                <i class="fas fa-check"></i>
+                                <span>10% discount on package price</span>
+                            </div>
+                        </div>
+                        <button class="select-button" data-plan="elite-20">Select Plan</button>
+                    </div>
+
+                    <div class="membership-card featured hidden" data-tier="elite">
+                        <div class="membership-name">Elite Monthly Unlimited</div>
+                        <div class="membership-price">CHF 299 <span>/ month</span></div>
+                        <div class="membership-features">
+                            <div class="membership-feature">
+                                <i class="fas fa-check"></i>
+                                <span>Unlimited elite training credits</span>
+                            </div>
+                            <div class="membership-feature">
+                                <i class="fas fa-check"></i>
+                                <span>Monthly auto-renewal</span>
+                            </div>
+                            <div class="membership-feature">
+                                <i class="fas fa-check"></i>
+                                <span>Access to ALL classes including Elite</span>
+                            </div>
+                            <div class="membership-feature">
+                                <i class="fas fa-check"></i>
+                                <span>Priority booking</span>
+                            </div>
+                            <div class="membership-feature">
+                                <i class="fas fa-check"></i>
+                                <span>Performance tracking</span>
+                            </div>
+                            <div class="membership-feature">
+                                <i class="fas fa-check"></i>
+                                <span>28 days holiday pause per year</span>
+                            </div>
+                            <div class="membership-feature">
+                                <i class="fas fa-check"></i>
+                                <span>Personalized training plan</span>
+                            </div>
+                        </div>
+                        <button class="select-button" data-plan="elite-monthly">Select Plan</button>
+                    </div>
+                </div>
+
+                <div class="membership-info">
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-info-circle"></i>
+                        </div>
+                        <div class="info-content">
+                            <h3>Membership Information</h3>
+                            <ul>
+                                <li>All memberships require an access code to register</li>
+                                <li>Monthly memberships can be paused for holidays (up to 28 days per year)</li>
+                                <li>Session packages are valid for the specified duration from purchase date</li>
+                                <li>Unused credits expire at the end of the validity period</li>
+                                <li>Monthly memberships can be cancelled with 30 days notice</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="referral-section">
+                    <h3>Don't have an access code?</h3>
+                    <p>Training Club is an exclusive fitness community. To join, you need an access code from a current member or trainer.</p>
+                    <a href="#contact" class="text-link">Contact us to learn more</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-column">
+                    <h3>TRAINING CLUB</h3>
+                    <p>Switzerland's premier mobile outdoor fitness experience, delivering elite training in all weather conditions.</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>QUICK LINKS</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="#our-training">Our Training</a></li>
+                        <li><a href="#membership">Membership</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>MEMBERS</h3>
+                    <ul>
+                        <li><a href="members-area.html">Member Login</a></li>
+                        <li><a href="booking-classes.html">Training Schedule</a></li>
+                        <li><a href="booking-memberships.html">Membership Options</a></li>
+                        <li><a href="booking-profile.html">My Profile</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>FOLLOW US</h3>
+                    <div class="social-media">
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Training Club. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/booking/booking.js"></script>
+    <script>
+        // Membership tier toggle functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const tierButtons = document.querySelectorAll('.tier-button');
+            const membershipCards = document.querySelectorAll('.membership-card');
+            const standardDescription = document.querySelector('.standard-description');
+            const eliteDescription = document.querySelector('.elite-description');
+            
+            tierButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const tier = this.getAttribute('data-tier');
+                    
+                    // Update active button
+                    tierButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Show/hide appropriate membership cards
+                    membershipCards.forEach(card => {
+                        if (card.getAttribute('data-tier') === tier) {
+                            card.classList.remove('hidden');
+                        } else {
+                            card.classList.add('hidden');
+                        }
+                    });
+                    
+                    // Show/hide appropriate description
+                    if (tier === 'standard') {
+                        standardDescription.classList.remove('hidden');
+                        eliteDescription.classList.add('hidden');
+                    } else {
+                        standardDescription.classList.add('hidden');
+                        eliteDescription.classList.remove('hidden');
+                    }
+                });
+            });
+            
+            // Handle plan selection
+            const selectButtons = document.querySelectorAll('.select-button');
+            selectButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const plan = this.getAttribute('data-plan');
+                    
+                    // Check if user is logged in
+                    const token = localStorage.getItem('auth_token');
+                    if (!token) {
+                        // Redirect to login/register page
+                        window.location.href = 'booking-register.html';
+                        return;
+                    }
+                    
+                    // Redirect to checkout page with selected plan
+                    window.location.href = `booking-checkout.html?plan=${plan}`;
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book a Class - Training Club</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/booking/booking.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-container">
+                <div class="logo">
+                    <a href="index.html">TRAINING CLUB</a>
+                </div>
+                
+                <nav>
+                    <ul class="nav-menu">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="#our-training">Our Training</a></li>
+                        <li><a href="#membership">Membership</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="members-area.html" class="nav-cta">Members Area</a></li>
+                    </ul>
+                    
+                    <div class="hamburger">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Book a Class</h1>
+            <p>Select a class from our schedule and secure your spot</p>
+        </div>
+    </section>
+
+    <section class="booking-section">
+        <div class="container">
+            <div class="booking-container">
+                <div class="booking-header">
+                    <h2>Class Schedule</h2>
+                    <p>Browse available classes and book your spot</p>
+                </div>
+
+                <div class="booking-filters">
+                    <div class="filter-group">
+                        <label for="location-filter">Location</label>
+                        <select id="location-filter">
+                            <option value="all">All Locations</option>
+                            <option value="zurich">Zurich</option>
+                            <option value="geneva">Geneva</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="class-filter">Class Type</label>
+                        <select id="class-filter">
+                            <option value="all">All Classes</option>
+                            <option value="bootcamp">Bootcamp</option>
+                            <option value="hiit">HIIT</option>
+                            <option value="strength">Strength</option>
+                            <option value="elite">Elite Performance</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="booking-calendar" class="booking-calendar">
+                    <!-- Calendar will be populated by JavaScript -->
+                    <div class="calendar-loading">
+                        <i class="fas fa-spinner fa-spin"></i>
+                        <p>Loading class schedule...</p>
+                    </div>
+                </div>
+
+                <div class="booking-info">
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-info-circle"></i>
+                        </div>
+                        <div class="info-content">
+                            <h3>Booking Information</h3>
+                            <ul>
+                                <li>Each class requires 1 credit from your membership</li>
+                                <li>You can cancel up to 4 hours before the class starts</li>
+                                <li>Late cancellations or no-shows will still use your credit</li>
+                                <li>Arrive 10 minutes before class start time</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="login-required hidden">
+                    <div class="credit-status">
+                        <p>Available Credits: <span class="user-credits">0/0</span></p>
+                        <a href="booking-credits.html" class="text-link">View Credit History</a>
+                    </div>
+                </div>
+
+                <div class="logout-required">
+                    <div class="login-prompt">
+                        <p>Please <a href="booking-login.html">log in</a> or <a href="booking-register.html">register</a> to book classes</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-column">
+                    <h3>TRAINING CLUB</h3>
+                    <p>Switzerland's premier mobile outdoor fitness experience, delivering elite training in all weather conditions.</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>QUICK LINKS</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="#our-training">Our Training</a></li>
+                        <li><a href="#membership">Membership</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>MEMBERS</h3>
+                    <ul>
+                        <li><a href="members-area.html">Member Login</a></li>
+                        <li><a href="booking-classes.html">Training Schedule</a></li>
+                        <li><a href="booking-memberships.html">Membership Options</a></li>
+                        <li><a href="booking-profile.html">My Profile</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>FOLLOW US</h3>
+                    <div class="social-media">
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Training Club. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/booking/booking.js"></script>
+</body>
+</html>

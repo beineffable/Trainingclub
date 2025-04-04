@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Training Club</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/booking/booking.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-container">
+                <div class="logo">
+                    <a href="index.html">TRAINING CLUB</a>
+                </div>
+                
+                <nav>
+                    <ul class="nav-menu">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="#our-training">Our Training</a></li>
+                        <li><a href="#membership">Membership</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="members-area.html" class="nav-cta">Members Area</a></li>
+                    </ul>
+                    
+                    <div class="hamburger">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <section class="page-header">
+        <div class="container">
+            <h1>New Member Registration</h1>
+            <p>Join the Training Club community</p>
+        </div>
+    </section>
+
+    <section class="register-section">
+        <div class="container">
+            <div class="booking-container">
+                <div class="registration-steps">
+                    <div class="step active" data-step="1">
+                        <div class="step-number">1</div>
+                        <div class="step-label">Access Code</div>
+                    </div>
+                    <div class="step-connector"></div>
+                    <div class="step" data-step="2">
+                        <div class="step-number">2</div>
+                        <div class="step-label">Your Details</div>
+                    </div>
+                    <div class="step-connector"></div>
+                    <div class="step" data-step="3">
+                        <div class="step-number">3</div>
+                        <div class="step-label">Membership</div>
+                    </div>
+                </div>
+
+                <div class="form-container">
+                    <!-- Step 1: Access Code Verification -->
+                    <form id="access-code-form" class="booking-form step-form active" data-step="1">
+                        <div class="form-header">
+                            <h2>Enter Your Access Code</h2>
+                            <p>Training Club is an exclusive fitness community. To join, you need an access code from a current member or trainer.</p>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="access-code">Access Code</label>
+                            <input type="text" id="access-code" name="access-code" required>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="submit" class="form-submit">Verify Code</button>
+                        </div>
+                        
+                        <div class="form-links">
+                            <a href="#contact" class="text-link">Don't have a code? Contact us</a>
+                            <span class="divider">|</span>
+                            <a href="booking-login.html" class="text-link">Already a member? Login here</a>
+                        </div>
+                    </form>
+
+                    <!-- Step 2: Personal Details -->
+                    <form id="personal-details-form" class="booking-form step-form" data-step="2">
+                        <div class="form-header">
+                            <h2>Your Details</h2>
+                            <p>Please provide your personal information to create your account</p>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" id="password" name="password" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="confirm-password">Confirm Password</label>
+                            <input type="password" id="confirm-password" name="confirm-password" required>
+                        </div>
+                        
+                        <div class="form-group checkbox">
+                            <input type="checkbox" id="terms" name="terms" required>
+                            <label for="terms">I agree to the <a href="#" class="text-link">Terms and Conditions</a> and <a href="#" class="text-link">Privacy Policy</a></label>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="button" class="form-back" data-goto="1">Back</button>
+                            <button type="submit" class="form-submit">Continue</button>
+                        </div>
+                    </form>
+
+                    <!-- Step 3: Membership Selection -->
+                    <div class="step-form" data-step="3">
+                        <div class="form-header">
+                            <h2>Choose Your Membership</h2>
+                            <p>Select a membership plan that fits your training goals</p>
+                        </div>
+                        
+                        <div class="membership-redirect">
+                            <p>You're almost there! In the next step, you'll select your membership plan.</p>
+                            <button type="button" class="form-submit" id="goto-membership">Continue to Membership Selection</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="registration-info">
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-info-circle"></i>
+                        </div>
+                        <div class="info-content">
+                            <h3>Registration Information</h3>
+                            <ul>
+                                <li>Access codes are provided by current members or trainers</li>
+                                <li>Each access code can only be used once</li>
+                                <li>Your email will be your username for logging in</li>
+                                <li>All personal information is securely stored and protected</li>
+                                <li>You can select your membership plan after registration</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-column">
+                    <h3>TRAINING CLUB</h3>
+                    <p>Switzerland's premier mobile outdoor fitness experience, delivering elite training in all weather conditions.</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>QUICK LINKS</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="#our-training">Our Training</a></li>
+                        <li><a href="#membership">Membership</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>MEMBERS</h3>
+                    <ul>
+                        <li><a href="members-area.html">Member Login</a></li>
+                        <li><a href="booking-classes.html">Training Schedule</a></li>
+                        <li><a href="booking-memberships.html">Membership Options</a></li>
+                        <li><a href="booking-profile.html">My Profile</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>FOLLOW US</h3>
+                    <div class="social-media">
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Training Club. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/booking/booking.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Handle access code verification
+            const accessCodeForm = document.getElementById('access-code-form');
+            accessCodeForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const accessCode = document.getElementById('access-code').value;
+                
+                // Simulate access code verification
+                // In production, this would be a real API call
+                if (accessCode) {
+                    // Move to step 2
+                    goToStep(2);
+                } else {
+                    alert('Please enter an access code');
+                }
+            });
+            
+            // Handle personal details form
+            const personalDetailsForm = document.getElementById('personal-details-form');
+            personalDetailsForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const phone = document.getElementById('phone').value;
+                const password = document.getElementById('password').value;
+                const confirmPassword = document.getElementById('confirm-password').value;
+                const terms = document.getElementById('terms').checked;
+                
+                // Validate inputs
+                if (!name || !email || !phone || !password) {
+                    alert('Please fill in all required fields');
+                    return;
+                }
+                
+                if (password !== confirmPassword) {
+                    alert('Passwords do not match');
+                    return;
+                }
+                
+                if (!terms) {
+                    alert('You must agree to the Terms and Conditions');
+                    return;
+                }
+                
+                // Simulate user registration
+                // In production, this would be a real API call
+                localStorage.setItem('auth_token', 'mock_token_123');
+                
+                // Move to step 3
+                goToStep(3);
+            });
+            
+            // Handle back buttons
+            const backButtons = document.querySelectorAll('.form-back');
+            backButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const step = parseInt(this.getAttribute('data-goto'));
+                    goToStep(step);
+                });
+            });
+            
+            // Handle membership redirect
+            const gotoMembershipButton = document.getElementById('goto-membership');
+            gotoMembershipButton.addEventListener('click', function() {
+                window.location.href = 'booking-memberships.html';
+            });
+            
+            // Function to navigate between steps
+            function goToStep(step) {
+                // Hide all steps
+                document.querySelectorAll('.step-form').forEach(form => {
+                    form.classList.remove('active');
+                });
+                
+                // Show target step
+                document.querySelector(`.step-form[data-step="${step}"]`).classList.add('active');
+                
+                // Update step indicators
+                document.querySelectorAll('.step').forEach(stepEl => {
+                    const stepNum = parseInt(stepEl.getAttribute('data-step'));
+                    if (stepNum < step) {
+                        stepEl.classList.add('completed');
+                        stepEl.classList.remove('active');
+                    } else if (stepNum === step) {
+                        stepEl.classList.add('active');
+                        stepEl.classList.remove('completed');
+                    } else {
+                        stepEl.classList.remove('active', 'completed');
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
