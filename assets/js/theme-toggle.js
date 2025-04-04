@@ -1,8 +1,5 @@
 // Theme Toggle JavaScript
 document.addEventListener('DOMContentLoaded', function() {
-    // Create theme toggle button
-    createThemeToggle();
-    
     // Check for saved user preference
     checkUserThemePreference();
     
@@ -12,24 +9,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Create rain elements for dark mode
     createRainElements();
 });
-
-// Create theme toggle button and add to DOM
-function createThemeToggle() {
-    const themeToggle = document.createElement('div');
-    themeToggle.className = 'theme-toggle';
-    themeToggle.id = 'theme-toggle';
-    themeToggle.setAttribute('role', 'button');
-    themeToggle.setAttribute('aria-label', 'Toggle dark mode');
-    themeToggle.setAttribute('tabindex', '0');
-    
-    // Create sun icon (default for light mode)
-    const icon = document.createElement('i');
-    icon.className = 'fas fa-sun';
-    themeToggle.appendChild(icon);
-    
-    // Add to body
-    document.body.appendChild(themeToggle);
-}
 
 // Check if user has a saved theme preference
 function checkUserThemePreference() {
@@ -46,17 +25,21 @@ function checkUserThemePreference() {
 
 // Initialize theme toggle click functionality
 function initThemeToggle() {
-    const themeToggle = document.getElementById('theme-toggle');
+    // Get all theme toggle elements
+    const themeToggles = document.querySelectorAll('.theme-toggle');
     
-    // Toggle theme on click
-    themeToggle.addEventListener('click', toggleTheme);
-    
-    // Keyboard accessibility
-    themeToggle.addEventListener('keypress', function(e) {
-        if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            toggleTheme();
-        }
+    // Add event listeners to all theme toggles
+    themeToggles.forEach(themeToggle => {
+        // Toggle theme on click
+        themeToggle.addEventListener('click', toggleTheme);
+        
+        // Keyboard accessibility
+        themeToggle.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                toggleTheme();
+            }
+        });
     });
 }
 
@@ -76,15 +59,24 @@ function toggleTheme() {
 
 // Update the theme toggle icon based on current mode
 function updateThemeIcon(isDarkMode) {
-    const icon = document.querySelector('#theme-toggle i');
+    // Update all theme toggle icons
+    const icons = document.querySelectorAll('.theme-toggle i');
     
-    if (isDarkMode) {
-        // Change to rain icon for dark mode
-        icon.className = 'fas fa-cloud-rain';
-    } else {
-        // Change to sun icon for light mode
-        icon.className = 'fas fa-sun';
-    }
+    icons.forEach(icon => {
+        if (isDarkMode) {
+            // Change to moon icon for dark mode
+            if (icon.classList.contains('fa-sun')) {
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+            }
+        } else {
+            // Change to sun icon for light mode
+            if (icon.classList.contains('fa-moon')) {
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            }
+        }
+    });
 }
 
 // Handle animation changes when switching modes

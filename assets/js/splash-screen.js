@@ -2,7 +2,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Get elements
     const splashScreen = document.getElementById('splash-screen');
-    const mainContent = document.getElementById('main-content');
     const skipButton = document.getElementById('skip-button');
     
     // Check for Safari browser
@@ -37,18 +36,30 @@ document.addEventListener('DOMContentLoaded', function() {
             applyCloudAnimationsForSafari();
         }
         
-        // Simplified event handling for iOS compatibility
+        // Enhanced event handling for skip button with better compatibility
         // Use a single click handler that works on both desktop and mobile
-        skipButton.addEventListener('click', function(e) {
-            e.stopPropagation(); // Prevent event bubbling
-            forceHideSplashScreen();
-        });
-        
-        // Add a direct touchend handler without preventDefault
-        skipButton.addEventListener('touchend', function(e) {
-            e.stopPropagation(); // Prevent event bubbling
-            forceHideSplashScreen();
-        });
+        if (skipButton) {
+            console.log('Skip button found, adding event listeners');
+            
+            skipButton.addEventListener('click', function(e) {
+                console.log('Skip button clicked');
+                e.stopPropagation(); // Prevent event bubbling
+                forceHideSplashScreen();
+            });
+            
+            // Add a direct touchend handler without preventDefault
+            skipButton.addEventListener('touchend', function(e) {
+                console.log('Skip button touched');
+                e.stopPropagation(); // Prevent event bubbling
+                forceHideSplashScreen();
+            });
+            
+            // Make skip button more visible
+            skipButton.style.opacity = '1';
+            skipButton.style.visibility = 'visible';
+        } else {
+            console.error('Skip button not found in the DOM');
+        }
         
         // Set timeout to automatically transition after animation completes
         setTimeout(forceHideSplashScreen, 5000); // 5 seconds
@@ -69,7 +80,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         
         // Make sure title is visible
-        const titleText = document.querySelector('.title-text');
+        const titleText = document.querySelector('.splash-title');
         if (titleText) {
             setTimeout(() => {
                 titleText.style.opacity = '1';
@@ -87,11 +98,10 @@ document.addEventListener('DOMContentLoaded', function() {
         // Add exit animation class
         splashScreen.classList.add('splash-exit');
         
-        // After animation completes, hide splash and show main content
+        // After animation completes, hide splash
         setTimeout(function() {
             document.body.classList.remove('splash-active');
             splashScreen.style.display = 'none';
-            mainContent.style.display = 'block';
         }, 1000); // Match this with the fadeOut animation duration
     }
     
@@ -99,12 +109,15 @@ document.addEventListener('DOMContentLoaded', function() {
     function hideSplashScreenImmediately() {
         splashScreen.style.display = 'none';
         document.body.classList.remove('splash-active');
-        mainContent.style.display = 'block';
+        // Log to console for debugging
+        console.log('Splash screen hidden immediately');
     }
     
     // Force hide with multiple approaches for maximum compatibility
     function forceHideSplashScreen() {
         try {
+            console.log('Skip button clicked - hiding splash screen');
+            
             // Try the CSS transition approach first
             hideSplashScreen();
             
@@ -113,9 +126,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Force hide the splash screen directly
                 splashScreen.style.display = 'none';
                 document.body.classList.remove('splash-active');
-                mainContent.style.display = 'block';
+                console.log('Backup timeout executed - splash screen hidden');
             }, 1500);
         } catch (e) {
+            console.error('Error hiding splash screen:', e);
             // If anything fails, use the direct approach
             hideSplashScreenImmediately();
         }

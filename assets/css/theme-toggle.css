@@ -43,9 +43,9 @@ body.dark-mode .sky-background {
   background-color: #0a1929; /* Very dark navy */
 }
 
-/* Hide clouds in dark mode */
+/* Show clouds in both light and dark mode */
 body.dark-mode .cloud {
-  display: none;
+  opacity: 0.7; /* Slightly dimmed in dark mode but still visible */
 }
 
 /* Show rain in dark mode (will be created in the next step) */
