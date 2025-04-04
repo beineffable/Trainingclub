@@ -1,0 +1,55 @@
+/* Cross-browser compatibility for enhanced rain animation */
+
+/* Safari-specific fixes */
+.safari-browser .rain-container .raindrop {
+  -webkit-box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+/* Firefox-specific fixes */
+@-moz-document url-prefix() {
+  .rain-container .raindrop {
+    background: linear-gradient(to bottom, rgba(255,255,255,0.4), rgba(255,255,255,1));
+  }
+  
+  body.dark-mode .skip-button {
+    background-color: #ff7700;
+  }
+}
+
+/* Edge/IE-specific fixes */
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .rain-container .raindrop {
+    background-color: rgba(255, 255, 255, 0.9);
+  }
+}
+
+/* Mobile device optimizations */
+@media (max-width: 768px) {
+  .rain-container .raindrop {
+    width: 2.5px;
+    height: 25px;
+  }
+  
+  body.dark-mode .skip-button {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+}
+
+/* Ensure animations work in WebKit browsers */
+@-webkit-keyframes rain-fall {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-20px);
+  }
+  10% {
+    opacity: 0.9;
+  }
+  90% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(100vh);
+  }
+}
