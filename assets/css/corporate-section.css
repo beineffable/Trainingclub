@@ -8,19 +8,21 @@
 .corporate-info {
     flex: 1;
     min-width: 300px;
-    background-color: var(--primary-color);
+    background-color: var(--primary-dark-blue);
     border-radius: 8px;
     padding: 2rem;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--text-color);
 }
 
 .corporate-benefits {
     flex: 1;
     min-width: 300px;
     padding: 2rem;
-    background-color: var(--primary-color);
+    background-color: var(--primary-dark-blue);
     border-radius: 8px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--text-color);
 }
 
 .corporate-benefits h3 {
