@@ -1,0 +1,114 @@
+/* Cross-browser compatibility for rain animation */
+
+/* Safari-specific fixes */
+.safari-browser .rain-container .raindrop {
+  -webkit-animation-name: rain-fall;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+}
+
+.safari-browser .lightning {
+  -webkit-animation-name: lightning-flash;
+  -webkit-animation-duration: 10s;
+  -webkit-animation-iteration-count: infinite;
+}
+
+/* Firefox-specific fixes */
+@-moz-document url-prefix() {
+  .rain-container .raindrop {
+    background: linear-gradient(to bottom, rgba(255,255,255,0.1), rgba(255,255,255,0.5));
+  }
+  
+  .lightning {
+    background-color: rgba(255, 255, 255, 0.15);
+  }
+}
+
+/* Edge/IE-specific fixes */
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .rain-container .raindrop {
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+}
+
+/* Mobile device optimizations */
+@media (max-width: 768px) {
+  .rain-container .raindrop {
+    width: 1.5px;
+    height: 15px;
+  }
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .rain-container .raindrop {
+    animation-duration: 1.5s !important;
+  }
+  
+  .lightning {
+    animation-duration: 20s !important;
+  }
+}
+
+/* High-performance devices */
+@media (min-resolution: 2dppx) {
+  .rain-container .raindrop {
+    width: 1px;
+  }
+}
+
+/* Low-performance devices */
+@media (max-width: 480px) and (max-height: 800px) {
+  /* Reduce number of visible raindrops for better performance */
+  .rain-container .raindrop:nth-child(n+16) {
+    display: none;
+  }
+}
+
+/* Ensure animations work in WebKit browsers */
+@-webkit-keyframes rain-fall {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-20px);
+  }
+  10% {
+    opacity: 0.7;
+  }
+  90% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(100vh);
+  }
+}
+
+@-webkit-keyframes lightning-flash {
+  0%, 100% {
+    opacity: 0;
+  }
+  0.5%, 1% {
+    opacity: 1;
+  }
+  1.5%, 2% {
+    opacity: 0;
+  }
+  2.5%, 3% {
+    opacity: 0.6;
+  }
+  3.5% {
+    opacity: 0;
+  }
+  50%, 53% {
+    opacity: 0;
+  }
+  50.5%, 51% {
+    opacity: 0.8;
+  }
+  51.5%, 52% {
+    opacity: 0.3;
+  }
+  52.5% {
+    opacity: 0;
+  }
+}
