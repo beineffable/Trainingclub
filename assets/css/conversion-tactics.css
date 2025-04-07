@@ -1,0 +1,748 @@
+/* 
+ * Aggressive Conversion Tactics
+ * For Training Club Website
+ * Created: April 7, 2025
+ */
+
+/* ===== DARK PATTERN IMPLEMENTATION ===== */
+
+/* Roach Motel Pattern - Easy to get in, hard to get out */
+.cancel-button {
+  font-size: 12px !important;
+  color: #9E9E9E !important;
+  text-decoration: none !important;
+  padding: 5px !important;
+  opacity: 0.6 !important;
+  position: relative !important;
+  display: inline-block !important;
+  margin-top: 20px !important;
+  border-bottom: 1px dotted #9E9E9E !important;
+}
+
+.cancel-button:hover {
+  opacity: 0.8 !important;
+}
+
+/* Forced Continuity - Auto-enrollment in paid subscriptions */
+.trial-signup-form .auto-enroll {
+  opacity: 0.7 !important;
+  font-size: 12px !important;
+  color: #757575 !important;
+  margin-top: 10px !important;
+  line-height: 1.4 !important;
+}
+
+.trial-signup-form .auto-enroll strong {
+  font-weight: normal !important;
+  color: #757575 !important;
+}
+
+/* Hidden Costs - Reveal additional fees only at final checkout */
+.additional-fees {
+  font-size: 12px !important;
+  color: #757575 !important;
+  margin-top: 15px !important;
+  padding-top: 15px !important;
+  border-top: 1px solid #E0E0E0 !important;
+}
+
+.additional-fees .fee-item {
+  display: flex !important;
+  justify-content: space-between !important;
+  margin-bottom: 5px !important;
+}
+
+/* Confirmshaming - Guilt-inducing language for declining */
+.decline-shame {
+  color: #9E9E9E !important;
+  font-size: 13px !important;
+  text-align: center !important;
+  margin-top: 15px !important;
+  font-style: italic !important;
+}
+
+/* Misdirection - Draw attention away from basic options */
+.pricing-tier.basic {
+  opacity: 0.85 !important;
+  transform: scale(0.95) !important;
+}
+
+.pricing-tier.premium {
+  transform: scale(1.05) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15) !important;
+  z-index: 2 !important;
+  position: relative !important;
+}
+
+/* ===== AGGRESSIVE BUTTON DESIGN ===== */
+
+/* High-contrast action buttons */
+.action-button {
+  background: linear-gradient(135deg, #ff5722, #ff9800) !important;
+  color: white !important;
+  border: none !important;
+  padding: 15px 30px !important;
+  border-radius: 6px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.5px !important;
+  text-transform: uppercase !important;
+  transition: all 0.3s ease !important;
+  position: relative !important;
+  overflow: hidden !important;
+  box-shadow: 0 5px 20px rgba(255, 87, 34, 0.4) !important;
+  z-index: 1 !important;
+  font-size: 18px !important;
+  text-align: center !important;
+  display: block !important;
+  width: 100% !important;
+  max-width: 400px !important;
+  margin: 20px auto !important;
+}
+
+.action-button:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 8px 25px rgba(255, 87, 34, 0.5) !important;
+}
+
+.action-button::after {
+  content: "" !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: -100% !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%) !important;
+  z-index: -1 !important;
+  transition: left 0.5s ease !important;
+}
+
+.action-button:hover::after {
+  left: 100% !important;
+}
+
+/* Pulsing effect for primary buttons */
+.primary-action {
+  animation: pulse-attention 2s infinite !important;
+}
+
+@keyframes pulse-attention {
+  0% { transform: scale(1); box-shadow: 0 5px 20px rgba(255, 87, 34, 0.4); }
+  50% { transform: scale(1.05); box-shadow: 0 8px 25px rgba(255, 87, 34, 0.5); }
+  100% { transform: scale(1); box-shadow: 0 5px 20px rgba(255, 87, 34, 0.4); }
+}
+
+/* Minimized decline options */
+.decline-option {
+  font-size: 12px !important;
+  color: #9E9E9E !important;
+  text-decoration: none !important;
+  padding: 8px !important;
+  opacity: 0.6 !important;
+  text-align: center !important;
+  display: block !important;
+  margin-top: 15px !important;
+}
+
+/* ===== ARTIFICIAL URGENCY ===== */
+
+/* Countdown timers with aggressive styling */
+.urgent-countdown {
+  background: rgba(244, 67, 54, 0.1) !important;
+  border: 1px solid rgba(244, 67, 54, 0.3) !important;
+  border-radius: 6px !important;
+  padding: 15px !important;
+  margin: 20px 0 !important;
+  text-align: center !important;
+}
+
+.urgent-countdown .title {
+  color: #F44336 !important;
+  font-weight: bold !important;
+  margin-bottom: 10px !important;
+  font-size: 16px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1px !important;
+}
+
+.urgent-countdown .timer {
+  font-family: 'Montserrat', sans-serif !important;
+  font-weight: 900 !important;
+  color: #F44336 !important;
+  font-size: 24px !important;
+  letter-spacing: 2px !important;
+}
+
+.urgent-countdown .timer .unit {
+  background: #F44336 !important;
+  color: white !important;
+  padding: 5px 10px !important;
+  border-radius: 4px !important;
+  margin: 0 3px !important;
+  display: inline-block !important;
+  min-width: 40px !important;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2) !important;
+}
+
+.urgent-countdown .message {
+  margin-top: 10px !important;
+  font-size: 14px !important;
+  color: #F44336 !important;
+  font-weight: 600 !important;
+}
+
+/* Limited spots indicators */
+.limited-spots {
+  display: inline-block !important;
+  background: rgba(244, 67, 54, 0.1) !important;
+  color: #F44336 !important;
+  font-weight: bold !important;
+  padding: 5px 10px !important;
+  border-radius: 4px !important;
+  font-size: 14px !important;
+  margin-top: 10px !important;
+  animation: flash-urgent 2s infinite !important;
+}
+
+@keyframes flash-urgent {
+  0% { background: rgba(244, 67, 54, 0.1); }
+  50% { background: rgba(244, 67, 54, 0.2); }
+  100% { background: rgba(244, 67, 54, 0.1); }
+}
+
+/* ===== MANIPULATIVE PRICING TACTICS ===== */
+
+/* Decoy pricing to make premium seem like better value */
+.pricing-comparison {
+  display: flex !important;
+  flex-direction: column !important;
+  margin: 20px 0 !important;
+}
+
+.pricing-comparison .value-indicator {
+  background: #4CAF50 !important;
+  color: white !important;
+  padding: 5px 10px !important;
+  border-radius: 4px !important;
+  font-size: 12px !important;
+  font-weight: bold !important;
+  display: inline-block !important;
+  margin-bottom: 10px !important;
+  align-self: flex-start !important;
+}
+
+.pricing-comparison .price-per-session {
+  font-size: 14px !important;
+  color: #4CAF50 !important;
+  font-weight: bold !important;
+  margin-top: 5px !important;
+}
+
+.pricing-comparison .savings {
+  font-size: 14px !important;
+  color: #4CAF50 !important;
+  font-weight: bold !important;
+  margin-top: 5px !important;
+}
+
+/* Anchoring with high-priced options first */
+.premium-highlight {
+  order: -1 !important;
+}
+
+/* Bundle framing to obscure individual value */
+.bundle-value {
+  background: rgba(76, 175, 80, 0.1) !important;
+  border: 1px dashed #4CAF50 !important;
+  padding: 15px !important;
+  margin: 15px 0 !important;
+  border-radius: 6px !important;
+}
+
+.bundle-value .title {
+  color: #4CAF50 !important;
+  font-weight: bold !important;
+  margin-bottom: 10px !important;
+  font-size: 16px !important;
+}
+
+.bundle-value .item {
+  display: flex !important;
+  justify-content: space-between !important;
+  margin-bottom: 8px !important;
+  font-size: 14px !important;
+}
+
+.bundle-value .total {
+  display: flex !important;
+  justify-content: space-between !important;
+  margin-top: 10px !important;
+  padding-top: 10px !important;
+  border-top: 1px solid rgba(76, 175, 80, 0.3) !important;
+  font-weight: bold !important;
+}
+
+.bundle-value .savings {
+  color: #4CAF50 !important;
+  font-weight: bold !important;
+  text-align: right !important;
+  margin-top: 5px !important;
+}
+
+/* ===== SOCIAL PRESSURE TACTICS ===== */
+
+/* Real-time activity notifications */
+.activity-feed {
+  position: fixed !important;
+  bottom: 20px !important;
+  left: 20px !important;
+  z-index: 999 !important;
+  max-width: 300px !important;
+}
+
+.activity-item {
+  background: white !important;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1) !important;
+  border-left: 4px solid #2196F3 !important;
+  padding: 15px !important;
+  margin-bottom: 10px !important;
+  border-radius: 6px !important;
+  font-size: 14px !important;
+  animation: slide-in-bottom 0.5s forwards, fade-out 0.5s forwards 8s !important;
+  opacity: 0 !important;
+}
+
+@keyframes slide-in-bottom {
+  from { transform: translateY(50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.activity-item .name {
+  font-weight: bold !important;
+  color: #424242 !important;
+}
+
+.activity-item .action {
+  color: #2196F3 !important;
+}
+
+.activity-item .time {
+  color: #9E9E9E !important;
+  font-size: 12px !important;
+  margin-top: 5px !important;
+}
+
+/* Social proof counters */
+.social-proof-counter {
+  display: flex !important;
+  align-items: center !important;
+  margin: 15px 0 !important;
+  padding: 10px !important;
+  background: rgba(33, 150, 243, 0.05) !important;
+  border-radius: 6px !important;
+}
+
+.social-proof-counter .icon {
+  color: #2196F3 !important;
+  margin-right: 10px !important;
+  font-size: 20px !important;
+}
+
+.social-proof-counter .count {
+  font-weight: bold !important;
+  color: #2196F3 !important;
+  margin-right: 5px !important;
+}
+
+.social-proof-counter .text {
+  color: #424242 !important;
+  font-size: 14px !important;
+}
+
+/* ===== FEAR OF MISSING OUT (FOMO) TACTICS ===== */
+
+/* Last chance messaging */
+.last-chance {
+  background: linear-gradient(135deg, #ff9800, #ff5722) !important;
+  color: white !important;
+  padding: 15px !important;
+  border-radius: 6px !important;
+  margin: 20px 0 !important;
+  text-align: center !important;
+  box-shadow: 0 5px 15px rgba(255, 87, 34, 0.3) !important;
+}
+
+.last-chance .title {
+  font-weight: bold !important;
+  font-size: 18px !important;
+  margin-bottom: 10px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1px !important;
+}
+
+.last-chance .message {
+  margin-bottom: 15px !important;
+  font-size: 15px !important;
+  line-height: 1.5 !important;
+}
+
+/* Limited enrollment periods */
+.enrollment-period {
+  border: 2px dashed #FF9800 !important;
+  padding: 15px !important;
+  border-radius: 6px !important;
+  margin: 20px 0 !important;
+  text-align: center !important;
+  background: rgba(255, 152, 0, 0.05) !important;
+}
+
+.enrollment-period .title {
+  color: #FF9800 !important;
+  font-weight: bold !important;
+  font-size: 16px !important;
+  margin-bottom: 10px !important;
+}
+
+.enrollment-period .dates {
+  font-weight: bold !important;
+  color: #424242 !important;
+  margin-bottom: 10px !important;
+}
+
+.enrollment-period .message {
+  font-size: 14px !important;
+  color: #757575 !important;
+  margin-bottom: 15px !important;
+}
+
+/* ===== LOSS AVERSION TACTICS ===== */
+
+/* Streak maintenance messaging */
+.streak-maintenance {
+  background: rgba(255, 152, 0, 0.1) !important;
+  border-left: 4px solid #FF9800 !important;
+  padding: 15px !important;
+  margin: 20px 0 !important;
+  border-radius: 0 6px 6px 0 !important;
+}
+
+.streak-maintenance .title {
+  color: #FF9800 !important;
+  font-weight: bold !important;
+  margin-bottom: 10px !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+.streak-maintenance .title i {
+  margin-right: 10px !important;
+}
+
+.streak-maintenance .streak-count {
+  font-size: 24px !important;
+  font-weight: bold !important;
+  color: #FF9800 !important;
+  margin: 10px 0 !important;
+}
+
+.streak-maintenance .message {
+  font-size: 14px !important;
+  color: #424242 !important;
+}
+
+.streak-maintenance .warning {
+  color: #F44336 !important;
+  font-weight: bold !important;
+  margin-top: 10px !important;
+  font-size: 14px !important;
+}
+
+/* Status degradation warnings */
+.status-warning {
+  background: rgba(244, 67, 54, 0.1) !important;
+  border-left: 4px solid #F44336 !important;
+  padding: 15px !important;
+  margin: 20px 0 !important;
+  border-radius: 0 6px 6px 0 !important;
+}
+
+.status-warning .title {
+  color: #F44336 !important;
+  font-weight: bold !important;
+  margin-bottom: 10px !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+.status-warning .title i {
+  margin-right: 10px !important;
+}
+
+.status-warning .message {
+  font-size: 14px !important;
+  color: #424242 !important;
+}
+
+.status-warning .action {
+  margin-top: 15px !important;
+}
+
+/* ===== SUNK COST FALLACY EXPLOITATION ===== */
+
+/* Investment tracking displays */
+.investment-tracker {
+  background: rgba(33, 150, 243, 0.05) !important;
+  border: 1px solid rgba(33, 150, 243, 0.2) !important;
+  padding: 15px !important;
+  margin: 20px 0 !important;
+  border-radius: 6px !important;
+}
+
+.investment-tracker .title {
+  color: #2196F3 !important;
+  font-weight: bold !important;
+  margin-bottom: 15px !important;
+  font-size: 16px !important;
+}
+
+.investment-tracker .stat {
+  display: flex !important;
+  justify-content: space-between !important;
+  margin-bottom: 10px !important;
+}
+
+.investment-tracker .stat-label {
+  color: #757575 !important;
+  font-size: 14px !important;
+}
+
+.investment-tracker .stat-value {
+  font-weight: bold !important;
+  color: #424242 !important;
+  font-size: 14px !important;
+}
+
+.investment-tracker .total {
+  display: flex !important;
+  justify-content: space-between !important;
+  margin-top: 15px !important;
+  padding-top: 15px !important;
+  border-top: 1px solid rgba(33, 150, 243, 0.2) !important;
+  font-weight: bold !important;
+}
+
+.investment-tracker .total .stat-label {
+  color: #424242 !important;
+}
+
+.investment-tracker .total .stat-value {
+  color: #2196F3 !important;
+  font-size: 16px !important;
+}
+
+/* Progress visualization that would be "wasted" */
+.progress-visualization {
+  margin: 20px 0 !important;
+}
+
+.progress-visualization .title {
+  font-weight: bold !important;
+  margin-bottom: 15px !important;
+  font-size: 16px !important;
+  color: #424242 !important;
+}
+
+.progress-visualization .progress-bar-container {
+  height: 15px !important;
+  background-color: #E0E0E0 !important;
+  border-radius: 10px !important;
+  overflow: hidden !important;
+  margin-bottom: 10px !important;
+}
+
+.progress-visualization .progress-bar-fill {
+  height: 100% !important;
+  background: linear-gradient(90deg, #4CAF50, #8BC34A) !important;
+  border-radius: 10px !important;
+  transition: width 1s ease-in-out !important;
+}
+
+.progress-visualization .progress-labels {
+  display: flex !important;
+  justify-content: space-between !important;
+  font-size: 12px !important;
+  color: #757575 !important;
+}
+
+.progress-visualization .message {
+  margin-top: 15px !important;
+  font-size: 14px !important;
+  color: #424242 !important;
+}
+
+.progress-visualization .warning {
+  color: #F44336 !important;
+  font-weight: bold !important;
+  margin-top: 10px !important;
+  font-size: 14px !important;
+}
+
+/* ===== EXIT INTENT POPUPS ===== */
+
+/* Exit intent overlay */
+.exit-intent-overlay {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  background-color: rgba(0, 0, 0, 0.7) !important;
+  z-index: 9998 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  transition: opacity 0.3s ease, visibility 0.3s ease !important;
+}
+
+.exit-intent-overlay.active {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.exit-intent-popup {
+  background-color: white !important;
+  border-radius: 10px !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3) !important;
+  width: 90% !important;
+  max-width: 500px !important;
+  padding: 30px !important;
+  position: relative !important;
+  animation: popup-appear 0.5s forwards !important;
+}
+
+@keyframes popup-appear {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.exit-intent-popup .close-button {
+  position: absolute !important;
+  top: 15px !important;
+  right: 15px !important;
+  background: none !important;
+  border: none !important;
+  font-size: 20px !important;
+  color: #9E9E9E !important;
+  cursor: pointer !important;
+  padding: 5px !important;
+  line-height: 1 !important;
+}
+
+.exit-intent-popup .title {
+  font-size: 24px !important;
+  font-weight: bold !important;
+  color: #424242 !important;
+  margin-bottom: 15px !important;
+  text-align: center !important;
+}
+
+.exit-intent-popup .subtitle {
+  font-size: 16px !important;
+  color: #757575 !important;
+  margin-bottom: 20px !important;
+  text-align: center !important;
+}
+
+.exit-intent-popup .offer {
+  background: rgba(255, 87, 34, 0.1) !important;
+  border: 2px dashed #FF5722 !important;
+  padding: 15px !important;
+  margin: 20px 0 !important;
+  text-align: center !important;
+  border-radius: 6px !important;
+}
+
+.exit-intent-popup .offer-text {
+  font-size: 18px !important;
+  font-weight: bold !important;
+  color: #FF5722 !important;
+  margin-bottom: 10px !important;
+}
+
+.exit-intent-popup .offer-code {
+  background: #FF5722 !important;
+  color: white !important;
+  padding: 8px 15px !important;
+  border-radius: 4px !important;
+  font-weight: bold !important;
+  letter-spacing: 1px !important;
+  display: inline-block !important;
+  margin: 10px 0 !important;
+}
+
+.exit-intent-popup .timer {
+  font-size: 14px !important;
+  color: #F44336 !important;
+  margin: 15px 0 !important;
+  text-align: center !important;
+  font-weight: bold !important;
+}
+
+.exit-intent-popup .action-button {
+  margin: 20px auto 10px !important;
+}
+
+.exit-intent-popup .decline {
+  font-size: 12px !important;
+  color: #9E9E9E !important;
+  text-align: center !important;
+  margin-top: 15px !important;
+}
+
+/* ===== MOBILE OPTIMIZATION ===== */
+
+/* Mobile-specific adjustments */
+@media (max-width: 768px) {
+  .exit-intent-popup {
+    width: 95% !important;
+    padding: 20px !important;
+  }
+  
+  .action-button {
+    padding: 15px !important;
+    font-size: 16px !important;
+  }
+  
+  .urgent-countdown .timer {
+    font-size: 20px !important;
+  }
+  
+  .urgent-countdown .timer .unit {
+    padding: 3px 8px !important;
+    min-width: 30px !important;
+  }
+  
+  .activity-feed {
+    bottom: 10px !important;
+    left: 10px !important;
+    max-width: 280px !important;
+  }
+}
+
+/* ===== ACCESSIBILITY CONSIDERATIONS ===== */
+
+/* Ensure text remains readable */
+* {
+  text-shadow: none !important;
+}
+
+/* Reduce motion for those who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

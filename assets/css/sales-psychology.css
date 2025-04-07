@@ -1,0 +1,624 @@
+/* 
+ * Sales Psychology Enhancements
+ * For Training Club Website
+ * Created: April 7, 2025
+ */
+
+/* ===== REWARD MECHANISMS ===== */
+
+/* Achievement visualization */
+.achievement-badge {
+  transition: transform 0.5s cubic-bezier(0.18, 0.89, 0.32, 1.28) !important;
+  filter: drop-shadow(0 0 8px rgba(255, 165, 0, 0.5)) !important;
+}
+
+.achievement-badge:hover {
+  transform: scale(1.15) rotate(5deg) !important;
+}
+
+/* Progress indicators */
+.progress-bar {
+  background: linear-gradient(90deg, #ff5722, #ff9800) !important;
+  background-size: 200% 100% !important;
+  animation: progress-pulse 2s infinite !important;
+  border-radius: 10px !important;
+  height: 10px !important;
+  transition: width 1s cubic-bezier(0.19, 1, 0.22, 1) !important;
+}
+
+@keyframes progress-pulse {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Milestone celebrations */
+.milestone-celebration {
+  animation: celebrate 1.2s ease-out !important;
+}
+
+@keyframes celebrate {
+  0% { transform: scale(0.5); opacity: 0; }
+  50% { transform: scale(1.2); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* ===== VARIABLE REINFORCEMENT ===== */
+
+/* Random achievement highlights */
+.random-highlight {
+  animation: highlight-pulse 3s infinite !important;
+}
+
+@keyframes highlight-pulse {
+  0% { box-shadow: 0 0 0 rgba(255, 87, 34, 0); }
+  50% { box-shadow: 0 0 20px rgba(255, 87, 34, 0.7); }
+  100% { box-shadow: 0 0 0 rgba(255, 87, 34, 0); }
+}
+
+/* Surprise elements */
+.surprise-element {
+  animation: surprise-appear 0.5s cubic-bezier(0.17, 0.67, 0.83, 0.67) !important;
+  transform-origin: center bottom !important;
+}
+
+@keyframes surprise-appear {
+  0% { transform: scale(0) translateY(20px); opacity: 0; }
+  50% { transform: scale(1.1) translateY(-5px); opacity: 1; }
+  100% { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+/* ===== SOCIAL VALIDATION ===== */
+
+/* Leaderboard highlights */
+.leaderboard-item {
+  transition: all 0.3s ease !important;
+}
+
+.leaderboard-item:hover, 
+.leaderboard-item.highlighted {
+  transform: translateX(5px) !important;
+  background: linear-gradient(90deg, rgba(255, 87, 34, 0.1), transparent) !important;
+  border-left: 3px solid #ff5722 !important;
+}
+
+/* Social proof elements */
+.social-proof {
+  border-left: 3px solid #4CAF50 !important;
+  background-color: rgba(76, 175, 80, 0.05) !important;
+  padding: 12px 15px !important;
+  margin: 15px 0 !important;
+  font-style: italic !important;
+  position: relative !important;
+}
+
+.social-proof::before {
+  content: '"' !important;
+  font-size: 40px !important;
+  color: rgba(76, 175, 80, 0.2) !important;
+  position: absolute !important;
+  top: -10px !important;
+  left: 5px !important;
+}
+
+/* Activity notifications */
+.activity-notification {
+  animation: slide-in-right 0.5s forwards, fade-out 0.5s forwards 5s !important;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2) !important;
+  border-left: 4px solid #2196F3 !important;
+}
+
+@keyframes slide-in-right {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes fade-out {
+  from { opacity: 1; }
+  to { opacity: 0; visibility: hidden; }
+}
+
+/* ===== LOSS AVERSION ===== */
+
+/* Streak indicators */
+.streak-counter {
+  color: #FF9800 !important;
+  font-weight: bold !important;
+  text-shadow: 0 0 5px rgba(255, 152, 0, 0.3) !important;
+  transition: all 0.3s ease !important;
+}
+
+.streak-counter.at-risk {
+  color: #F44336 !important;
+  animation: pulse-warning 1s infinite !important;
+}
+
+@keyframes pulse-warning {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+/* Limited-time offers */
+.limited-offer {
+  border: 2px solid #F44336 !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.limited-offer::before {
+  content: "Limited Time" !important;
+  position: absolute !important;
+  top: 10px !important;
+  right: -30px !important;
+  background: #F44336 !important;
+  color: white !important;
+  padding: 5px 40px !important;
+  transform: rotate(45deg) !important;
+  font-size: 12px !important;
+  font-weight: bold !important;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Countdown timers */
+.countdown-timer {
+  font-family: 'Montserrat', sans-serif !important;
+  font-weight: 700 !important;
+  color: #F44336 !important;
+  text-align: center !important;
+  letter-spacing: 1px !important;
+}
+
+.countdown-timer .time-unit {
+  background: rgba(244, 67, 54, 0.1) !important;
+  padding: 5px 8px !important;
+  border-radius: 4px !important;
+  margin: 0 2px !important;
+  display: inline-block !important;
+  min-width: 30px !important;
+  box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* ===== BUTTON DESIGN PSYCHOLOGY ===== */
+
+/* Primary action buttons */
+.cta-button {
+  background: linear-gradient(135deg, #ff5722, #ff9800) !important;
+  color: white !important;
+  border: none !important;
+  padding: 12px 24px !important;
+  border-radius: 6px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.5px !important;
+  text-transform: uppercase !important;
+  transition: all 0.3s ease !important;
+  position: relative !important;
+  overflow: hidden !important;
+  box-shadow: 0 4px 15px rgba(255, 87, 34, 0.3) !important;
+  z-index: 1 !important;
+}
+
+.cta-button:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 6px 20px rgba(255, 87, 34, 0.4) !important;
+}
+
+.cta-button:active {
+  transform: translateY(1px) !important;
+  box-shadow: 0 2px 10px rgba(255, 87, 34, 0.3) !important;
+}
+
+.cta-button::after {
+  content: "" !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: -100% !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0) 100%) !important;
+  z-index: -1 !important;
+  transition: left 0.5s ease !important;
+}
+
+.cta-button:hover::after {
+  left: 100% !important;
+}
+
+/* Secondary action buttons */
+.secondary-button {
+  background: transparent !important;
+  color: #ff5722 !important;
+  border: 2px solid #ff5722 !important;
+  padding: 10px 20px !important;
+  border-radius: 6px !important;
+  font-weight: 600 !important;
+  transition: all 0.3s ease !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.secondary-button:hover {
+  background-color: rgba(255, 87, 34, 0.1) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* Decline options */
+.decline-option {
+  color: #9E9E9E !important;
+  font-size: 14px !important;
+  text-decoration: none !important;
+  padding: 8px !important;
+  opacity: 0.7 !important;
+  transition: opacity 0.3s ease !important;
+}
+
+.decline-option:hover {
+  opacity: 1 !important;
+}
+
+/* ===== ARTIFICIAL SCARCITY ===== */
+
+/* Spots remaining indicators */
+.spots-remaining {
+  font-size: 14px !important;
+  color: #F44336 !important;
+  font-weight: 600 !important;
+  display: inline-block !important;
+  padding: 3px 8px !important;
+  border-radius: 3px !important;
+  background-color: rgba(244, 67, 54, 0.1) !important;
+  margin-top: 5px !important;
+}
+
+.spots-remaining.critical {
+  animation: pulse-critical 1s infinite !important;
+}
+
+@keyframes pulse-critical {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.05); opacity: 0.9; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* Capacity indicators */
+.capacity-indicator {
+  height: 6px !important;
+  background-color: #E0E0E0 !important;
+  border-radius: 3px !important;
+  overflow: hidden !important;
+  margin: 10px 0 !important;
+}
+
+.capacity-indicator .filled {
+  height: 100% !important;
+  background: linear-gradient(90deg, #4CAF50, #FF9800, #F44336) !important;
+  border-radius: 3px !important;
+  transition: width 1s ease-in-out !important;
+}
+
+.capacity-indicator .filled.high {
+  animation: capacity-pulse 2s infinite !important;
+}
+
+@keyframes capacity-pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.8; }
+  100% { opacity: 1; }
+}
+
+/* ===== PRICING PSYCHOLOGY ===== */
+
+/* Tiered pricing display */
+.pricing-tier {
+  transition: all 0.3s ease !important;
+  border-radius: 10px !important;
+  overflow: hidden !important;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1) !important;
+}
+
+.pricing-tier:hover {
+  transform: translateY(-10px) !important;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15) !important;
+}
+
+.pricing-tier.popular {
+  transform: scale(1.05) !important;
+  border: 2px solid #FF9800 !important;
+  position: relative !important;
+}
+
+.pricing-tier.popular::before {
+  content: "MOST POPULAR" !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  background-color: #FF9800 !important;
+  color: white !important;
+  text-align: center !important;
+  padding: 8px !important;
+  font-size: 12px !important;
+  font-weight: bold !important;
+  letter-spacing: 1px !important;
+}
+
+/* Price display */
+.price-display {
+  font-size: 48px !important;
+  font-weight: 900 !important;
+  color: #333 !important;
+  position: relative !important;
+}
+
+.price-display .currency {
+  font-size: 24px !important;
+  position: absolute !important;
+  top: 8px !important;
+  left: -15px !important;
+}
+
+.price-display .period {
+  font-size: 16px !important;
+  color: #757575 !important;
+  font-weight: normal !important;
+}
+
+/* Price comparison */
+.price-comparison {
+  display: flex !important;
+  align-items: center !important;
+  margin: 10px 0 !important;
+}
+
+.price-comparison .original-price {
+  text-decoration: line-through !important;
+  color: #9E9E9E !important;
+  margin-right: 10px !important;
+}
+
+.price-comparison .discount {
+  background-color: #4CAF50 !important;
+  color: white !important;
+  padding: 3px 8px !important;
+  border-radius: 3px !important;
+  font-size: 14px !important;
+  font-weight: bold !important;
+}
+
+/* Feature comparison */
+.feature-list li {
+  padding: 8px 0 !important;
+  position: relative !important;
+  padding-left: 25px !important;
+}
+
+.feature-list li::before {
+  content: "✓" !important;
+  color: #4CAF50 !important;
+  position: absolute !important;
+  left: 0 !important;
+  font-weight: bold !important;
+}
+
+.feature-list li.unavailable {
+  color: #9E9E9E !important;
+}
+
+.feature-list li.unavailable::before {
+  content: "✕" !important;
+  color: #E0E0E0 !important;
+}
+
+.feature-list li.highlighted {
+  font-weight: bold !important;
+}
+
+.feature-list li.highlighted::before {
+  color: #FF9800 !important;
+}
+
+/* ===== FORM OPTIMIZATION ===== */
+
+/* Form field styling */
+.form-field {
+  margin-bottom: 20px !important;
+  position: relative !important;
+}
+
+.form-field label {
+  display: block !important;
+  margin-bottom: 8px !important;
+  font-weight: 600 !important;
+  color: #424242 !important;
+  transition: color 0.3s ease !important;
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+  width: 100% !important;
+  padding: 12px 15px !important;
+  border: 2px solid #E0E0E0 !important;
+  border-radius: 6px !important;
+  font-size: 16px !important;
+  transition: all 0.3s ease !important;
+}
+
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+  border-color: #2196F3 !important;
+  box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.2) !important;
+  outline: none !important;
+}
+
+.form-field.error input,
+.form-field.error select,
+.form-field.error textarea {
+  border-color: #F44336 !important;
+}
+
+.form-field .error-message {
+  color: #F44336 !important;
+  font-size: 14px !important;
+  margin-top: 5px !important;
+  display: block !important;
+}
+
+/* Form progress */
+.form-progress {
+  display: flex !important;
+  justify-content: space-between !important;
+  margin-bottom: 30px !important;
+  position: relative !important;
+}
+
+.form-progress::before {
+  content: "" !important;
+  position: absolute !important;
+  top: 15px !important;
+  left: 0 !important;
+  right: 0 !important;
+  height: 2px !important;
+  background-color: #E0E0E0 !important;
+  z-index: 1 !important;
+}
+
+.form-progress .step {
+  position: relative !important;
+  z-index: 2 !important;
+  background-color: white !important;
+  width: 30px !important;
+  height: 30px !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border: 2px solid #E0E0E0 !important;
+  font-weight: bold !important;
+  color: #757575 !important;
+  transition: all 0.3s ease !important;
+}
+
+.form-progress .step.active {
+  border-color: #2196F3 !important;
+  color: #2196F3 !important;
+}
+
+.form-progress .step.completed {
+  border-color: #4CAF50 !important;
+  background-color: #4CAF50 !important;
+  color: white !important;
+}
+
+/* ===== TESTIMONIAL OPTIMIZATION ===== */
+
+/* Testimonial cards */
+.testimonial {
+  padding: 25px !important;
+  border-radius: 10px !important;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05) !important;
+  margin-bottom: 20px !important;
+  position: relative !important;
+  overflow: hidden !important;
+  transition: all 0.3s ease !important;
+}
+
+.testimonial::before {
+  content: '"' !important;
+  position: absolute !important;
+  top: -15px !important;
+  left: 10px !important;
+  font-size: 120px !important;
+  color: rgba(0, 0, 0, 0.03) !important;
+  font-family: Georgia, serif !important;
+}
+
+.testimonial:hover {
+  transform: translateY(-5px) !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1) !important;
+}
+
+.testimonial .author {
+  display: flex !important;
+  align-items: center !important;
+  margin-top: 15px !important;
+}
+
+.testimonial .author-image {
+  width: 50px !important;
+  height: 50px !important;
+  border-radius: 50% !important;
+  margin-right: 15px !important;
+  object-fit: cover !important;
+  border: 3px solid white !important;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1) !important;
+}
+
+.testimonial .author-info {
+  line-height: 1.4 !important;
+}
+
+.testimonial .author-name {
+  font-weight: bold !important;
+  color: #424242 !important;
+}
+
+.testimonial .author-title {
+  font-size: 14px !important;
+  color: #757575 !important;
+}
+
+.testimonial .rating {
+  color: #FFC107 !important;
+  margin-top: 10px !important;
+  font-size: 18px !important;
+}
+
+/* ===== MOBILE OPTIMIZATION ===== */
+
+/* Mobile-specific adjustments */
+@media (max-width: 768px) {
+  .cta-button {
+    width: 100% !important;
+    padding: 15px !important;
+    font-size: 16px !important;
+  }
+  
+  .secondary-button {
+    width: 100% !important;
+    margin-top: 10px !important;
+  }
+  
+  .pricing-tier.popular {
+    transform: scale(1) !important;
+    margin: 20px 0 !important;
+  }
+  
+  .form-progress {
+    display: none !important;
+  }
+  
+  .decline-option {
+    display: block !important;
+    text-align: center !important;
+    margin-top: 15px !important;
+  }
+}
+
+/* ===== ACCESSIBILITY CONSIDERATIONS ===== */
+
+/* Ensure text remains readable */
+* {
+  text-shadow: none !important;
+}
+
+/* Reduce motion for those who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
