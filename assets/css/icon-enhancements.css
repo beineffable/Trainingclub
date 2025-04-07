@@ -1,0 +1,151 @@
+/* 
+ * Icon Size Enhancement - CSS Implementation (Revised)
+ * For Training Club Website
+ * Created: April 7, 2025
+ */
+
+/* Navigation Menu Icons Enhancement */
+.nav-icon, 
+header .icon,
+nav .icon,
+.nav-menu i,
+.hamburger-menu i,
+header i.fas {
+  transform: scale(1.5);
+  margin: 0.25rem;
+}
+
+/* Training Type Icons Enhancement */
+.training-section .icon,
+.feature-icon i,
+.high-intensity-icon,
+.strength-icon,
+.endurance-icon,
+.mental-icon,
+.feature i.fas {
+  transform: scale(1.75);
+  margin: 1rem auto;
+  display: block;
+}
+
+/* Weather Condition Icons Enhancement */
+.weather-condition .icon,
+.condition i.fas,
+.rain-icon,
+.snow-icon,
+.heat-icon,
+.cold-icon {
+  transform: scale(1.65);
+  margin: 0.75rem auto;
+  display: block;
+}
+
+/* Membership Section Icons Enhancement */
+.membership-option .icon,
+.tier-features i.fas,
+.standard-icon,
+.elite-icon,
+.corporate-icon,
+.membership-tier i {
+  transform: scale(1.6);
+  margin: 0.5rem auto;
+}
+
+/* Button Icons Enhancement */
+button .icon,
+.cta-button .icon,
+.cta-button i,
+.secondary-button i,
+button i.fas {
+  transform: scale(1.4);
+  vertical-align: middle;
+  margin-right: 0.5rem;
+}
+
+/* Footer Icons Enhancement */
+footer .icon,
+.social-icon,
+footer i.fas,
+.contact-method i,
+.social-links i {
+  transform: scale(1.5);
+  margin: 0.25rem;
+}
+
+/* Ensure proper spacing for all enlarged icons */
+[class*="-icon"],
+i.fas,
+i.fab,
+i.fa {
+  position: relative;
+  z-index: 1;
+  transition: transform 0.3s ease;
+}
+
+/* Hover effect for interactive icons */
+a:hover .icon,
+button:hover .icon,
+a:hover i.fas,
+button:hover i.fas {
+  transform: scale(1.8);
+}
+
+/* Specific icon replacements and improvements */
+/* Heat icon (sun) */
+.heat-icon.fa::before,
+.heat-icon.fas::before,
+.condition:nth-child(3) i.fas::before {
+  content: "\f185"; /* Font Awesome sun icon */
+}
+
+/* Snow icon (different from cold) */
+.snow-icon.fa::before,
+.snow-icon.fas::before,
+.condition:nth-child(2) i.fas::before {
+  content: "\f2dc"; /* Font Awesome snowflake icon */
+}
+
+/* Cold icon */
+.cold-icon.fa::before,
+.cold-icon.fas::before,
+.condition:nth-child(4) i.fas::before {
+  content: "\f7ad"; /* Font Awesome temperature low icon */
+}
+
+/* Profile icon improvement */
+.profile-icon.fa::before,
+.profile-icon.fas::before,
+.member-login i.fas::before {
+  content: "\f007"; /* Font Awesome user icon */
+}
+
+/* Ensure dark mode compatibility */
+:root[data-theme="dark"] .icon,
+.dark-mode .icon,
+:root[data-theme="dark"] i.fas,
+.dark-mode i.fas,
+:root[data-theme="dark"] i.fab,
+.dark-mode i.fab {
+  /* Same transformations as light mode */
+  /* No specific color changes needed as per requirements */
+}
+
+/* Ensure mobile responsiveness */
+@media (max-width: 768px) {
+  /* Slightly smaller scale for mobile to prevent layout issues */
+  [class*="-icon"],
+  .icon,
+  i.fas,
+  i.fab,
+  i.fa {
+    transform: scale(1.4);
+  }
+  
+  /* Adjust hover effect for mobile */
+  a:hover .icon,
+  button:hover .icon,
+  a:hover i.fas,
+  button:hover i.fas {
+    transform: scale(1.6);
+  }
+}
