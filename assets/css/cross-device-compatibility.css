@@ -1,0 +1,184 @@
+/* Cross-device compatibility improvements */
+
+/* Ensure consistent touch experience across devices */
+.touch-active {
+  transform: scale(0.98);
+  transition: transform 0.1s ease;
+}
+
+/* Improve form accessibility across devices */
+input:focus, 
+textarea:focus, 
+select:focus,
+button:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+/* Ensure consistent font rendering */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Fix iOS specific issues */
+@supports (-webkit-touch-callout: none) {
+  /* Fix for iOS 100vh issue */
+  .full-height {
+    height: -webkit-fill-available;
+  }
+  
+  /* Fix for iOS button styling */
+  button, 
+  .btn, 
+  a.btn,
+  .cta-button {
+    -webkit-appearance: none;
+    border-radius: 5px;
+  }
+  
+  /* Fix for iOS input styling */
+  input, 
+  textarea {
+    -webkit-appearance: none;
+    border-radius: 0;
+  }
+}
+
+/* Fix Android specific issues */
+@supports not (-webkit-touch-callout: none) {
+  /* Android-specific fixes if needed */
+  input:focus {
+    outline: none;
+  }
+}
+
+/* Improve image display across devices */
+.responsive-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* Ensure SVGs scale properly */
+svg {
+  width: 100%;
+  height: auto;
+}
+
+/* Improve video responsiveness */
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  height: 0;
+  overflow: hidden;
+}
+
+.video-container iframe,
+.video-container video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Ensure consistent scrolling behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Improve accessibility for keyboard navigation */
+a:focus,
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+/* Fix for sticky hover on mobile */
+@media (hover: hover) {
+  a:hover, button:hover {
+    /* Hover styles */
+    opacity: 0.8;
+  }
+}
+
+/* Ensure proper stacking context for fixed elements */
+.fixed-element {
+  position: fixed;
+  z-index: 100;
+}
+
+/* Improve print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  body {
+    font-size: 12pt;
+    line-height: 1.5;
+    color: #000;
+    background: #fff;
+  }
+  
+  a {
+    color: #000;
+    text-decoration: underline;
+  }
+}
+
+/* Fix for orientation changes */
+@media screen and (orientation: portrait) {
+  /* Portrait-specific styles */
+  .orientation-specific {
+    flex-direction: column;
+  }
+}
+
+@media screen and (orientation: landscape) {
+  /* Landscape-specific styles */
+  .orientation-specific {
+    flex-direction: row;
+  }
+}
+
+/* Ensure dark mode compatibility */
+@media (prefers-color-scheme: dark) {
+  /* Only apply if no manual theme toggle is present */
+  body:not(.light-theme):not(.dark-theme) {
+    --text-color: #f0f0f0;
+    --background-color: #121212;
+    --primary-color: #4d8edb;
+    --secondary-color: #f0f0f0;
+    --accent-color: #ff9800;
+  }
+}
+
+/* Ensure proper font scaling */
+html {
+  font-size: 16px;
+}
+
+@media screen and (min-width: 1200px) {
+  html {
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  html {
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  html {
+    font-size: 14px;
+  }
+}
