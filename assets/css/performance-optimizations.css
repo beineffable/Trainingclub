@@ -1,0 +1,336 @@
+/* Performance Optimizations for Complex Animations
+ * This CSS file provides optimizations to ensure smooth performance
+ * of the elite-level animations across all devices
+ */
+
+/* ===== PERFORMANCE OPTIMIZATION VARIABLES ===== */
+:root {
+  /* Animation Thresholds for Progressive Enhancement */
+  --performance-tier-low: 0;    /* Basic animations only */
+  --performance-tier-medium: 1; /* Moderate animations */
+  --performance-tier-high: 2;   /* Full animations */
+  
+  /* Set default performance tier - will be updated by JS based on device capability */
+  --current-performance-tier: var(--performance-tier-high);
+  
+  /* Reduced Animation Settings */
+  --reduced-glow-opacity: 0.5;
+  --reduced-particle-count: 4;
+  --reduced-animation-distance: 5px;
+}
+
+/* ===== HARDWARE ACCELERATION OPTIMIZATIONS ===== */
+
+/* Apply hardware acceleration to all animated elements */
+.cta-button,
+.secondary-button,
+a:not(.logo),
+.nav-menu li a,
+.social-icon,
+[class*="-hover"],
+[class*="-effect"],
+[class*="-animation"],
+.parallax-layer,
+.stagger-fade-in,
+.fade-in-on-scroll,
+.scale-in-on-scroll,
+.slide-in-left,
+.slide-in-right {
+  /* Force GPU acceleration */
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+  
+  /* Optimize paint operations */
+  will-change: transform, opacity;
+  
+  /* Prevent text rendering issues during animations */
+  text-rendering: optimizeSpeed;
+}
+
+/* ===== PROGRESSIVE ENHANCEMENT BASED ON DEVICE CAPABILITY ===== */
+
+/* Low Performance Tier - Basic Animations Only */
+@media (prefers-reduced-motion), (max-width: 768px) {
+  :root {
+    --current-performance-tier: var(--performance-tier-low);
+  }
+}
+
+/* Apply performance-based adjustments */
+[data-performance-tier="high"] {
+  display: var(--high-tier-display, block);
+  opacity: var(--high-tier-opacity, 1);
+  visibility: var(--high-tier-visibility, visible);
+}
+
+[data-performance-tier="medium"] {
+  display: var(--medium-tier-display, block);
+  opacity: var(--medium-tier-opacity, 1);
+  visibility: var(--medium-tier-visibility, visible);
+}
+
+[data-performance-tier="low"] {
+  display: var(--low-tier-display, block);
+  opacity: var(--low-tier-opacity, 1);
+  visibility: var(--low-tier-visibility, visible);
+}
+
+/* JavaScript will set these CSS variables based on detected performance */
+
+/* ===== ANIMATION THROTTLING ===== */
+
+/* Reduce animation complexity on lower performance devices */
+@media (max-width: 768px) {
+  /* Simplify glow effects */
+  .cta-button:hover,
+  .secondary-button:hover,
+  a:hover {
+    box-shadow: 0 0 10px rgba(var(--glow-color, 13, 110, 253), var(--reduced-glow-opacity)) !important;
+    text-shadow: 0 0 5px rgba(var(--glow-color, 13, 110, 253), var(--reduced-glow-opacity)) !important;
+    filter: none !important;
+  }
+  
+  /* Reduce transform intensity */
+  [class*="-hover"]:hover,
+  [class*="-effect"]:hover {
+    transform: translateY(calc(var(--reduced-animation-distance) * -1)) !important;
+  }
+  
+  /* Disable complex animations */
+  .particle,
+  .shimmer-hover::after,
+  .pulse-wave-hover::before,
+  .morphing-border-hover::before,
+  .floating-element {
+    display: none !important;
+  }
+  
+  /* Simplify keyframe animations */
+  @keyframes simplified-pulse {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+  }
+  
+  .pulsing-effect,
+  .featured {
+    animation: simplified-pulse 2s ease-in-out infinite !important;
+  }
+  
+  /* Reduce parallax intensity */
+  .parallax-layer-1,
+  .parallax-layer-2,
+  .parallax-layer-3,
+  .parallax-layer-4 {
+    transform: translateZ(0) !important;
+  }
+}
+
+/* ===== ANIMATION BATCHING ===== */
+
+/* Group animations to optimize rendering */
+.animation-group {
+  /* Force containing block to create a new stacking context */
+  position: relative;
+  z-index: 1;
+  
+  /* Optimize child animations */
+  contain: layout style paint;
+}
+
+/* ===== REDUCED MOTION SUPPORT ===== */
+
+/* Comprehensive reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  /* Global animation disabling */
+  *, *::before, *::after {
+    animation-duration: 0.001s !important;
+    animation-delay: 0s !important;
+    transition-duration: 0.001s !important;
+    scroll-behavior: auto !important;
+  }
+  
+  /* Alternative indicators for state changes */
+  button:hover, a:hover {
+    outline: 2px solid currentColor !important;
+  }
+  
+  /* Disable transforms */
+  [class*="-hover"]:hover,
+  [class*="-effect"]:hover,
+  .stagger-fade-in,
+  .fade-in-on-scroll.visible,
+  .scale-in-on-scroll.visible,
+  .slide-in-left.visible,
+  .slide-in-right.visible {
+    transform: none !important;
+  }
+  
+  /* Disable parallax */
+  .parallax-layer {
+    transform: none !important;
+    position: relative !important;
+  }
+  
+  /* Disable decorative elements */
+  .particle,
+  .floating-element,
+  [class*="::before"],
+  [class*="::after"] {
+    display: none !important;
+  }
+}
+
+/* ===== PAINT OPTIMIZATION ===== */
+
+/* Optimize paint operations for animated elements */
+.paint-optimized {
+  /* Create a new composite layer */
+  transform: translateZ(0);
+  
+  /* Hint to the browser about paint containment */
+  contain: paint;
+}
+
+/* Optimize text rendering during animations */
+.text-optimized {
+  /* Optimize text rendering during animations */
+  text-rendering: optimizeSpeed;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ===== ANIMATION DEBOUNCING ===== */
+
+/* Debounce hover animations to prevent thrashing */
+.debounce-hover {
+  /* Add a small delay to hover animations */
+  transition-delay: 50ms;
+}
+
+/* ===== SELECTIVE ANIMATION APPLICATION ===== */
+
+/* Only apply complex animations to key elements */
+.primary-animated {
+  /* Full animation set applied */
+}
+
+.secondary-animated {
+  /* Simplified animations */
+  animation-duration: calc(var(--motion-duration-medium) * 1.5) !important;
+  transition-duration: calc(var(--hover-speed-medium) * 1.5) !important;
+}
+
+.minimal-animated {
+  /* Basic animations only */
+  animation: none !important;
+  transition: opacity 0.3s ease, transform 0.3s ease !important;
+}
+
+/* ===== LAZY ANIMATION LOADING ===== */
+
+/* Only animate elements when they enter the viewport */
+.lazy-animate {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.lazy-animate.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== ANIMATION QUANTITY LIMITING ===== */
+
+/* Limit the number of simultaneous animations */
+.limit-animations > *:nth-child(n+10) {
+  animation: none !important;
+  transition: none !important;
+  transform: none !important;
+}
+
+/* ===== FRAME RATE OPTIMIZATION ===== */
+
+/* Optimize animations for 60fps */
+@media screen and (min-resolution: 2dppx) {
+  /* Simplify animations on high-DPI screens */
+  [class*="-hover"]::before,
+  [class*="-hover"]::after,
+  [class*="-effect"]::before,
+  [class*="-effect"]::after {
+    animation-duration: calc(var(--motion-duration-medium) * 1.5) !important;
+    transition-duration: calc(var(--hover-speed-medium) * 1.5) !important;
+  }
+}
+
+/* ===== MEMORY MANAGEMENT ===== */
+
+/* Cleanup animations when elements are not visible */
+.cleanup-when-hidden {
+  animation-play-state: var(--animation-play-state, running);
+  transition: var(--transition-state, all 0.3s ease);
+}
+
+/* JavaScript will pause animations when elements are off-screen */
+
+/* ===== TOUCH DEVICE OPTIMIZATIONS ===== */
+
+/* Optimize for touch devices */
+@media (hover: none) {
+  /* Disable hover-specific effects */
+  [class*="-hover"]::before,
+  [class*="-hover"]::after {
+    display: none !important;
+  }
+  
+  /* Convert hover effects to tap effects */
+  .tilt-hover:active,
+  .magnetic-hover:active,
+  .explosive-hover:active {
+    transform: scale(0.95) !important;
+    transition: transform 0.2s ease !important;
+  }
+  
+  /* Simplify animations */
+  .cta-button,
+  .secondary-button,
+  a:not(.logo) {
+    transition: transform 0.2s ease, opacity 0.2s ease !important;
+  }
+}
+
+/* ===== JAVASCRIPT PERFORMANCE HELPERS ===== */
+
+/* Classes for JavaScript to toggle based on performance detection */
+.js-performance-high {
+  display: var(--js-high-display, block);
+}
+
+.js-performance-medium {
+  display: var(--js-medium-display, none);
+}
+
+.js-performance-low {
+  display: var(--js-low-display, none);
+}
+
+/* JavaScript will detect performance capabilities and set appropriate CSS variables */
+
+/* ===== CRITICAL ANIMATIONS VS. ENHANCEMENT ANIMATIONS ===== */
+
+/* Critical animations that should always run */
+.critical-animation {
+  /* These animations will run on all devices */
+}
+
+/* Enhancement animations for capable devices */
+.enhancement-animation {
+  /* These will only run on high-performance devices */
+  animation-play-state: var(--enhancement-animation-state, paused);
+}
+
+/* JavaScript will set --enhancement-animation-state based on device capability */

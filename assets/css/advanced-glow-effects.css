@@ -1,0 +1,413 @@
+/* Advanced Glow Effects Implementation
+ * This CSS file implements the most visually striking glow effects
+ * for buttons and links on the Training Club website
+ */
+
+/* ===== GLOW EFFECT VARIABLES ===== */
+:root {
+  /* Glow Colors - Light Mode */
+  --light-glow-primary-soft: rgba(13, 110, 253, 0.4);
+  --light-glow-primary-medium: rgba(13, 110, 253, 0.7);
+  --light-glow-primary-intense: rgba(13, 110, 253, 0.9);
+  --light-glow-primary-ultra: rgba(0, 195, 255, 0.95);
+  
+  /* Glow Colors - Dark Mode */
+  --dark-glow-primary-soft: rgba(255, 125, 77, 0.4);
+  --dark-glow-primary-medium: rgba(255, 125, 77, 0.7);
+  --dark-glow-primary-intense: rgba(255, 125, 77, 0.9);
+  --dark-glow-primary-ultra: rgba(255, 89, 0, 0.95);
+  
+  /* Glow Sizes and Blur */
+  --glow-blur-sm: 5px;
+  --glow-blur-md: 10px;
+  --glow-blur-lg: 15px;
+  --glow-blur-xl: 25px;
+  --glow-blur-xxl: 40px;
+  
+  /* Glow Animation Speeds */
+  --glow-pulse-speed-slow: 4s;
+  --glow-pulse-speed-medium: 2s;
+  --glow-pulse-speed-fast: 1s;
+}
+
+/* ===== MULTI-LAYERED BUTTON GLOW EFFECTS ===== */
+
+/* Primary Button Multi-Layer Glow - Light Mode */
+body:not(.dark-mode) .cta-button {
+  box-shadow: 
+    0 0 var(--glow-blur-sm) var(--light-glow-primary-soft),
+    0 0 0 rgba(13, 110, 253, 0);
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+body:not(.dark-mode) .cta-button:hover {
+  box-shadow: 
+    0 0 var(--glow-blur-sm) var(--light-glow-primary-medium),
+    0 0 var(--glow-blur-md) var(--light-glow-primary-soft),
+    0 0 var(--glow-blur-lg) rgba(13, 110, 253, 0.2);
+  filter: brightness(1.1);
+}
+
+body:not(.dark-mode) .cta-button:active {
+  box-shadow: 
+    0 0 var(--glow-blur-sm) var(--light-glow-primary-intense),
+    0 0 var(--glow-blur-md) var(--light-glow-primary-medium);
+  filter: brightness(1.2);
+}
+
+/* Primary Button Multi-Layer Glow - Dark Mode */
+body.dark-mode .cta-button {
+  box-shadow: 
+    0 0 var(--glow-blur-sm) var(--dark-glow-primary-soft),
+    0 0 0 rgba(255, 125, 77, 0);
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+body.dark-mode .cta-button:hover {
+  box-shadow: 
+    0 0 var(--glow-blur-sm) var(--dark-glow-primary-medium),
+    0 0 var(--glow-blur-md) var(--dark-glow-primary-soft),
+    0 0 var(--glow-blur-lg) rgba(255, 125, 77, 0.2);
+  filter: brightness(1.1);
+}
+
+body.dark-mode .cta-button:active {
+  box-shadow: 
+    0 0 var(--glow-blur-sm) var(--dark-glow-primary-intense),
+    0 0 var(--glow-blur-md) var(--dark-glow-primary-medium);
+  filter: brightness(1.2);
+}
+
+/* Featured Button Ultra Glow - Light Mode */
+body:not(.dark-mode) .cta-button.featured {
+  animation: ultra-glow-light var(--glow-pulse-speed-slow) infinite alternate;
+  position: relative;
+}
+
+@keyframes ultra-glow-light {
+  0% {
+    box-shadow: 
+      0 0 var(--glow-blur-sm) var(--light-glow-primary-medium),
+      0 0 var(--glow-blur-md) var(--light-glow-primary-soft);
+    filter: brightness(1);
+  }
+  50% {
+    box-shadow: 
+      0 0 var(--glow-blur-md) var(--light-glow-primary-medium),
+      0 0 var(--glow-blur-lg) var(--light-glow-primary-soft);
+    filter: brightness(1.1);
+  }
+  100% {
+    box-shadow: 
+      0 0 var(--glow-blur-lg) var(--light-glow-primary-intense),
+      0 0 var(--glow-blur-xl) var(--light-glow-primary-medium),
+      0 0 var(--glow-blur-xxl) var(--light-glow-primary-soft);
+    filter: brightness(1.2);
+  }
+}
+
+/* Featured Button Ultra Glow - Dark Mode */
+body.dark-mode .cta-button.featured {
+  animation: ultra-glow-dark var(--glow-pulse-speed-slow) infinite alternate;
+  position: relative;
+}
+
+@keyframes ultra-glow-dark {
+  0% {
+    box-shadow: 
+      0 0 var(--glow-blur-sm) var(--dark-glow-primary-medium),
+      0 0 var(--glow-blur-md) var(--dark-glow-primary-soft);
+    filter: brightness(1);
+  }
+  50% {
+    box-shadow: 
+      0 0 var(--glow-blur-md) var(--dark-glow-primary-medium),
+      0 0 var(--glow-blur-lg) var(--dark-glow-primary-soft);
+    filter: brightness(1.1);
+  }
+  100% {
+    box-shadow: 
+      0 0 var(--glow-blur-lg) var(--dark-glow-primary-intense),
+      0 0 var(--glow-blur-xl) var(--dark-glow-primary-medium),
+      0 0 var(--glow-blur-xxl) var(--dark-glow-primary-soft);
+    filter: brightness(1.2);
+  }
+}
+
+/* Secondary Button Subtle Glow - Light Mode */
+body:not(.dark-mode) .secondary-button {
+  box-shadow: 0 0 0 rgba(108, 117, 125, 0);
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+body:not(.dark-mode) .secondary-button:hover {
+  box-shadow: 
+    0 0 var(--glow-blur-sm) rgba(108, 117, 125, 0.5),
+    0 0 var(--glow-blur-md) rgba(108, 117, 125, 0.2);
+}
+
+/* Secondary Button Subtle Glow - Dark Mode */
+body.dark-mode .secondary-button {
+  box-shadow: 0 0 0 rgba(173, 181, 189, 0);
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+body.dark-mode .secondary-button:hover {
+  box-shadow: 
+    0 0 var(--glow-blur-sm) rgba(173, 181, 189, 0.5),
+    0 0 var(--glow-blur-md) rgba(173, 181, 189, 0.2);
+}
+
+/* ===== ADVANCED LINK GLOW EFFECTS ===== */
+
+/* Standard Link Glow - Light Mode */
+body:not(.dark-mode) a:not(.cta-button):not(.secondary-button):not(.logo):not(.nav-menu a):not(.social-icon) {
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  text-shadow: 0 0 0 rgba(13, 110, 253, 0);
+}
+
+body:not(.dark-mode) a:not(.cta-button):not(.secondary-button):not(.logo):not(.nav-menu a):not(.social-icon):hover {
+  color: var(--light-glow-primary-ultra);
+  text-shadow: 
+    0 0 var(--glow-blur-sm) var(--light-glow-primary-medium),
+    0 0 var(--glow-blur-md) var(--light-glow-primary-soft);
+}
+
+/* Standard Link Glow - Dark Mode */
+body.dark-mode a:not(.cta-button):not(.secondary-button):not(.logo):not(.nav-menu a):not(.social-icon) {
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  text-shadow: 0 0 0 rgba(255, 125, 77, 0);
+}
+
+body.dark-mode a:not(.cta-button):not(.secondary-button):not(.logo):not(.nav-menu a):not(.social-icon):hover {
+  color: var(--dark-glow-primary-ultra);
+  text-shadow: 
+    0 0 var(--glow-blur-sm) var(--dark-glow-primary-medium),
+    0 0 var(--glow-blur-md) var(--dark-glow-primary-soft);
+}
+
+/* Navigation Menu Link Glow - Light Mode */
+body:not(.dark-mode) .nav-menu li a {
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  text-shadow: 0 0 0 rgba(13, 110, 253, 0);
+}
+
+body:not(.dark-mode) .nav-menu li a:hover,
+body:not(.dark-mode) .nav-menu li a.active {
+  color: var(--light-glow-primary-ultra);
+  text-shadow: 
+    0 0 var(--glow-blur-sm) var(--light-glow-primary-intense),
+    0 0 var(--glow-blur-md) var(--light-glow-primary-medium);
+}
+
+/* Navigation Menu Link Glow - Dark Mode */
+body.dark-mode .nav-menu li a {
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  text-shadow: 0 0 0 rgba(255, 125, 77, 0);
+}
+
+body.dark-mode .nav-menu li a:hover,
+body.dark-mode .nav-menu li a.active {
+  color: var(--dark-glow-primary-ultra);
+  text-shadow: 
+    0 0 var(--glow-blur-sm) var(--dark-glow-primary-intense),
+    0 0 var(--glow-blur-md) var(--dark-glow-primary-medium);
+}
+
+/* Social Icon Glow - Light Mode */
+body:not(.dark-mode) .social-icon {
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  filter: drop-shadow(0 0 0 rgba(13, 110, 253, 0));
+}
+
+body:not(.dark-mode) .social-icon:hover {
+  color: var(--light-glow-primary-ultra);
+  filter: 
+    drop-shadow(0 0 var(--glow-blur-sm) var(--light-glow-primary-intense))
+    drop-shadow(0 0 var(--glow-blur-md) var(--light-glow-primary-medium));
+}
+
+/* Social Icon Glow - Dark Mode */
+body.dark-mode .social-icon {
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  filter: drop-shadow(0 0 0 rgba(255, 125, 77, 0));
+}
+
+body.dark-mode .social-icon:hover {
+  color: var(--dark-glow-primary-ultra);
+  filter: 
+    drop-shadow(0 0 var(--glow-blur-sm) var(--dark-glow-primary-intense))
+    drop-shadow(0 0 var(--glow-blur-md) var(--dark-glow-primary-medium));
+}
+
+/* ===== GRADIENT GLOW EFFECTS ===== */
+
+/* Gradient Glow Button - Light Mode */
+body:not(.dark-mode) .cta-button.gradient-glow {
+  position: relative;
+  z-index: 1;
+  overflow: visible;
+}
+
+body:not(.dark-mode) .cta-button.gradient-glow::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  background: linear-gradient(45deg, 
+    rgba(13, 110, 253, 0), 
+    rgba(0, 195, 255, 0.8), 
+    rgba(13, 110, 253, 0)
+  );
+  border-radius: inherit;
+  z-index: -1;
+  opacity: 0;
+  filter: blur(8px);
+  transition: opacity 0.3s ease;
+}
+
+body:not(.dark-mode) .cta-button.gradient-glow:hover::before {
+  opacity: 1;
+  animation: rotate-gradient 3s linear infinite;
+}
+
+/* Gradient Glow Button - Dark Mode */
+body.dark-mode .cta-button.gradient-glow {
+  position: relative;
+  z-index: 1;
+  overflow: visible;
+}
+
+body.dark-mode .cta-button.gradient-glow::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  background: linear-gradient(45deg, 
+    rgba(255, 125, 77, 0), 
+    rgba(255, 89, 0, 0.8), 
+    rgba(255, 125, 77, 0)
+  );
+  border-radius: inherit;
+  z-index: -1;
+  opacity: 0;
+  filter: blur(8px);
+  transition: opacity 0.3s ease;
+}
+
+body.dark-mode .cta-button.gradient-glow:hover::before {
+  opacity: 1;
+  animation: rotate-gradient 3s linear infinite;
+}
+
+@keyframes rotate-gradient {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* ===== NEON TEXT EFFECT ===== */
+
+/* Neon Text Effect - Light Mode */
+body:not(.dark-mode) a.neon-text {
+  color: #fff;
+  text-shadow: 
+    0 0 5px rgba(13, 110, 253, 0.8),
+    0 0 10px rgba(13, 110, 253, 0.8),
+    0 0 15px rgba(13, 110, 253, 0.8),
+    0 0 20px rgba(13, 110, 253, 0.5),
+    0 0 35px rgba(13, 110, 253, 0.5),
+    0 0 40px rgba(13, 110, 253, 0.5);
+  transition: all 0.3s ease;
+}
+
+body:not(.dark-mode) a.neon-text:hover {
+  color: #fff;
+  text-shadow: 
+    0 0 5px rgba(0, 195, 255, 0.8),
+    0 0 10px rgba(0, 195, 255, 0.8),
+    0 0 15px rgba(0, 195, 255, 0.8),
+    0 0 20px rgba(0, 195, 255, 0.8),
+    0 0 35px rgba(0, 195, 255, 0.8),
+    0 0 40px rgba(0, 195, 255, 0.8);
+}
+
+/* Neon Text Effect - Dark Mode */
+body.dark-mode a.neon-text {
+  color: #fff;
+  text-shadow: 
+    0 0 5px rgba(255, 125, 77, 0.8),
+    0 0 10px rgba(255, 125, 77, 0.8),
+    0 0 15px rgba(255, 125, 77, 0.8),
+    0 0 20px rgba(255, 125, 77, 0.5),
+    0 0 35px rgba(255, 125, 77, 0.5),
+    0 0 40px rgba(255, 125, 77, 0.5);
+  transition: all 0.3s ease;
+}
+
+body.dark-mode a.neon-text:hover {
+  color: #fff;
+  text-shadow: 
+    0 0 5px rgba(255, 89, 0, 0.8),
+    0 0 10px rgba(255, 89, 0, 0.8),
+    0 0 15px rgba(255, 89, 0, 0.8),
+    0 0 20px rgba(255, 89, 0, 0.8),
+    0 0 35px rgba(255, 89, 0, 0.8),
+    0 0 40px rgba(255, 89, 0, 0.8);
+}
+
+/* ===== ACCESSIBILITY CONSIDERATIONS ===== */
+@media (prefers-reduced-motion: reduce) {
+  .cta-button,
+  .secondary-button,
+  a:not(.cta-button):not(.secondary-button):not(.logo),
+  .nav-menu li a,
+  .social-icon,
+  .cta-button.featured,
+  .cta-button.gradient-glow::before,
+  a.neon-text {
+    transition: none !important;
+    animation: none !important;
+    text-shadow: none !important;
+    box-shadow: none !important;
+    filter: none !important;
+  }
+  
+  body:not(.dark-mode) .cta-button:hover,
+  body.dark-mode .cta-button:hover,
+  body:not(.dark-mode) .secondary-button:hover,
+  body.dark-mode .secondary-button:hover {
+    border: 2px solid currentColor !important;
+  }
+  
+  body:not(.dark-mode) a:hover,
+  body.dark-mode a:hover {
+    text-decoration: underline !important;
+  }
+}
+
+/* ===== PERFORMANCE OPTIMIZATIONS ===== */
+.cta-button,
+.secondary-button,
+a:not(.cta-button):not(.secondary-button):not(.logo),
+.nav-menu li a,
+.social-icon {
+  will-change: transform, box-shadow, text-shadow, filter;
+}
+
+/* Use hardware acceleration for smoother animations */
+.cta-button,
+.secondary-button,
+a:not(.cta-button):not(.secondary-button):not(.logo),
+.nav-menu li a,
+.social-icon {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}

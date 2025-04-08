@@ -1,0 +1,484 @@
+/* Premium Button Animation Design
+ * This CSS file contains elite-level button animations for the Training Club website
+ * Designed to be the most visually striking and impressive animations possible
+ */
+
+/* ===== ADVANCED VARIABLES ===== */
+:root {
+  /* Animation Speeds */
+  --animation-speed-ultra-slow: 4s;
+  --animation-speed-slow: 2s;
+  --animation-speed-medium: 1s;
+  --animation-speed-fast: 0.3s;
+  --animation-speed-ultra-fast: 0.15s;
+  
+  /* Glow Colors - Light Mode */
+  --light-glow-primary: rgba(13, 110, 253, 0.8);  /* Blue glow - increased opacity */
+  --light-glow-secondary: rgba(108, 117, 125, 0.7);  /* Gray glow - increased opacity */
+  --light-glow-accent: rgba(255, 193, 7, 0.8);  /* Yellow glow - increased opacity */
+  --light-glow-intense: rgba(0, 195, 255, 0.9);  /* Intense blue glow */
+  
+  /* Glow Colors - Dark Mode */
+  --dark-glow-primary: rgba(255, 125, 77, 0.9);  /* Orange glow - increased opacity */
+  --dark-glow-secondary: rgba(173, 181, 189, 0.7);  /* Light gray glow - increased opacity */
+  --dark-glow-accent: rgba(255, 193, 7, 0.8);  /* Yellow glow - increased opacity */
+  --dark-glow-intense: rgba(255, 89, 0, 0.95);  /* Intense orange glow */
+  
+  /* Glow Sizes */
+  --glow-size-sm: 0 0 8px;
+  --glow-size-md: 0 0 15px;
+  --glow-size-lg: 0 0 25px;
+  --glow-size-xl: 0 0 40px;
+  --glow-size-xxl: 0 0 60px;
+  
+  /* 3D Effect Variables */
+  --button-depth: 6px;
+  --button-press-depth: 2px;
+  --perspective-distance: 800px;
+  --rotation-degree: 5deg;
+  
+  /* Particle Effect Variables */
+  --particle-size: 6px;
+  --particle-count: 12;
+  --particle-speed: 0.8s;
+  --particle-distance: 80px;
+}
+
+/* ===== MULTI-LAYERED GLOW BUTTONS ===== */
+
+/* Base Button Styles with Enhanced 3D Perspective */
+.cta-button,
+.secondary-button {
+  position: relative;
+  overflow: visible; /* Changed from hidden to allow glow overflow */
+  transition: all var(--animation-speed-fast) cubic-bezier(0.34, 1.56, 0.64, 1); /* Bouncy easing */
+  z-index: 1;
+  transform-style: preserve-3d; /* Enable 3D transformations */
+  perspective: var(--perspective-distance);
+  backface-visibility: hidden;
+  will-change: transform, box-shadow, filter;
+}
+
+/* Button before/after elements for multi-layered effects */
+.cta-button::before,
+.secondary-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  z-index: -1;
+  transition: all var(--animation-speed-medium) ease;
+  opacity: 0;
+  transform: translateZ(-10px);
+  filter: blur(8px);
+}
+
+/* ===== PRIMARY BUTTON ELITE GLOW EFFECT - LIGHT MODE ===== */
+body:not(.dark-mode) .cta-button {
+  box-shadow: 0 var(--button-depth) 15px rgba(0, 0, 0, 0.1);
+  transform: translateZ(0);
+}
+
+body:not(.dark-mode) .cta-button::before {
+  background: linear-gradient(45deg, var(--light-glow-primary), var(--light-glow-intense));
+}
+
+body:not(.dark-mode) .cta-button:hover {
+  transform: translateY(-4px) translateZ(10px) scale(1.03);
+  box-shadow: 
+    var(--glow-size-md) var(--light-glow-primary),
+    var(--glow-size-lg) var(--light-glow-intense),
+    0 var(--button-depth) 20px rgba(0, 0, 0, 0.2);
+  filter: brightness(1.1);
+}
+
+body:not(.dark-mode) .cta-button:hover::before {
+  opacity: 0.8;
+  transform: translateZ(-5px);
+}
+
+body:not(.dark-mode) .cta-button:active {
+  transform: translateY(var(--button-press-depth)) translateZ(0) scale(0.98);
+  box-shadow: 
+    var(--glow-size-sm) var(--light-glow-primary),
+    0 2px 5px rgba(0, 0, 0, 0.2);
+  transition-duration: var(--animation-speed-ultra-fast);
+}
+
+/* ===== PRIMARY BUTTON ELITE GLOW EFFECT - DARK MODE ===== */
+body.dark-mode .cta-button {
+  box-shadow: 0 var(--button-depth) 15px rgba(0, 0, 0, 0.3);
+  transform: translateZ(0);
+}
+
+body.dark-mode .cta-button::before {
+  background: linear-gradient(45deg, var(--dark-glow-primary), var(--dark-glow-intense));
+}
+
+body.dark-mode .cta-button:hover {
+  transform: translateY(-4px) translateZ(10px) scale(1.03);
+  box-shadow: 
+    var(--glow-size-md) var(--dark-glow-primary),
+    var(--glow-size-lg) var(--dark-glow-intense),
+    0 var(--button-depth) 20px rgba(0, 0, 0, 0.4);
+  filter: brightness(1.2);
+}
+
+body.dark-mode .cta-button:hover::before {
+  opacity: 0.8;
+  transform: translateZ(-5px);
+}
+
+body.dark-mode .cta-button:active {
+  transform: translateY(var(--button-press-depth)) translateZ(0) scale(0.98);
+  box-shadow: 
+    var(--glow-size-sm) var(--dark-glow-primary),
+    0 2px 5px rgba(0, 0, 0, 0.3);
+  transition-duration: var(--animation-speed-ultra-fast);
+}
+
+/* ===== SECONDARY BUTTON ELITE GLOW EFFECT - LIGHT MODE ===== */
+body:not(.dark-mode) .secondary-button {
+  box-shadow: 0 var(--button-depth) 10px rgba(0, 0, 0, 0.08);
+  transform: translateZ(0);
+}
+
+body:not(.dark-mode) .secondary-button::before {
+  background: linear-gradient(45deg, var(--light-glow-secondary), rgba(108, 117, 125, 0.3));
+}
+
+body:not(.dark-mode) .secondary-button:hover {
+  transform: translateY(-3px) translateZ(5px) scale(1.02);
+  box-shadow: 
+    var(--glow-size-sm) var(--light-glow-secondary),
+    0 var(--button-depth) 15px rgba(0, 0, 0, 0.15);
+}
+
+body:not(.dark-mode) .secondary-button:hover::before {
+  opacity: 0.6;
+  transform: translateZ(-3px);
+}
+
+/* ===== SECONDARY BUTTON ELITE GLOW EFFECT - DARK MODE ===== */
+body.dark-mode .secondary-button {
+  box-shadow: 0 var(--button-depth) 10px rgba(0, 0, 0, 0.2);
+  transform: translateZ(0);
+}
+
+body.dark-mode .secondary-button::before {
+  background: linear-gradient(45deg, var(--dark-glow-secondary), rgba(173, 181, 189, 0.3));
+}
+
+body.dark-mode .secondary-button:hover {
+  transform: translateY(-3px) translateZ(5px) scale(1.02);
+  box-shadow: 
+    var(--glow-size-sm) var(--dark-glow-secondary),
+    0 var(--button-depth) 15px rgba(0, 0, 0, 0.25);
+}
+
+body.dark-mode .secondary-button:hover::before {
+  opacity: 0.6;
+  transform: translateZ(-3px);
+}
+
+/* ===== ADVANCED BUTTON RIPPLE EFFECT ===== */
+.cta-button::after,
+.secondary-button::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.8);
+  opacity: 0;
+  border-radius: 100%;
+  transform: scale(1, 1) translate(-50%, -50%);
+  transform-origin: 50% 50%;
+}
+
+.cta-button:active::after,
+.secondary-button:active::after {
+  animation: elite-ripple 0.8s ease-out;
+}
+
+@keyframes elite-ripple {
+  0% {
+    transform: scale(0, 0);
+    opacity: 0.8;
+  }
+  20% {
+    transform: scale(25, 25);
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(50, 50);
+  }
+}
+
+/* ===== PARTICLE EXPLOSION EFFECT ON CLICK ===== */
+.cta-button .particles,
+.secondary-button .particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.cta-button .particle,
+.secondary-button .particle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: var(--particle-size);
+  height: var(--particle-size);
+  border-radius: 50%;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+}
+
+body:not(.dark-mode) .cta-button .particle {
+  background: radial-gradient(circle, var(--light-glow-intense), var(--light-glow-primary));
+  box-shadow: 0 0 10px var(--light-glow-primary);
+}
+
+body.dark-mode .cta-button .particle {
+  background: radial-gradient(circle, var(--dark-glow-intense), var(--dark-glow-primary));
+  box-shadow: 0 0 10px var(--dark-glow-primary);
+}
+
+body:not(.dark-mode) .secondary-button .particle {
+  background: radial-gradient(circle, white, var(--light-glow-secondary));
+  box-shadow: 0 0 8px var(--light-glow-secondary);
+}
+
+body.dark-mode .secondary-button .particle {
+  background: radial-gradient(circle, white, var(--dark-glow-secondary));
+  box-shadow: 0 0 8px var(--dark-glow-secondary);
+}
+
+.cta-button:active .particle,
+.secondary-button:active .particle {
+  animation: particle-explosion var(--particle-speed) ease-out forwards;
+}
+
+@keyframes particle-explosion {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: 
+      translate(
+        calc(-50% + (var(--x) * var(--particle-distance))), 
+        calc(-50% + (var(--y) * var(--particle-distance)))
+      ) 
+      scale(0);
+  }
+}
+
+/* ===== 3D TILT EFFECT ON HOVER ===== */
+.cta-button.tilt-effect,
+.secondary-button.tilt-effect {
+  transition: transform 0.1s ease-out;
+  transform-style: preserve-3d;
+}
+
+.cta-button.tilt-effect:hover,
+.secondary-button.tilt-effect:hover {
+  transform: perspective(var(--perspective-distance)) 
+             rotateX(calc(var(--tilt-y) * var(--rotation-degree))) 
+             rotateY(calc(var(--tilt-x) * var(--rotation-degree)))
+             translateZ(10px);
+}
+
+/* ===== MAGNETIC BUTTON EFFECT ===== */
+.cta-button.magnetic,
+.secondary-button.magnetic {
+  transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* ===== PULSING GLOW ANIMATION FOR FEATURED BUTTONS ===== */
+.cta-button.featured {
+  animation: elite-pulse-glow var(--animation-speed-ultra-slow) infinite alternate;
+  position: relative;
+}
+
+.cta-button.featured::before {
+  opacity: 0.5;
+}
+
+body:not(.dark-mode) .cta-button.featured {
+  box-shadow: var(--glow-size-md) var(--light-glow-primary);
+}
+
+body.dark-mode .cta-button.featured {
+  box-shadow: var(--glow-size-md) var(--dark-glow-primary);
+}
+
+@keyframes elite-pulse-glow {
+  0% {
+    box-shadow: var(--glow-size-md) var(--light-glow-primary);
+    filter: brightness(1);
+  }
+  50% {
+    box-shadow: var(--glow-size-lg) var(--light-glow-primary);
+    filter: brightness(1.1) contrast(1.1);
+  }
+  100% {
+    box-shadow: var(--glow-size-xl) var(--light-glow-intense);
+    filter: brightness(1.2) contrast(1.2);
+  }
+}
+
+body.dark-mode .cta-button.featured {
+  animation: elite-pulse-glow-dark var(--animation-speed-ultra-slow) infinite alternate;
+}
+
+@keyframes elite-pulse-glow-dark {
+  0% {
+    box-shadow: var(--glow-size-md) var(--dark-glow-primary);
+    filter: brightness(1);
+  }
+  50% {
+    box-shadow: var(--glow-size-lg) var(--dark-glow-primary);
+    filter: brightness(1.1) contrast(1.1);
+  }
+  100% {
+    box-shadow: var(--glow-size-xl) var(--dark-glow-intense);
+    filter: brightness(1.2) contrast(1.2);
+  }
+}
+
+/* ===== GRADIENT BORDER ANIMATION ===== */
+.cta-button.gradient-border,
+.secondary-button.gradient-border {
+  position: relative;
+  background-clip: padding-box;
+  border: 2px solid transparent;
+  z-index: 1;
+}
+
+.cta-button.gradient-border::before,
+.secondary-button.gradient-border::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  z-index: -1;
+  border-radius: inherit;
+  background: linear-gradient(
+    90deg, 
+    var(--light-glow-primary), 
+    var(--light-glow-intense), 
+    var(--light-glow-accent), 
+    var(--light-glow-primary)
+  );
+  background-size: 300% 100%;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+body.dark-mode .cta-button.gradient-border::before,
+body.dark-mode .secondary-button.gradient-border::before {
+  background: linear-gradient(
+    90deg, 
+    var(--dark-glow-primary), 
+    var(--dark-glow-intense), 
+    var(--dark-glow-accent), 
+    var(--dark-glow-primary)
+  );
+  background-size: 300% 100%;
+}
+
+.cta-button.gradient-border:hover::before,
+.secondary-button.gradient-border:hover::before {
+  opacity: 1;
+  animation: gradient-shift 3s linear infinite;
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* ===== SHOCKWAVE EFFECT ===== */
+.cta-button.shockwave,
+.secondary-button.shockwave {
+  position: relative;
+  overflow: visible;
+}
+
+.cta-button.shockwave::before,
+.secondary-button.shockwave::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 150%;
+  height: 150%;
+  transform: translate(-50%, -50%) scale(0);
+  border-radius: 50%;
+  z-index: -1;
+  background: rgba(255, 255, 255, 0.2);
+  pointer-events: none;
+}
+
+.cta-button.shockwave:active::before,
+.secondary-button.shockwave:active::before {
+  animation: shockwave 0.8s ease-out;
+}
+
+@keyframes shockwave {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.5);
+    opacity: 0;
+  }
+}
+
+/* ===== FLOATING EFFECT FOR BUTTONS ===== */
+.cta-button.floating,
+.secondary-button.floating {
+  animation: floating 3s ease-in-out infinite;
+}
+
+@keyframes floating {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* JavaScript will be used to:
+1. Add particle elements dynamically
+2. Calculate particle trajectories with random angles
+3. Implement magnetic button effect based on cursor position
+4. Handle 3D tilt effect based on cursor position
+*/

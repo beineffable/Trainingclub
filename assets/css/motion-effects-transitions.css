@@ -1,0 +1,558 @@
+/* Motion Effects and Transitions
+ * This CSS file adds advanced motion animations and transitions
+ * to create a more dynamic and visually striking experience
+ */
+
+/* ===== MOTION EFFECT VARIABLES ===== */
+:root {
+  /* Motion Timing */
+  --motion-duration-ultra-slow: 8s;
+  --motion-duration-slow: 4s;
+  --motion-duration-medium: 2s;
+  --motion-duration-fast: 1s;
+  --motion-duration-ultra-fast: 0.5s;
+  
+  /* Motion Distances */
+  --motion-distance-tiny: 3px;
+  --motion-distance-small: 8px;
+  --motion-distance-medium: 15px;
+  --motion-distance-large: 30px;
+  
+  /* Motion Easing */
+  --motion-easing-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --motion-easing-smooth: cubic-bezier(0.65, 0, 0.35, 1);
+  --motion-easing-elastic: cubic-bezier(0.68, -0.6, 0.32, 1.6);
+  --motion-easing-spring: cubic-bezier(0.5, 1.8, 0.1, 1.1);
+  
+  /* Parallax Depths */
+  --parallax-depth-1: 5;
+  --parallax-depth-2: 10;
+  --parallax-depth-3: 20;
+  --parallax-depth-4: 40;
+}
+
+/* ===== SUBTLE IDLE ANIMATIONS ===== */
+
+/* Breathing Effect */
+.breathing-effect {
+  animation: breathing var(--motion-duration-slow) var(--motion-easing-smooth) infinite;
+}
+
+@keyframes breathing {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.03);
+  }
+}
+
+/* Floating Effect */
+.floating-effect {
+  animation: floating var(--motion-duration-medium) var(--motion-easing-smooth) infinite;
+}
+
+@keyframes floating {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(var(--motion-distance-tiny));
+  }
+}
+
+/* Pulsing Effect */
+.pulsing-effect {
+  animation: pulsing var(--motion-duration-medium) var(--motion-easing-smooth) infinite;
+}
+
+@keyframes pulsing {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.8;
+  }
+}
+
+/* Subtle Rotation */
+.rotating-effect {
+  animation: subtle-rotate var(--motion-duration-slow) linear infinite;
+}
+
+@keyframes subtle-rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* ===== PAGE TRANSITION EFFECTS ===== */
+
+/* Page Load Animation */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(var(--motion-distance-medium));
+  animation: fade-in-up var(--motion-duration-fast) var(--motion-easing-smooth) forwards;
+}
+
+@keyframes fade-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(var(--motion-distance-medium));
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Staggered Element Entrance */
+.stagger-fade-in {
+  opacity: 0;
+  animation: fade-in var(--motion-duration-fast) var(--motion-easing-smooth) forwards;
+  animation-delay: calc(var(--stagger-index, 0) * 0.1s);
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Reveal Animation */
+.reveal-animation {
+  position: relative;
+  overflow: hidden;
+}
+
+.reveal-animation::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--reveal-color, #ffffff);
+  transform: translateX(-100%);
+  animation: reveal var(--motion-duration-fast) var(--motion-easing-smooth) forwards;
+  animation-delay: calc(var(--stagger-index, 0) * 0.1s);
+}
+
+@keyframes reveal {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* ===== SCROLL-TRIGGERED ANIMATIONS ===== */
+
+/* Fade In On Scroll */
+.fade-in-on-scroll {
+  opacity: 0;
+  transform: translateY(var(--motion-distance-medium));
+  transition: 
+    opacity var(--motion-duration-fast) var(--motion-easing-smooth),
+    transform var(--motion-duration-fast) var(--motion-easing-smooth);
+}
+
+.fade-in-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Scale In On Scroll */
+.scale-in-on-scroll {
+  opacity: 0;
+  transform: scale(0.8);
+  transition: 
+    opacity var(--motion-duration-fast) var(--motion-easing-bounce),
+    transform var(--motion-duration-fast) var(--motion-easing-bounce);
+}
+
+.scale-in-on-scroll.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Slide In From Left */
+.slide-in-left {
+  opacity: 0;
+  transform: translateX(calc(var(--motion-distance-large) * -1));
+  transition: 
+    opacity var(--motion-duration-fast) var(--motion-easing-smooth),
+    transform var(--motion-duration-fast) var(--motion-easing-smooth);
+}
+
+.slide-in-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Slide In From Right */
+.slide-in-right {
+  opacity: 0;
+  transform: translateX(var(--motion-distance-large));
+  transition: 
+    opacity var(--motion-duration-fast) var(--motion-easing-smooth),
+    transform var(--motion-duration-fast) var(--motion-easing-smooth);
+}
+
+.slide-in-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ===== PARALLAX EFFECTS ===== */
+
+/* Parallax Container */
+.parallax-container {
+  position: relative;
+  overflow: hidden;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+/* Parallax Layers */
+.parallax-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  will-change: transform;
+  transition: transform 0.1s linear;
+}
+
+.parallax-layer-1 {
+  transform: translateZ(calc(var(--parallax-depth-1) * -1px)) scale(calc(1 + var(--parallax-depth-1) / 100));
+}
+
+.parallax-layer-2 {
+  transform: translateZ(calc(var(--parallax-depth-2) * -1px)) scale(calc(1 + var(--parallax-depth-2) / 100));
+}
+
+.parallax-layer-3 {
+  transform: translateZ(calc(var(--parallax-depth-3) * -1px)) scale(calc(1 + var(--parallax-depth-3) / 100));
+}
+
+.parallax-layer-4 {
+  transform: translateZ(calc(var(--parallax-depth-4) * -1px)) scale(calc(1 + var(--parallax-depth-4) / 100));
+}
+
+/* ===== MICRO-INTERACTIONS ===== */
+
+/* Button Press Effect */
+.button-press-effect {
+  transition: transform var(--motion-duration-ultra-fast) var(--motion-easing-spring);
+}
+
+.button-press-effect:active {
+  transform: scale(0.95);
+}
+
+/* Input Focus Effect */
+.input-focus-effect {
+  transition: 
+    box-shadow var(--motion-duration-fast) var(--motion-easing-smooth),
+    transform var(--motion-duration-fast) var(--motion-easing-smooth);
+}
+
+.input-focus-effect:focus {
+  transform: translateY(-2px);
+}
+
+body:not(.dark-mode) .input-focus-effect:focus {
+  box-shadow: 
+    0 0 0 2px rgba(13, 110, 253, 0.25),
+    0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode .input-focus-effect:focus {
+  box-shadow: 
+    0 0 0 2px rgba(255, 125, 77, 0.25),
+    0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Checkbox Toggle Animation */
+.checkbox-toggle {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.checkbox-toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.checkbox-toggle .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 
+    background-color var(--motion-duration-fast) var(--motion-easing-smooth),
+    box-shadow var(--motion-duration-fast) var(--motion-easing-smooth);
+  border-radius: 34px;
+}
+
+.checkbox-toggle .slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: transform var(--motion-duration-fast) var(--motion-easing-bounce);
+  border-radius: 50%;
+}
+
+.checkbox-toggle input:checked + .slider {
+  background-color: #2196F3;
+}
+
+.checkbox-toggle input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+body.dark-mode .checkbox-toggle input:checked + .slider {
+  background-color: #FF7D4D;
+}
+
+/* ===== ADVANCED TRANSITION EFFECTS ===== */
+
+/* Morphing Shape Transition */
+.morphing-shape {
+  transition: border-radius var(--motion-duration-medium) var(--motion-easing-elastic);
+  border-radius: 4px;
+}
+
+.morphing-shape:hover {
+  border-radius: 50% 20% / 10% 40%;
+}
+
+/* Content Swap Transition */
+.content-swap {
+  position: relative;
+  overflow: hidden;
+}
+
+.content-swap .primary-content,
+.content-swap .secondary-content {
+  transition: 
+    transform var(--motion-duration-fast) var(--motion-easing-smooth),
+    opacity var(--motion-duration-fast) var(--motion-easing-smooth);
+}
+
+.content-swap .secondary-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transform: translateY(100%);
+}
+
+.content-swap:hover .primary-content {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+.content-swap:hover .secondary-content {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Flip Card Effect */
+.flip-card {
+  perspective: 1000px;
+  width: 100%;
+  height: 100%;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform var(--motion-duration-medium) var(--motion-easing-smooth);
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, 
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+}
+
+/* ===== COORDINATED ANIMATION SEQUENCES ===== */
+
+/* Wave Animation Sequence */
+.wave-sequence > * {
+  animation: wave-motion var(--motion-duration-medium) var(--motion-easing-smooth) infinite;
+  animation-delay: calc(var(--sequence-index, 0) * 0.1s);
+}
+
+@keyframes wave-motion {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(var(--motion-distance-small));
+  }
+}
+
+/* Ripple Animation Sequence */
+.ripple-sequence > * {
+  animation: ripple-motion var(--motion-duration-medium) var(--motion-easing-smooth) infinite;
+  animation-delay: calc(var(--sequence-index, 0) * 0.2s);
+}
+
+@keyframes ripple-motion {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* ===== CURSOR-AWARE ANIMATIONS ===== */
+
+/* Cursor-Following Highlight */
+.cursor-highlight {
+  position: relative;
+  overflow: hidden;
+}
+
+.cursor-highlight::before {
+  content: '';
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.3) 0%,
+    rgba(255, 255, 255, 0) 70%
+  );
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity var(--motion-duration-fast) var(--motion-easing-smooth);
+}
+
+.cursor-highlight:hover::before {
+  opacity: 1;
+}
+
+/* JavaScript will update the position of this highlight based on cursor */
+
+/* Cursor-Aware Rotation */
+.cursor-rotate {
+  transition: transform var(--motion-duration-fast) var(--motion-easing-smooth);
+  transform-origin: center;
+}
+
+/* JavaScript will update the rotation based on cursor position */
+
+/* ===== ACCESSIBILITY CONSIDERATIONS ===== */
+@media (prefers-reduced-motion: reduce) {
+  .breathing-effect,
+  .floating-effect,
+  .pulsing-effect,
+  .rotating-effect,
+  .fade-in-up,
+  .stagger-fade-in,
+  .reveal-animation::after,
+  .fade-in-on-scroll,
+  .scale-in-on-scroll,
+  .slide-in-left,
+  .slide-in-right,
+  .parallax-layer,
+  .button-press-effect,
+  .input-focus-effect,
+  .checkbox-toggle .slider,
+  .checkbox-toggle .slider:before,
+  .morphing-shape,
+  .content-swap .primary-content,
+  .content-swap .secondary-content,
+  .flip-card-inner,
+  .wave-sequence > *,
+  .ripple-sequence > *,
+  .cursor-highlight::before,
+  .cursor-rotate {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
+  
+  /* Alternative indicators for reduced motion */
+  a:focus, button:focus, input:focus {
+    outline: 2px solid currentColor !important;
+  }
+}
+
+/* ===== PERFORMANCE OPTIMIZATIONS ===== */
+.breathing-effect,
+.floating-effect,
+.pulsing-effect,
+.rotating-effect,
+.fade-in-up,
+.stagger-fade-in,
+.reveal-animation,
+.fade-in-on-scroll,
+.scale-in-on-scroll,
+.slide-in-left,
+.slide-in-right,
+.parallax-layer,
+.morphing-shape,
+.content-swap,
+.flip-card-inner,
+.cursor-highlight,
+.cursor-rotate {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* JavaScript will be used to:
+1. Add stagger-index attributes to elements
+2. Detect scroll position and add 'visible' class
+3. Handle parallax effects based on scroll and cursor
+4. Update cursor-aware animations
+5. Coordinate animation sequences
+*/

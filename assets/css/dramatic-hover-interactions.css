@@ -1,0 +1,461 @@
+/* Dramatic Hover Interactions
+ * This CSS file implements visually striking hover animations
+ * for buttons and links on the Training Club website
+ */
+
+/* ===== HOVER INTERACTION VARIABLES ===== */
+:root {
+  /* Hover Transition Speeds */
+  --hover-speed-ultra-slow: 1.2s;
+  --hover-speed-slow: 0.6s;
+  --hover-speed-medium: 0.3s;
+  --hover-speed-fast: 0.15s;
+  
+  /* Hover Transform Values */
+  --hover-scale-small: 1.02;
+  --hover-scale-medium: 1.05;
+  --hover-scale-large: 1.1;
+  
+  --hover-translate-small: 2px;
+  --hover-translate-medium: 5px;
+  --hover-translate-large: 10px;
+  
+  --hover-rotate-small: 2deg;
+  --hover-rotate-medium: 5deg;
+  --hover-rotate-large: 10deg;
+  
+  /* 3D Effect Variables */
+  --hover-perspective: 800px;
+  --hover-depth-small: 10px;
+  --hover-depth-medium: 20px;
+  --hover-depth-large: 40px;
+}
+
+/* ===== MAGNETIC BUTTON HOVER EFFECT ===== */
+.magnetic-hover {
+  transition: transform var(--hover-speed-fast) cubic-bezier(0.23, 1, 0.32, 1);
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+/* JavaScript will handle the actual magnetic effect by updating custom properties */
+.magnetic-hover:hover {
+  /* Base hover effect until JS takes over */
+  transform: translate(calc(var(--x, 0) * 1px), calc(var(--y, 0) * 1px));
+}
+
+/* ===== 3D TILT BUTTON HOVER EFFECT ===== */
+.tilt-hover {
+  transition: transform var(--hover-speed-medium) cubic-bezier(0.23, 1, 0.32, 1);
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+/* JavaScript will handle the actual tilt effect by updating custom properties */
+.tilt-hover:hover {
+  /* Base hover effect until JS takes over */
+  transform: 
+    perspective(var(--hover-perspective)) 
+    rotateX(calc(var(--tilt-y, 0) * var(--hover-rotate-small))) 
+    rotateY(calc(var(--tilt-x, 0) * var(--hover-rotate-small)))
+    translateZ(var(--hover-depth-small));
+}
+
+/* ===== EXPLOSIVE SCALE HOVER EFFECT ===== */
+.explosive-hover {
+  transition: all var(--hover-speed-medium) cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transform-origin: center;
+  will-change: transform, opacity;
+}
+
+.explosive-hover:hover {
+  transform: scale(var(--hover-scale-medium));
+  z-index: 10;
+}
+
+.explosive-hover:active {
+  transition: all var(--hover-speed-fast) cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transform: scale(0.95);
+}
+
+/* ===== DRAMATIC PUSH BUTTON EFFECT ===== */
+.push-hover {
+  transition: all var(--hover-speed-medium) cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transform-style: preserve-3d;
+  perspective: var(--hover-perspective);
+  will-change: transform;
+}
+
+.push-hover::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: inherit;
+  border-radius: inherit;
+  transform: translateZ(-30px);
+  filter: brightness(0.7);
+  z-index: -1;
+}
+
+.push-hover:hover {
+  transform: translateZ(15px);
+}
+
+.push-hover:active {
+  transition: all var(--hover-speed-fast) cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transform: translateZ(5px);
+}
+
+/* ===== REVEAL CONTENT HOVER EFFECT ===== */
+.reveal-hover {
+  position: relative;
+  overflow: hidden;
+}
+
+.reveal-hover .hover-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  opacity: 0;
+  transform: translateY(100%);
+  transition: all var(--hover-speed-medium) cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.reveal-hover:hover .hover-content {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== SHIMMERING HOVER EFFECT ===== */
+.shimmer-hover {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer-hover::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: rotate(30deg);
+  opacity: 0;
+  transition: opacity var(--hover-speed-medium) ease;
+}
+
+.shimmer-hover:hover::after {
+  opacity: 1;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: rotate(30deg) translateX(-100%);
+  }
+  100% {
+    transform: rotate(30deg) translateX(100%);
+  }
+}
+
+/* ===== PULSE WAVE HOVER EFFECT ===== */
+.pulse-wave-hover {
+  position: relative;
+  overflow: visible;
+}
+
+.pulse-wave-hover::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  transform: translate(-50%, -50%) scale(0.9);
+  opacity: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+body:not(.dark-mode) .pulse-wave-hover::before {
+  box-shadow: 0 0 0 2px rgba(13, 110, 253, 0.6);
+}
+
+body.dark-mode .pulse-wave-hover::before {
+  box-shadow: 0 0 0 2px rgba(255, 125, 77, 0.6);
+}
+
+.pulse-wave-hover:hover::before {
+  animation: pulse-wave 1.5s infinite;
+}
+
+@keyframes pulse-wave {
+  0% {
+    transform: translate(-50%, -50%) scale(0.9);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.5);
+    opacity: 0;
+  }
+}
+
+/* ===== MORPHING BORDER HOVER EFFECT ===== */
+.morphing-border-hover {
+  position: relative;
+  border: none;
+  background-clip: padding-box;
+  z-index: 1;
+}
+
+.morphing-border-hover::before {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  z-index: -1;
+  border-radius: calc(inherit + 3px);
+  background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+  background-size: 400% 400%;
+  opacity: 0;
+  transition: opacity var(--hover-speed-medium) ease;
+}
+
+.morphing-border-hover:hover::before {
+  opacity: 1;
+  animation: morphing-border 3s ease infinite;
+}
+
+@keyframes morphing-border {
+  0% {
+    background-position: 0% 50%;
+    border-radius: calc(inherit + 3px);
+  }
+  50% {
+    background-position: 100% 50%;
+    border-radius: calc(inherit + 10px);
+  }
+  100% {
+    background-position: 0% 50%;
+    border-radius: calc(inherit + 3px);
+  }
+}
+
+/* ===== SPOTLIGHT HOVER EFFECT ===== */
+.spotlight-hover {
+  position: relative;
+  overflow: hidden;
+}
+
+.spotlight-hover::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle at var(--x, 50%) var(--y, 50%),
+    rgba(255, 255, 255, 0.3) 0%,
+    rgba(255, 255, 255, 0) 50%
+  );
+  opacity: 0;
+  transition: opacity var(--hover-speed-medium) ease;
+  pointer-events: none;
+}
+
+.spotlight-hover:hover::before {
+  opacity: 1;
+}
+
+/* JavaScript will update --x and --y based on cursor position */
+
+/* ===== TEXT SCRAMBLE HOVER EFFECT ===== */
+.scramble-hover {
+  position: relative;
+}
+
+.scramble-hover .original-text {
+  transition: opacity var(--hover-speed-fast) ease;
+}
+
+.scramble-hover .scrambled-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity var(--hover-speed-fast) ease;
+}
+
+.scramble-hover:hover .original-text {
+  opacity: 0;
+}
+
+.scramble-hover:hover .scrambled-text {
+  opacity: 1;
+}
+
+/* JavaScript will handle the actual text scrambling effect */
+
+/* ===== FLOATING ELEMENTS HOVER EFFECT ===== */
+.floating-elements-hover {
+  position: relative;
+  overflow: visible;
+}
+
+.floating-elements-hover .floating-element {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0;
+  z-index: -1;
+}
+
+body:not(.dark-mode) .floating-elements-hover .floating-element {
+  background: rgba(13, 110, 253, 0.6);
+  box-shadow: 0 0 10px rgba(13, 110, 253, 0.6);
+}
+
+body.dark-mode .floating-elements-hover .floating-element {
+  background: rgba(255, 125, 77, 0.6);
+  box-shadow: 0 0 10px rgba(255, 125, 77, 0.6);
+}
+
+.floating-elements-hover:hover .floating-element {
+  animation: float-up 2s ease-out forwards;
+}
+
+@keyframes float-up {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(
+      calc(var(--x-offset) * 50px),
+      calc(var(--y-offset) * -80px)
+    ) scale(0);
+  }
+}
+
+/* JavaScript will create and position the floating elements */
+
+/* ===== DRAMATIC LINK HOVER EFFECTS ===== */
+
+/* Split Character Hover Effect */
+.split-char-hover .char {
+  display: inline-block;
+  transition: transform var(--hover-speed-medium) cubic-bezier(0.34, 1.56, 0.64, 1),
+              color var(--hover-speed-medium) ease;
+}
+
+.split-char-hover:hover .char {
+  color: var(--light-glow-primary-ultra, #0d6efd);
+  transform: translateY(calc(var(--char-index) * -2px)) scale(1.1);
+}
+
+body.dark-mode .split-char-hover:hover .char {
+  color: var(--dark-glow-primary-ultra, #ff7d4d);
+}
+
+/* JavaScript will add data-index attributes to each character */
+
+/* ===== ACCESSIBILITY CONSIDERATIONS ===== */
+@media (prefers-reduced-motion: reduce) {
+  .magnetic-hover,
+  .tilt-hover,
+  .explosive-hover,
+  .push-hover,
+  .reveal-hover .hover-content,
+  .shimmer-hover::after,
+  .pulse-wave-hover::before,
+  .morphing-border-hover::before,
+  .spotlight-hover::before,
+  .scramble-hover .original-text,
+  .scramble-hover .scrambled-text,
+  .floating-elements-hover .floating-element,
+  .split-char-hover .char {
+    transition: none !important;
+    animation: none !important;
+    transform: none !important;
+  }
+  
+  .magnetic-hover:hover,
+  .tilt-hover:hover,
+  .explosive-hover:hover,
+  .push-hover:hover,
+  .reveal-hover:hover .hover-content,
+  .shimmer-hover:hover::after,
+  .pulse-wave-hover:hover::before,
+  .morphing-border-hover:hover::before,
+  .spotlight-hover:hover::before,
+  .scramble-hover:hover .original-text,
+  .scramble-hover:hover .scrambled-text,
+  .floating-elements-hover:hover .floating-element,
+  .split-char-hover:hover .char {
+    animation: none !important;
+    transform: none !important;
+  }
+  
+  /* Alternative hover indicators for reduced motion */
+  a:hover, button:hover {
+    text-decoration: underline !important;
+    outline: 2px solid currentColor !important;
+  }
+}
+
+/* ===== PERFORMANCE OPTIMIZATIONS ===== */
+.magnetic-hover,
+.tilt-hover,
+.explosive-hover,
+.push-hover,
+.reveal-hover,
+.shimmer-hover,
+.pulse-wave-hover,
+.morphing-border-hover,
+.spotlight-hover,
+.scramble-hover,
+.floating-elements-hover,
+.split-char-hover {
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* JavaScript will be used to:
+1. Implement magnetic hover effect based on cursor position
+2. Handle 3D tilt effect based on cursor position
+3. Create and animate floating elements
+4. Update spotlight effect based on cursor position
+5. Split text into characters and add data attributes
+6. Handle text scrambling effect
+*/
