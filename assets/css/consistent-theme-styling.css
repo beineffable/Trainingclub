@@ -1,0 +1,381 @@
+/* Consistent Styling for Light and Dark Modes
+ * This CSS file creates a professional and consistent appearance
+ * between light and dark modes for the Training Club website.
+ */
+
+/* ===== COMMON VARIABLES ===== */
+:root {
+  /* Light Mode Colors */
+  --light-bg: #f8f9fa;
+  --light-bg-alt: #eaedf0;
+  --light-text: #212529;
+  --light-text-muted: #495057;
+  --light-accent: #0d6efd;
+  --light-accent-hover: #0b5ed7;
+  --light-border: #dee2e6;
+  --light-card-bg: #ffffff;
+  --light-input-bg: #ffffff;
+  
+  /* Dark Mode Colors */
+  --dark-bg: #121212;
+  --dark-bg-alt: #1e1e1e;
+  --dark-text: #f8f9fa;
+  --dark-text-muted: #adb5bd;
+  --dark-accent: #FF7D4D;
+  --dark-accent-hover: #FF6A33;
+  --dark-border: #343a40;
+  --dark-card-bg: #1e1e1e;
+  --dark-input-bg: #2c2c2c;
+  
+  /* Common Properties */
+  --border-radius: 4px;
+  --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --transition-speed: 0.3s;
+}
+
+/* ===== LIGHT MODE STYLES ===== */
+body:not(.dark-mode) {
+  background-color: var(--light-bg);
+  color: var(--light-text);
+  transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+/* Light Mode Header */
+body:not(.dark-mode) header {
+  background-color: var(--light-card-bg);
+  box-shadow: var(--box-shadow);
+  border-bottom: 1px solid var(--light-border);
+}
+
+body:not(.dark-mode) .logo-text {
+  color: var(--light-text);
+}
+
+body:not(.dark-mode) .nav-menu li a {
+  color: var(--light-text);
+}
+
+body:not(.dark-mode) .nav-menu li a:hover,
+body:not(.dark-mode) .nav-menu li a.active {
+  color: var(--light-accent);
+}
+
+/* Light Mode Hamburger Menu */
+body:not(.dark-mode) .hamburger-menu .bar1,
+body:not(.dark-mode) .hamburger-menu .bar2,
+body:not(.dark-mode) .hamburger-menu .bar3 {
+  background-color: var(--light-text);
+}
+
+/* Light Mode Sections */
+body:not(.dark-mode) section {
+  background-color: var(--light-bg);
+}
+
+body:not(.dark-mode) section:nth-child(even) {
+  background-color: var(--light-bg-alt);
+}
+
+body:not(.dark-mode) .section-title h2 {
+  color: var(--light-text);
+}
+
+body:not(.dark-mode) .section-intro {
+  color: var(--light-text-muted);
+}
+
+/* Light Mode Cards and Features */
+body:not(.dark-mode) .card,
+body:not(.dark-mode) .feature,
+body:not(.dark-mode) .condition,
+body:not(.dark-mode) .membership-tier,
+body:not(.dark-mode) .testimonial,
+body:not(.dark-mode) .contact-info,
+body:not(.dark-mode) .contact-form {
+  background-color: var(--light-card-bg);
+  border: 1px solid var(--light-border);
+  box-shadow: var(--box-shadow);
+  border-radius: var(--border-radius);
+}
+
+body:not(.dark-mode) .feature-icon i {
+  color: var(--light-accent);
+}
+
+body:not(.dark-mode) .membership-tier.featured {
+  border: 2px solid var(--light-accent);
+  background-color: var(--light-card-bg);
+}
+
+/* Light Mode Buttons */
+body:not(.dark-mode) .cta-button {
+  background-color: var(--light-accent);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius);
+  transition: background-color var(--transition-speed);
+}
+
+body:not(.dark-mode) .cta-button:hover {
+  background-color: var(--light-accent-hover);
+}
+
+body:not(.dark-mode) .secondary-button {
+  background-color: transparent;
+  color: var(--light-text);
+  border: 1px solid var(--light-accent);
+  border-radius: var(--border-radius);
+  transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+body:not(.dark-mode) .secondary-button:hover {
+  background-color: var(--light-accent);
+  color: white;
+}
+
+/* Light Mode Forms */
+body:not(.dark-mode) input,
+body:not(.dark-mode) textarea,
+body:not(.dark-mode) select {
+  background-color: var(--light-input-bg);
+  color: var(--light-text);
+  border: 1px solid var(--light-border);
+  border-radius: var(--border-radius);
+}
+
+body:not(.dark-mode) input:focus,
+body:not(.dark-mode) textarea:focus,
+body:not(.dark-mode) select:focus {
+  border-color: var(--light-accent);
+  box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.25);
+}
+
+body:not(.dark-mode) input::placeholder,
+body:not(.dark-mode) textarea::placeholder {
+  color: var(--light-text-muted);
+}
+
+/* Light Mode Footer */
+body:not(.dark-mode) footer {
+  background-color: var(--light-bg-alt);
+  color: var(--light-text);
+  border-top: 1px solid var(--light-border);
+}
+
+body:not(.dark-mode) footer h3 {
+  color: var(--light-text);
+}
+
+body:not(.dark-mode) footer a {
+  color: var(--light-text);
+}
+
+body:not(.dark-mode) footer a:hover {
+  color: var(--light-accent);
+  text-decoration: none;
+}
+
+body:not(.dark-mode) .footer-bottom {
+  border-top: 1px solid var(--light-border);
+}
+
+/* ===== DARK MODE STYLES ===== */
+body.dark-mode {
+  background-color: var(--dark-bg);
+  color: var(--dark-text);
+  transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+/* Dark Mode Header */
+body.dark-mode header {
+  background-color: var(--dark-bg);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  border-bottom: 1px solid var(--dark-border);
+}
+
+body.dark-mode .logo-text {
+  color: var(--dark-text);
+}
+
+body.dark-mode .nav-menu li a {
+  color: var(--dark-text);
+}
+
+body.dark-mode .nav-menu li a:hover,
+body.dark-mode .nav-menu li a.active {
+  color: var(--dark-accent);
+}
+
+/* Dark Mode Hamburger Menu */
+body.dark-mode .hamburger-menu .bar1,
+body.dark-mode .hamburger-menu .bar2,
+body.dark-mode .hamburger-menu .bar3 {
+  background-color: var(--dark-text);
+}
+
+/* Dark Mode Sections */
+body.dark-mode section {
+  background-color: var(--dark-bg);
+}
+
+body.dark-mode section:nth-child(even) {
+  background-color: var(--dark-bg-alt);
+}
+
+body.dark-mode .section-title h2 {
+  color: var(--dark-text);
+}
+
+body.dark-mode .section-intro {
+  color: var(--dark-text-muted);
+}
+
+/* Dark Mode Cards and Features */
+body.dark-mode .card,
+body.dark-mode .feature,
+body.dark-mode .condition,
+body.dark-mode .membership-tier,
+body.dark-mode .testimonial,
+body.dark-mode .contact-info,
+body.dark-mode .contact-form {
+  background-color: var(--dark-card-bg);
+  border: 1px solid var(--dark-border);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  border-radius: var(--border-radius);
+}
+
+body.dark-mode .feature-icon i {
+  color: var(--dark-accent);
+}
+
+body.dark-mode .membership-tier.featured {
+  border: 2px solid var(--dark-accent);
+  background-color: var(--dark-card-bg);
+}
+
+/* Dark Mode Buttons */
+body.dark-mode .cta-button {
+  background-color: var(--dark-accent);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius);
+  transition: background-color var(--transition-speed);
+}
+
+body.dark-mode .cta-button:hover {
+  background-color: var(--dark-accent-hover);
+}
+
+body.dark-mode .secondary-button {
+  background-color: transparent;
+  color: var(--dark-text);
+  border: 1px solid var(--dark-accent);
+  border-radius: var(--border-radius);
+  transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+body.dark-mode .secondary-button:hover {
+  background-color: var(--dark-accent);
+  color: white;
+}
+
+/* Dark Mode Forms */
+body.dark-mode input,
+body.dark-mode textarea,
+body.dark-mode select {
+  background-color: var(--dark-input-bg);
+  color: var(--dark-text);
+  border: 1px solid var(--dark-border);
+  border-radius: var(--border-radius);
+}
+
+body.dark-mode input:focus,
+body.dark-mode textarea:focus,
+body.dark-mode select:focus {
+  border-color: var(--dark-accent);
+  box-shadow: 0 0 0 3px rgba(255, 125, 77, 0.25);
+}
+
+body.dark-mode input::placeholder,
+body.dark-mode textarea::placeholder {
+  color: var(--dark-text-muted);
+}
+
+/* Dark Mode Footer */
+body.dark-mode footer {
+  background-color: var(--dark-bg);
+  color: var(--dark-text);
+  border-top: 1px solid var(--dark-border);
+}
+
+body.dark-mode footer h3 {
+  color: var(--dark-text);
+}
+
+body.dark-mode footer a {
+  color: var(--dark-text);
+}
+
+body.dark-mode footer a:hover {
+  color: var(--dark-accent);
+  text-decoration: none;
+}
+
+body.dark-mode .footer-bottom {
+  border-top: 1px solid var(--dark-border);
+}
+
+/* ===== MOBILE RESPONSIVENESS ===== */
+@media (max-width: 768px) {
+  /* Mobile menu for light mode */
+  body:not(.dark-mode) .nav-menu {
+    background-color: var(--light-card-bg);
+    border: 1px solid var(--light-border);
+    box-shadow: var(--box-shadow);
+  }
+  
+  /* Mobile menu for dark mode */
+  body.dark-mode .nav-menu {
+    background-color: var(--dark-card-bg);
+    border: 1px solid var(--dark-border);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  }
+}
+
+/* ===== ACCESSIBILITY IMPROVEMENTS ===== */
+/* Focus states for keyboard navigation */
+a:focus,
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 3px solid rgba(13, 110, 253, 0.5);
+  outline-offset: 2px;
+}
+
+body.dark-mode a:focus,
+body.dark-mode button:focus,
+body.dark-mode input:focus,
+body.dark-mode select:focus,
+body.dark-mode textarea:focus {
+  outline: 3px solid rgba(255, 125, 77, 0.5);
+  outline-offset: 2px;
+}
+
+/* Ensure proper contrast for all text */
+body:not(.dark-mode) .text-muted {
+  color: var(--light-text-muted) !important;
+}
+
+body.dark-mode .text-muted {
+  color: var(--dark-text-muted) !important;
+}
+
+/* Consistent transitions for theme switching */
+body, 
+body * {
+  transition: background-color var(--transition-speed), 
+              color var(--transition-speed), 
+              border-color var(--transition-speed), 
+              box-shadow var(--transition-speed);
+}
