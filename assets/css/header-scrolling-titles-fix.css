@@ -1,0 +1,166 @@
+/* Header Scrolling and Titles Fix
+ * This file fixes the header scrolling behavior and restores original titles
+ * Addressing the issues with the previous mobile header fix
+ */
+
+/* Remove fixed positioning and restore scrolling behavior */
+body.dark-mode header,
+body.dark-mode .header,
+body.dark-mode #header,
+body.dark-mode [class*="header"] {
+  position: relative !important; /* Not fixed, scrolls with page */
+  top: auto !important;
+  left: auto !important;
+  width: 100% !important;
+}
+
+/* Restore original header titles and content */
+body.dark-mode .site-title,
+body.dark-mode .site-description,
+body.dark-mode .header-title,
+body.dark-mode .header-description,
+body.dark-mode [class*="site-title"],
+body.dark-mode [class*="site-description"],
+body.dark-mode [class*="header-title"],
+body.dark-mode [class*="header-description"] {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  position: static !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: visible !important;
+  clip: auto !important;
+  width: auto !important;
+  height: auto !important;
+}
+
+/* Ensure all header elements are visible */
+body.dark-mode header *,
+body.dark-mode .header *,
+body.dark-mode #header *,
+body.dark-mode [class*="header"] * {
+  display: inherit !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Preserve original header structure */
+body.dark-mode .header-inner,
+body.dark-mode .header-container,
+body.dark-mode [class*="header-inner"],
+body.dark-mode [class*="header-container"] {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  width: 100% !important;
+}
+
+/* Ensure header navigation is visible */
+body.dark-mode .header-navigation,
+body.dark-mode .main-navigation,
+body.dark-mode .primary-navigation,
+body.dark-mode [class*="header-navigation"],
+body.dark-mode [class*="main-navigation"],
+body.dark-mode [class*="primary-navigation"] {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Mobile-specific fixes */
+@media (max-width: 768px) {
+  body.dark-mode header,
+  body.dark-mode .header,
+  body.dark-mode #header,
+  body.dark-mode [class*="header"] {
+    position: relative !important; /* Ensure it scrolls with page on mobile */
+    height: auto !important;
+    min-height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+  }
+  
+  /* Restore original mobile header layout */
+  body.dark-mode .header-inner,
+  body.dark-mode .header-container,
+  body.dark-mode [class*="header-inner"],
+  body.dark-mode [class*="header-container"] {
+    flex-wrap: nowrap !important;
+    padding: 0.5rem 1rem !important;
+  }
+  
+  /* Ensure site title is visible on mobile */
+  body.dark-mode .site-title,
+  body.dark-mode .header-title,
+  body.dark-mode [class*="site-title"],
+  body.dark-mode [class*="header-title"] {
+    font-size: 1.25rem !important;
+    margin-right: 1rem !important;
+  }
+  
+  /* Ensure site description is visible on mobile if present */
+  body.dark-mode .site-description,
+  body.dark-mode .header-description,
+  body.dark-mode [class*="site-description"],
+  body.dark-mode [class*="header-description"] {
+    display: block !important;
+    font-size: 0.8rem !important;
+  }
+  
+  /* Fix mobile menu toggle button */
+  body.dark-mode .menu-toggle,
+  body.dark-mode .nav-toggle,
+  body.dark-mode [class*="menu-toggle"],
+  body.dark-mode [class*="nav-toggle"] {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+}
+
+/* Revert any backdrop filters that might interfere with scrolling */
+body.dark-mode header,
+body.dark-mode .header,
+body.dark-mode #header,
+body.dark-mode [class*="header"] {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* Ensure z-index doesn't interfere with other elements */
+body.dark-mode header,
+body.dark-mode .header,
+body.dark-mode #header,
+body.dark-mode [class*="header"] {
+  z-index: 100 !important; /* High enough to be above content but not fixed */
+}
+
+/* Remove any transforms that might affect layout */
+body.dark-mode header,
+body.dark-mode .header,
+body.dark-mode #header,
+body.dark-mode [class*="header"] {
+  transform: none !important;
+}
+
+/* Ensure header width is full width */
+body.dark-mode header,
+body.dark-mode .header,
+body.dark-mode #header,
+body.dark-mode [class*="header"] {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+/* Restore any original header animations or transitions */
+body.dark-mode header,
+body.dark-mode .header,
+body.dark-mode #header,
+body.dark-mode [class*="header"] {
+  transition: none !important;
+  animation: none !important;
+}
