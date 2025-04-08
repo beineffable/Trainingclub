@@ -1,0 +1,71 @@
+/* Fix Burger Menu Collapse in Dark Mode
+ * This file ensures the burger menu properly collapses in dark mode
+ */
+
+/* Ensure burger menu collapses in dark mode */
+body.dark-mode .hamburger-menu,
+body.dark-mode .burger-menu {
+  cursor: pointer !important;
+}
+
+/* Fix the active state for dark mode */
+body.dark-mode .nav-menu:not(.active) {
+  display: none !important;
+}
+
+body.dark-mode .nav-menu.active {
+  display: flex !important;
+}
+
+/* Ensure JavaScript toggle works in dark mode */
+body.dark-mode .hamburger-menu.active .bar:nth-child(1),
+body.dark-mode .burger-menu.active .bar:nth-child(1) {
+  transform: translateY(8px) rotate(45deg) !important;
+}
+
+body.dark-mode .hamburger-menu.active .bar:nth-child(2),
+body.dark-mode .burger-menu.active .bar:nth-child(2) {
+  opacity: 0 !important;
+}
+
+body.dark-mode .hamburger-menu.active .bar:nth-child(3),
+body.dark-mode .burger-menu.active .bar:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg) !important;
+}
+
+/* Ensure z-index is correct */
+body.dark-mode .hamburger-menu,
+body.dark-mode .burger-menu {
+  z-index: 1002 !important;
+}
+
+body.dark-mode .nav-menu {
+  z-index: 1001 !important;
+}
+
+/* Fix any potential CSS conflicts */
+body.dark-mode .nav-menu {
+  transition: all 0.3s ease !important;
+}
+
+/* Ensure menu items are properly styled */
+body.dark-mode .nav-menu li {
+  margin: 10px 0 !important;
+  width: 100% !important;
+  text-align: center !important;
+}
+
+/* Fix any JavaScript event issues */
+body.dark-mode .hamburger-menu *,
+body.dark-mode .burger-menu * {
+  pointer-events: auto !important;
+}
+
+/* Ensure menu is properly hidden by default */
+@media (max-width: 768px) {
+  body.dark-mode .nav-menu:not(.active) {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+  }
+}
