@@ -1,0 +1,52 @@
+name: Fully Automated Deployment
+
+on:
+  push:
+    branches:
+      - '**'
+      # This will trigger on all branches
+
+jobs:
+  auto-deploy:
+    runs-on: ubuntu-latest
+    # Skip if push is from github-actions bot to avoid infinite loops
+    if: github.actor != 'github-actions[bot]'
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      
+      - name: Create Pull Request
+        id: create-pr
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: Automated deployment from ${{ github.ref_name }}
+          title: 'Auto-Deploy: ${{ github.ref_name }}'
+          body: |
+            ## Automated Deployment
+            
+            This PR was automatically created from the `${{ github.ref_name }}` branch and will be automatically merged.
+            
+            ### Changes included:
+            ${{ github.event.head_commit.message }}
+            
+            ### Deployment:
+            These changes will be automatically deployed to the Vercel production site.
+          branch: ${{ github.ref_name }}
+          base: main
+          labels: automated-pr, auto-merge
+      
+      - name: Auto-merge pull request
+        if: steps.create-pr.outputs.pull-request-operation == 'created' || steps.create-pr.outputs.pull-request-operation == 'updated'
+        uses: pascalgn/automerge-action@v0.15.6
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PULL_REQUEST: ${{ steps.create-pr.outputs.pull-request-number }}
+          MERGE_LABELS: "automated-pr,auto-merge"
+          MERGE_METHOD: "squash"
+          MERGE_COMMIT_MESSAGE: "Auto-merge: {title} (#{number})"
+          MERGE_DELETE_BRANCH: "false"  # Keep branches for reference
+          MERGE_RETRY_SLEEP: "10000"    # Retry after 10 seconds
+          MERGE_REQUIRED_APPROVALS: "0" # No approvals needed

@@ -8,7 +8,11 @@ on:
       - 'enhancement/**'
       - 'icon-enhancements'
       - 'mobile-responsiveness-improvements'
-      # Add any other development branches you commonly use
+      - 'testimonial-fix-direct'
+      - 'testimonial-fix/**'
+      - 'fix/**'
+      - 'test-automation'
+      # All branches will be automatically processed
 
 jobs:
   create-pull-request:
