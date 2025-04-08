@@ -3,6 +3,11 @@
 /* Weather condition icons using Unicode characters instead of Font Awesome */
 /* This approach has better mobile compatibility */
 
+/* Hide the question mark boxes in the rectangular areas */
+.condition img {
+  display: none !important; /* Hide the problematic image elements */
+}
+
 /* Rain icon */
 .condition:nth-of-type(1) h3::before {
   content: "💧" !important; /* Unicode water droplet */
@@ -57,5 +62,12 @@
   .condition h3::before,
   .nav-cta::before {
     font-size: 1rem !important;
+  }
+  
+  /* Additional fix for any remaining question mark boxes */
+  .condition a,
+  .condition button,
+  .condition .icon-container {
+    display: none !important;
   }
 }
