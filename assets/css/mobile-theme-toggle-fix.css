@@ -1,0 +1,78 @@
+/* Mobile Theme Toggle Fix
+ * This file ensures the theme toggle icon is visible and accessible on mobile devices
+ */
+
+/* Make theme toggle visible on mobile */
+@media (max-width: 768px) {
+  .theme-toggle,
+  #theme-toggle,
+  [class*="theme-toggle"] {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: fixed !important;
+    bottom: 20px !important;
+    right: 20px !important;
+    z-index: 9999 !important;
+    width: 50px !important;
+    height: 50px !important;
+    border-radius: 50% !important;
+    background-color: rgba(0, 0, 0, 0.7) !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3) !important;
+    cursor: pointer !important;
+    text-align: center !important;
+    padding: 0 !important;
+    border: none !important;
+  }
+  
+  /* Style the icon inside the toggle */
+  .theme-toggle i,
+  #theme-toggle i,
+  [class*="theme-toggle"] i {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    font-size: 24px !important;
+    line-height: 50px !important;
+    color: #FFFFFF !important;
+  }
+  
+  /* Style for dark mode */
+  body.dark-mode .theme-toggle,
+  body.dark-mode #theme-toggle,
+  body.dark-mode [class*="theme-toggle"] {
+    background-color: rgba(255, 140, 0, 0.9) !important; /* Orange background in dark mode */
+  }
+  
+  /* Ensure the toggle is above all other elements */
+  .theme-toggle,
+  #theme-toggle,
+  [class*="theme-toggle"] {
+    z-index: 9999 !important;
+  }
+  
+  /* Add a subtle animation on hover */
+  .theme-toggle:hover,
+  #theme-toggle:hover,
+  [class*="theme-toggle"]:hover {
+    transform: scale(1.1) !important;
+    transition: transform 0.2s ease !important;
+  }
+  
+  /* Ensure the toggle doesn't interfere with the burger menu */
+  .hamburger-menu,
+  .burger-menu-container {
+    z-index: 1002 !important;
+  }
+  
+  /* Ensure the toggle is visible in the nav menu */
+  .nav-menu .theme-toggle,
+  .nav-menu #theme-toggle,
+  .nav-menu [class*="theme-toggle"] {
+    display: inline-block !important;
+    position: relative !important;
+    bottom: auto !important;
+    right: auto !important;
+    margin: 10px auto !important;
+  }
+}
