@@ -1,0 +1,115 @@
+/* Vercel-Optimized Testimonial Image Fix
+ * This CSS ensures testimonial images display correctly on Vercel deployment
+ * by using absolute URLs and multiple fallback methods
+ */
+
+/* Base testimonial author styling */
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  position: relative;
+}
+
+/* Hide original img elements but maintain their dimensions */
+.testimonial-author img {
+  opacity: 0;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+
+/* Sarah M. testimonial image - multiple fallback approach */
+.testimonial:nth-child(1) .testimonial-author::before {
+  content: "";
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="%23f0f0f0" stroke="%23333" stroke-width="2"/><text x="50" y="50" font-family="Arial" font-size="12" text-anchor="middle" dominant-baseline="middle" fill="%23333">RESILIENCE</text><text x="50" y="70" font-family="Arial" font-size="14" text-anchor="middle" dominant-baseline="middle" fill="%23333">S.M.</text></svg>');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  left: 0;
+  top: 0;
+}
+
+/* Thomas K. testimonial image - multiple fallback approach */
+.testimonial:nth-child(2) .testimonial-author::before {
+  content: "";
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="%23f0f0f0" stroke="%23333" stroke-width="2"/><text x="50" y="50" font-family="Arial" font-size="12" text-anchor="middle" dominant-baseline="middle" fill="%23333">COMMUNITY</text><text x="50" y="70" font-family="Arial" font-size="14" text-anchor="middle" dominant-baseline="middle" fill="%23333">T.K.</text></svg>');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  left: 0;
+  top: 0;
+}
+
+/* Elena J. testimonial image - multiple fallback approach */
+.testimonial:nth-child(3) .testimonial-author::before {
+  content: "";
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="%23f0f0f0" stroke="%23333" stroke-width="2"/><text x="50" y="50" font-family="Arial" font-size="12" text-anchor="middle" dominant-baseline="middle" fill="%23333">ACHIEVEMENT</text><text x="50" y="70" font-family="Arial" font-size="14" text-anchor="middle" dominant-baseline="middle" fill="%23333">E.J.</text></svg>');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  left: 0;
+  top: 0;
+}
+
+/* Dark mode adjustments */
+.dark-mode .testimonial:nth-child(1) .testimonial-author::before,
+.dark-mode .testimonial:nth-child(2) .testimonial-author::before,
+.dark-mode .testimonial:nth-child(3) .testimonial-author::before {
+  filter: invert(0.8);
+}
+
+/* Ensure proper positioning with author info */
+.author-info {
+  margin-left: 60px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .testimonial-author::before {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .testimonial-author img {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .author-info {
+    margin-left: 50px;
+  }
+}
+
+/* Additional fallback for older browsers */
+@supports not (::before) {
+  .testimonial-author img {
+    opacity: 1;
+    background-color: #f0f0f0;
+    border: 2px solid #333;
+  }
+  
+  .testimonial:nth-child(1) .testimonial-author img {
+    content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="%23f0f0f0" stroke="%23333" stroke-width="2"/><text x="50" y="50" font-family="Arial" font-size="12" text-anchor="middle" dominant-baseline="middle" fill="%23333">RESILIENCE</text><text x="50" y="70" font-family="Arial" font-size="14" text-anchor="middle" dominant-baseline="middle" fill="%23333">S.M.</text></svg>');
+  }
+  
+  .testimonial:nth-child(2) .testimonial-author img {
+    content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="%23f0f0f0" stroke="%23333" stroke-width="2"/><text x="50" y="50" font-family="Arial" font-size="12" text-anchor="middle" dominant-baseline="middle" fill="%23333">COMMUNITY</text><text x="50" y="70" font-family="Arial" font-size="14" text-anchor="middle" dominant-baseline="middle" fill="%23333">T.K.</text></svg>');
+  }
+  
+  .testimonial:nth-child(3) .testimonial-author img {
+    content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="%23f0f0f0" stroke="%23333" stroke-width="2"/><text x="50" y="50" font-family="Arial" font-size="12" text-anchor="middle" dominant-baseline="middle" fill="%23333">ACHIEVEMENT</text><text x="50" y="70" font-family="Arial" font-size="14" text-anchor="middle" dominant-baseline="middle" fill="%23333">E.J.</text></svg>');
+  }
+}
