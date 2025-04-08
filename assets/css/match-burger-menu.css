@@ -1,0 +1,114 @@
+/* Match Dark Mode Burger Menu to Light Mode
+ * This file ensures the dark mode burger menu exactly matches the light mode version
+ * Overriding any previous dark mode burger menu styles
+ */
+
+/* Reset any previous dark mode burger menu styles */
+body.dark-mode .burger-menu-container,
+body.dark-mode .burger-icon,
+body.dark-mode .burger-menu-dropdown,
+body.dark-mode .burger-menu-nav,
+body.dark-mode .burger-site-logo {
+  display: none !important;
+}
+
+/* Ensure hamburger menu is visible in dark mode exactly like light mode */
+body.dark-mode .hamburger-menu {
+  display: block;
+  position: absolute;
+  right: 20px;
+  top: 25px;
+  z-index: 1002;
+  cursor: pointer;
+}
+
+body.dark-mode .bar1, 
+body.dark-mode .bar2, 
+body.dark-mode .bar3 {
+  width: 25px;
+  height: 3px;
+  background-color: var(--primary-white);
+  margin: 5px 0;
+  transition: 0.4s;
+}
+
+/* Hamburger Animation - exactly like light mode */
+body.dark-mode .hamburger-menu.active .bar1 {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+body.dark-mode .hamburger-menu.active .bar2 {
+  opacity: 0;
+}
+
+body.dark-mode .hamburger-menu.active .bar3 {
+  transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/* Header container styling - match light mode */
+body.dark-mode .header-container {
+  position: relative;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+body.dark-mode nav {
+  width: 100%;
+  position: absolute;
+  right: 0;
+  top: 70px;
+}
+
+/* Nav menu styling - match light mode */
+body.dark-mode .nav-menu {
+  display: none !important;
+  position: fixed;
+  top: 80px;
+  left: 0;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.95);
+  width: 100%;
+  text-align: center;
+  transition: 0.3s;
+  box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+  padding: 10px 0;
+  z-index: 1000;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+/* Show the nav menu only when it has the active class */
+body.dark-mode .nav-menu.active {
+  display: flex !important;
+}
+
+/* Make menu items more compact */
+body.dark-mode .nav-menu li {
+  margin: 8px 0;
+}
+
+/* Ensure header is visible in dark mode */
+body.dark-mode header,
+body.dark-mode .header,
+body.dark-mode #header,
+body.dark-mode [class*="header"] {
+  display: block !important;
+  position: relative !important;
+  top: auto !important;
+  left: auto !important;
+}
+
+/* Ensure any fixed positioning is removed */
+@media (max-width: 768px) {
+  body.dark-mode header,
+  body.dark-mode .header,
+  body.dark-mode #header,
+  body.dark-mode [class*="header"] {
+    position: relative !important;
+  }
+  
+  /* Ensure the original hamburger menu is visible */
+  body.dark-mode .hamburger-menu {
+    display: block !important;
+  }
+}
