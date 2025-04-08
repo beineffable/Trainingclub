@@ -1,0 +1,34 @@
+/* Dark Mode Header Text Fix */
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6,
+body.dark-mode .site-header,
+body.dark-mode .page-header,
+body.dark-mode .entry-header,
+body.dark-mode .site-title,
+body.dark-mode .header-text,
+body.dark-mode .main-header {
+  color: #ffffff !important; /* Force white text for all header elements in dark mode */
+}
+
+/* Ensure header links are also visible */
+body.dark-mode .site-header a,
+body.dark-mode .page-header a,
+body.dark-mode .entry-header a,
+body.dark-mode .header-navigation a,
+body.dark-mode .main-header a {
+  color: #ffffff !important;
+}
+
+/* Add hover effect for better user experience */
+body.dark-mode .site-header a:hover,
+body.dark-mode .page-header a:hover,
+body.dark-mode .entry-header a:hover,
+body.dark-mode .header-navigation a:hover,
+body.dark-mode .main-header a:hover {
+  color: #f0f0f0 !important;
+  text-decoration: underline;
+}
