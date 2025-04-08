@@ -1,0 +1,462 @@
+/* Global Dark Mode Consistency Fixes
+ * This file ensures consistent styling across all pages
+ * Addressing spacing, alignment, and formatting issues
+ */
+
+/* ===== GLOBAL CONSISTENCY FIXES ===== */
+
+/* Ensure consistent spacing and alignment across all pages */
+body.dark-mode {
+  /* Reset any inconsistent margins or paddings */
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden !important;
+}
+
+/* Consistent container sizing and spacing */
+body.dark-mode .container,
+body.dark-mode .content-container,
+body.dark-mode .main-container,
+body.dark-mode [class*="container"] {
+  width: 100% !important;
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  padding: 0 2rem !important;
+}
+
+/* Consistent section spacing */
+body.dark-mode section,
+body.dark-mode .section,
+body.dark-mode [class*="section"] {
+  padding: 4rem 0 !important;
+  margin-bottom: 2rem !important;
+}
+
+/* Consistent card and box styling */
+body.dark-mode .card,
+body.dark-mode .box,
+body.dark-mode .membership-tier,
+body.dark-mode .info-box,
+body.dark-mode [class*="card"],
+body.dark-mode [class*="box"] {
+  padding: 2rem !important;
+  margin-bottom: 2rem !important;
+  border-radius: 8px !important;
+  background-color: var(--bg-tertiary) !important;
+  border: 1px solid rgba(255, 255, 255, 0.05) !important;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Consistent form element styling */
+body.dark-mode input,
+body.dark-mode textarea,
+body.dark-mode select,
+body.dark-mode button:not(.skip-button) {
+  padding: 0.75rem 1rem !important;
+  margin-bottom: 1.25rem !important;
+  border-radius: 4px !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* Consistent button styling */
+body.dark-mode .button,
+body.dark-mode .btn,
+body.dark-mode button:not(.skip-button),
+body.dark-mode [class*="button"],
+body.dark-mode [class*="btn"] {
+  display: inline-block !important;
+  padding: 0.75rem 1.5rem !important;
+  border-radius: 4px !important;
+  font-weight: 600 !important;
+  text-align: center !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+}
+
+/* Consistent text alignment */
+body.dark-mode .text-center,
+body.dark-mode [class*="text-center"] {
+  text-align: center !important;
+}
+
+body.dark-mode .text-left,
+body.dark-mode [class*="text-left"] {
+  text-align: left !important;
+}
+
+body.dark-mode .text-right,
+body.dark-mode [class*="text-right"] {
+  text-align: right !important;
+}
+
+/* Consistent flexbox layouts */
+body.dark-mode .flex,
+body.dark-mode .flex-container,
+body.dark-mode .row,
+body.dark-mode [class*="flex"],
+body.dark-mode [class*="row"] {
+  display: flex !important;
+  flex-wrap: wrap !important;
+}
+
+/* Consistent grid layouts */
+body.dark-mode .grid,
+body.dark-mode .grid-container,
+body.dark-mode [class*="grid"] {
+  display: grid !important;
+  grid-gap: 2rem !important;
+}
+
+/* Consistent header styling */
+body.dark-mode header,
+body.dark-mode .header,
+body.dark-mode #header,
+body.dark-mode [class*="header"] {
+  padding: 1.25rem 0 !important;
+  background-color: rgba(18, 18, 18, 0.95) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Consistent footer styling */
+body.dark-mode footer,
+body.dark-mode .footer,
+body.dark-mode #footer,
+body.dark-mode [class*="footer"] {
+  padding: 3rem 0 2rem !important;
+  background-color: var(--bg-secondary) !important;
+}
+
+/* Consistent navigation styling */
+body.dark-mode nav,
+body.dark-mode .nav,
+body.dark-mode .nav-menu,
+body.dark-mode [class*="nav"] {
+  display: flex !important;
+  align-items: center !important;
+}
+
+body.dark-mode nav a,
+body.dark-mode .nav a,
+body.dark-mode .nav-menu a,
+body.dark-mode [class*="nav"] a {
+  padding: 0.5rem 0.75rem !important;
+  color: var(--text-secondary) !important;
+  font-weight: 600 !important;
+  transition: all 0.3s ease !important;
+}
+
+body.dark-mode nav a:hover,
+body.dark-mode .nav a:hover,
+body.dark-mode .nav-menu a:hover,
+body.dark-mode [class*="nav"] a:hover {
+  color: var(--text-primary) !important;
+  background-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+/* Consistent list styling */
+body.dark-mode ul:not(.nav-menu):not(.footer-links),
+body.dark-mode ol {
+  padding-left: 1.5rem !important;
+  margin-bottom: 1.5rem !important;
+}
+
+body.dark-mode ul:not(.nav-menu):not(.footer-links) li,
+body.dark-mode ol li {
+  margin-bottom: 0.75rem !important;
+}
+
+/* Consistent image styling */
+body.dark-mode img {
+  max-width: 100% !important;
+  height: auto !important;
+  border-radius: 4px !important;
+}
+
+/* Consistent table styling */
+body.dark-mode table {
+  width: 100% !important;
+  border-collapse: collapse !important;
+  margin-bottom: 1.5rem !important;
+}
+
+body.dark-mode th,
+body.dark-mode td {
+  padding: 0.75rem !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
+
+/* Consistent form layout */
+body.dark-mode form {
+  display: flex !important;
+  flex-direction: column !important;
+  margin-bottom: 2rem !important;
+}
+
+body.dark-mode label {
+  margin-bottom: 0.5rem !important;
+  font-weight: 600 !important;
+}
+
+/* Consistent modal styling */
+body.dark-mode .modal,
+body.dark-mode [class*="modal"] {
+  background-color: var(--bg-tertiary) !important;
+  border-radius: 8px !important;
+  padding: 2rem !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Consistent alert styling */
+body.dark-mode .alert,
+body.dark-mode [class*="alert"] {
+  padding: 1rem 1.5rem !important;
+  border-radius: 4px !important;
+  margin-bottom: 1.5rem !important;
+}
+
+/* Consistent badge styling */
+body.dark-mode .badge,
+body.dark-mode [class*="badge"] {
+  display: inline-block !important;
+  padding: 0.25rem 0.5rem !important;
+  border-radius: 4px !important;
+  font-size: 0.75rem !important;
+  font-weight: 600 !important;
+}
+
+/* Consistent tooltip styling */
+body.dark-mode .tooltip,
+body.dark-mode [class*="tooltip"] {
+  position: relative !important;
+  display: inline-block !important;
+}
+
+/* Consistent dropdown styling */
+body.dark-mode .dropdown,
+body.dark-mode [class*="dropdown"] {
+  position: relative !important;
+}
+
+body.dark-mode .dropdown-content,
+body.dark-mode [class*="dropdown-content"] {
+  position: absolute !important;
+  top: 100% !important;
+  left: 0 !important;
+  background-color: var(--bg-elevated) !important;
+  border-radius: 4px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+  padding: 0.5rem 0 !important;
+  min-width: 150px !important;
+  z-index: 100 !important;
+}
+
+/* Consistent tab styling */
+body.dark-mode .tabs,
+body.dark-mode [class*="tabs"] {
+  display: flex !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+  margin-bottom: 1.5rem !important;
+}
+
+body.dark-mode .tab,
+body.dark-mode [class*="tab"] {
+  padding: 0.75rem 1.5rem !important;
+  cursor: pointer !important;
+  border-bottom: 2px solid transparent !important;
+  transition: all 0.3s ease !important;
+}
+
+body.dark-mode .tab.active,
+body.dark-mode [class*="tab"].active {
+  border-bottom-color: var(--accent-primary) !important;
+  color: var(--accent-primary) !important;
+}
+
+/* Consistent accordion styling */
+body.dark-mode .accordion,
+body.dark-mode [class*="accordion"] {
+  margin-bottom: 1.5rem !important;
+  border-radius: 4px !important;
+  overflow: hidden !important;
+}
+
+body.dark-mode .accordion-header,
+body.dark-mode [class*="accordion-header"] {
+  padding: 1rem 1.5rem !important;
+  background-color: var(--bg-elevated) !important;
+  cursor: pointer !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+}
+
+body.dark-mode .accordion-content,
+body.dark-mode [class*="accordion-content"] {
+  padding: 1rem 1.5rem !important;
+  background-color: var(--bg-tertiary) !important;
+}
+
+/* Consistent pagination styling */
+body.dark-mode .pagination,
+body.dark-mode [class*="pagination"] {
+  display: flex !important;
+  justify-content: center !important;
+  margin: 2rem 0 !important;
+}
+
+body.dark-mode .pagination-item,
+body.dark-mode [class*="pagination-item"] {
+  padding: 0.5rem 1rem !important;
+  margin: 0 0.25rem !important;
+  border-radius: 4px !important;
+  transition: all 0.3s ease !important;
+}
+
+/* Consistent breadcrumb styling */
+body.dark-mode .breadcrumbs,
+body.dark-mode [class*="breadcrumbs"] {
+  display: flex !important;
+  margin-bottom: 1.5rem !important;
+}
+
+body.dark-mode .breadcrumb-item,
+body.dark-mode [class*="breadcrumb-item"] {
+  display: flex !important;
+  align-items: center !important;
+}
+
+body.dark-mode .breadcrumb-item:not(:last-child):after {
+  content: '/' !important;
+  margin: 0 0.5rem !important;
+  color: var(--text-tertiary) !important;
+}
+
+/* Consistent progress bar styling */
+body.dark-mode .progress,
+body.dark-mode [class*="progress"] {
+  height: 0.5rem !important;
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  border-radius: 0.25rem !important;
+  overflow: hidden !important;
+  margin-bottom: 1.5rem !important;
+}
+
+body.dark-mode .progress-bar,
+body.dark-mode [class*="progress-bar"] {
+  height: 100% !important;
+  background-color: var(--accent-primary) !important;
+}
+
+/* Consistent avatar styling */
+body.dark-mode .avatar,
+body.dark-mode [class*="avatar"] {
+  width: 2.5rem !important;
+  height: 2.5rem !important;
+  border-radius: 50% !important;
+  object-fit: cover !important;
+}
+
+/* Consistent tag styling */
+body.dark-mode .tag,
+body.dark-mode [class*="tag"] {
+  display: inline-block !important;
+  padding: 0.25rem 0.75rem !important;
+  background-color: rgba(255, 255, 255, 0.05) !important;
+  border-radius: 1rem !important;
+  font-size: 0.75rem !important;
+  margin-right: 0.5rem !important;
+  margin-bottom: 0.5rem !important;
+}
+
+/* Consistent divider styling */
+body.dark-mode hr,
+body.dark-mode .divider,
+body.dark-mode [class*="divider"] {
+  border: 0 !important;
+  height: 1px !important;
+  background: rgba(255, 255, 255, 0.1) !important;
+  margin: 2rem 0 !important;
+}
+
+/* Consistent icon styling */
+body.dark-mode i.fa,
+body.dark-mode i.fas,
+body.dark-mode i.far,
+body.dark-mode i.fab {
+  margin-right: 0.5rem !important;
+}
+
+/* Consistent blockquote styling */
+body.dark-mode blockquote {
+  border-left: 3px solid var(--accent-primary) !important;
+  padding-left: 1.5rem !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  font-style: italic !important;
+}
+
+/* Consistent code styling */
+body.dark-mode code,
+body.dark-mode pre {
+  background-color: var(--bg-elevated) !important;
+  border-radius: 4px !important;
+  padding: 0.2em 0.4em !important;
+  font-family: monospace !important;
+}
+
+body.dark-mode pre {
+  padding: 1rem !important;
+  overflow-x: auto !important;
+}
+
+/* Consistent responsive behavior */
+@media (max-width: 992px) {
+  body.dark-mode .container,
+  body.dark-mode [class*="container"] {
+    padding: 0 1.5rem !important;
+  }
+  
+  body.dark-mode section,
+  body.dark-mode .section,
+  body.dark-mode [class*="section"] {
+    padding: 3rem 0 !important;
+  }
+}
+
+@media (max-width: 768px) {
+  body.dark-mode .container,
+  body.dark-mode [class*="container"] {
+    padding: 0 1rem !important;
+  }
+  
+  body.dark-mode section,
+  body.dark-mode .section,
+  body.dark-mode [class*="section"] {
+    padding: 2.5rem 0 !important;
+  }
+  
+  body.dark-mode .card,
+  body.dark-mode .box,
+  body.dark-mode [class*="card"],
+  body.dark-mode [class*="box"] {
+    padding: 1.5rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  body.dark-mode section,
+  body.dark-mode .section,
+  body.dark-mode [class*="section"] {
+    padding: 2rem 0 !important;
+  }
+  
+  body.dark-mode .card,
+  body.dark-mode .box,
+  body.dark-mode [class*="card"],
+  body.dark-mode [class*="box"] {
+    padding: 1rem !important;
+  }
+}

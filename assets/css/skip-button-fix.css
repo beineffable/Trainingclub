@@ -1,0 +1,43 @@
+/* Skip Button Position Fix
+ * This file fixes the skip button position to return it to the bottom right
+ * of the page instead of the center
+ */
+
+body.dark-mode .skip-button {
+  position: fixed !important;
+  bottom: 20px !important;
+  right: 20px !important;
+  top: auto !important;
+  left: auto !important;
+  transform: none !important;
+  margin: 0 !important;
+  z-index: 1000 !important;
+  padding: 10px 20px !important;
+  border-radius: 4px !important;
+  background-color: var(--accent-primary) !important;
+  color: white !important;
+  font-weight: 600 !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2) !important;
+  transition: transform 0.3s ease, background-color 0.3s ease !important;
+}
+
+body.dark-mode .skip-button:hover {
+  transform: translateY(-3px) !important;
+  background-color: var(--accent-secondary) !important;
+}
+
+/* Ensure this applies to all pages */
+body.dark-mode .skip-button,
+body.dark-mode #skip-button,
+body.dark-mode [class*="skip-button"],
+body.dark-mode [id*="skip-button"],
+body.dark-mode .rain-skip-button,
+body.dark-mode #rain-skip-button {
+  position: fixed !important;
+  bottom: 20px !important;
+  right: 20px !important;
+  top: auto !important;
+  left: auto !important;
+  transform: none !important;
+  margin: 0 !important;
+}
