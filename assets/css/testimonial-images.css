@@ -1,0 +1,46 @@
+/* Testimonial Images CSS - Fixes for missing profile images */
+
+/* Update testimonial author images to use SVG files */
+.testimonial-author img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Specific testimonial image references */
+.testimonial:nth-of-type(1) .testimonial-author img {
+  content: url('../images/testimonials/sarah-m.svg');
+}
+
+.testimonial:nth-of-type(2) .testimonial-author img {
+  content: url('../images/testimonials/thomas-k.svg');
+}
+
+.testimonial:nth-of-type(3) .testimonial-author img {
+  content: url('../images/testimonials/elena-j.svg');
+}
+
+/* Ensure images display properly in dark mode */
+[data-theme="dark"] .testimonial-author img {
+  border-color: #333;
+  box-shadow: 0 2px 10px rgba(255, 255, 255, 0.1);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .testimonial-author img {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+/* Tablet responsiveness */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .testimonial-author img {
+    width: 55px;
+    height: 55px;
+  }
+}
