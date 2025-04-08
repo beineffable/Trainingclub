@@ -1,0 +1,107 @@
+/* Direct Testimonial Image Fix
+ * This CSS ensures testimonial images display correctly
+ * by using a more direct approach with background images
+ */
+
+/* Testimonial author image styling with direct background approach */
+.testimonial-author img {
+  /* Hide the original img element but maintain its dimensions */
+  opacity: 0;
+  width: 60px;
+  height: 60px;
+}
+
+/* Sarah M. testimonial image */
+.testimonial:nth-child(1) .testimonial-author {
+  position: relative;
+}
+
+.testimonial:nth-child(1) .testimonial-author::before {
+  content: "";
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-image: url('/assets/images/testimonials/sarah-m.svg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  left: 0;
+  top: 0;
+}
+
+/* Thomas K. testimonial image */
+.testimonial:nth-child(2) .testimonial-author {
+  position: relative;
+}
+
+.testimonial:nth-child(2) .testimonial-author::before {
+  content: "";
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-image: url('/assets/images/testimonials/thomas-k.svg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  left: 0;
+  top: 0;
+}
+
+/* Elena J. testimonial image */
+.testimonial:nth-child(3) .testimonial-author {
+  position: relative;
+}
+
+.testimonial:nth-child(3) .testimonial-author::before {
+  content: "";
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-image: url('/assets/images/testimonials/elena-j.svg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  left: 0;
+  top: 0;
+}
+
+/* Dark mode adjustments */
+.dark-mode .testimonial-author::before {
+  filter: brightness(1.2);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .testimonial-author::before {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .testimonial-author img {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+/* Ensure proper positioning with author info */
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.author-info {
+  margin-left: 60px;
+}
+
+/* Fallback for older browsers */
+@supports not (::before) {
+  .testimonial-author img {
+    opacity: 1;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+}

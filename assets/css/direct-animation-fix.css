@@ -1,0 +1,457 @@
+/* Direct Animation Fix
+ * This CSS implements the most visually striking animations directly
+ * without relying on external files that might not load properly
+ */
+
+/* ===== BUTTON ANIMATIONS ===== */
+
+/* Base button styling enhancement */
+.cta-button, 
+.secondary-button,
+button[type="submit"],
+.btn {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  z-index: 1;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+
+/* Premium glow effect on hover */
+.cta-button:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 
+    0 0 10px rgba(13, 110, 253, 0.5),
+    0 0 20px rgba(13, 110, 253, 0.3),
+    0 0 30px rgba(13, 110, 253, 0.1);
+  filter: brightness(1.1);
+}
+
+/* Dark mode glow variation */
+.dark-mode .cta-button:hover {
+  box-shadow: 
+    0 0 10px rgba(255, 102, 0, 0.6),
+    0 0 20px rgba(255, 102, 0, 0.4),
+    0 0 30px rgba(255, 102, 0, 0.2);
+  filter: brightness(1.2);
+}
+
+/* Secondary button hover effect */
+.secondary-button:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Button click effect */
+.cta-button:active,
+.secondary-button:active {
+  transform: translateY(-2px);
+  transition: all 0.1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Button ripple effect */
+.cta-button::after,
+.secondary-button::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.8);
+  opacity: 0;
+  border-radius: 100%;
+  transform: scale(1, 1) translate(-50%, -50%);
+  transform-origin: 50% 50%;
+}
+
+.cta-button:focus:not(:active)::after,
+.secondary-button:focus:not(:active)::after {
+  animation: ripple 1s ease-out;
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0, 0);
+    opacity: 0.5;
+  }
+  20% {
+    transform: scale(25, 25);
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(40, 40);
+  }
+}
+
+/* Featured button pulsing effect */
+.cta-button.featured {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(13, 110, 253, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(13, 110, 253, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(13, 110, 253, 0);
+  }
+}
+
+.dark-mode .cta-button.featured {
+  animation: pulse-dark 2s infinite;
+}
+
+@keyframes pulse-dark {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 102, 0, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(255, 102, 0, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 102, 0, 0);
+  }
+}
+
+/* ===== LINK ANIMATIONS ===== */
+
+/* Base link styling enhancement */
+a:not(.logo):not(.cta-button):not(.secondary-button):not(.nav-link):not(.footer-link) {
+  position: relative;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+/* Animated underline effect */
+a:not(.logo):not(.cta-button):not(.secondary-button):not(.nav-link):not(.footer-link)::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background: linear-gradient(90deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  transition: width 0.3s ease;
+}
+
+a:not(.logo):not(.cta-button):not(.secondary-button):not(.nav-link):not(.footer-link):hover::after {
+  width: 100%;
+}
+
+/* Link hover effect */
+a:not(.logo):not(.cta-button):not(.secondary-button):not(.nav-link):not(.footer-link):hover {
+  color: var(--primary-color);
+  text-shadow: 0 0 1px rgba(13, 110, 253, 0.2);
+  transform: translateY(-1px);
+}
+
+.dark-mode a:not(.logo):not(.cta-button):not(.secondary-button):not(.nav-link):not(.footer-link):hover {
+  color: var(--accent-color);
+  text-shadow: 0 0 1px rgba(255, 102, 0, 0.3);
+}
+
+/* Navigation link enhancements */
+.nav-menu li a {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.nav-menu li a::before {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 3px;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--primary-color);
+  transition: width 0.3s ease;
+}
+
+.dark-mode .nav-menu li a::before {
+  background: var(--accent-color);
+}
+
+.nav-menu li a:hover::before {
+  width: 100%;
+}
+
+.nav-menu li a:hover {
+  transform: translateY(-2px);
+}
+
+/* ===== CARD AND SECTION ANIMATIONS ===== */
+
+/* Card hover effects */
+.card, 
+.feature-box, 
+.pricing-plan, 
+.testimonial {
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  backface-visibility: hidden;
+}
+
+.card:hover, 
+.feature-box:hover, 
+.pricing-plan:hover, 
+.testimonial:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Section title animations */
+.section-title h2 {
+  position: relative;
+  display: inline-block;
+}
+
+.section-title h2::after {
+  content: '';
+  position: absolute;
+  width: 60%;
+  height: 3px;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  transition: width 0.5s ease;
+}
+
+.section-title:hover h2::after {
+  width: 100%;
+}
+
+/* ===== SCROLL ANIMATIONS ===== */
+
+/* Fade in on scroll */
+.fade-in-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Apply to common elements */
+.section-title,
+.feature-box,
+.pricing-plan,
+.testimonial,
+.cta-section,
+.about-content {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  animation: fadeInUp 0.8s forwards;
+  animation-delay: 0.2s;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Staggered animation for lists */
+.feature-list li,
+.pricing-features li,
+.nav-menu li {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeInStagger 0.5s forwards;
+}
+
+.feature-list li:nth-child(1),
+.pricing-features li:nth-child(1),
+.nav-menu li:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.feature-list li:nth-child(2),
+.pricing-features li:nth-child(2),
+.nav-menu li:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.feature-list li:nth-child(3),
+.pricing-features li:nth-child(3),
+.nav-menu li:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.feature-list li:nth-child(4),
+.pricing-features li:nth-child(4),
+.nav-menu li:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+.feature-list li:nth-child(5),
+.pricing-features li:nth-child(5),
+.nav-menu li:nth-child(5) {
+  animation-delay: 0.5s;
+}
+
+.feature-list li:nth-child(n+6),
+.pricing-features li:nth-child(n+6),
+.nav-menu li:nth-child(n+6) {
+  animation-delay: 0.6s;
+}
+
+@keyframes fadeInStagger {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== ICON ANIMATIONS ===== */
+
+/* Icon hover effects */
+.social-icon,
+.feature-icon,
+.footer-section i {
+  transition: all 0.3s ease;
+}
+
+.social-icon:hover,
+.feature-icon:hover,
+.footer-section i:hover {
+  transform: scale(1.2) rotate(5deg);
+  color: var(--primary-color);
+}
+
+.dark-mode .social-icon:hover,
+.dark-mode .feature-icon:hover,
+.dark-mode .footer-section i:hover {
+  color: var(--accent-color);
+}
+
+/* ===== FORM ELEMENT ANIMATIONS ===== */
+
+/* Input field focus effects */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea,
+select {
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 5px 15px rgba(13, 110, 253, 0.2);
+  transform: translateY(-2px);
+}
+
+.dark-mode input[type="text"]:focus,
+.dark-mode input[type="email"]:focus,
+.dark-mode input[type="password"]:focus,
+.dark-mode textarea:focus,
+.dark-mode select:focus {
+  border-color: var(--accent-color);
+  box-shadow: 0 5px 15px rgba(255, 102, 0, 0.2);
+}
+
+/* ===== ACCESSIBILITY CONSIDERATIONS ===== */
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .cta-button:hover,
+  .secondary-button:hover,
+  a:hover,
+  .card:hover, 
+  .feature-box:hover, 
+  .pricing-plan:hover, 
+  .testimonial:hover {
+    transform: none !important;
+    box-shadow: none !important;
+  }
+  
+  .cta-button:hover,
+  .secondary-button:hover,
+  a:hover {
+    text-decoration: underline;
+    outline: 2px solid currentColor;
+  }
+}
+
+/* ===== PERFORMANCE OPTIMIZATIONS ===== */
+
+/* Hardware acceleration for animations */
+.cta-button,
+.secondary-button,
+a:not(.logo),
+.card, 
+.feature-box, 
+.pricing-plan, 
+.testimonial,
+.section-title h2,
+.social-icon,
+.feature-icon {
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .cta-button:hover,
+  .secondary-button:hover {
+    transform: translateY(-3px);
+  }
+  
+  .card:hover, 
+  .feature-box:hover, 
+  .pricing-plan:hover, 
+  .testimonial:hover {
+    transform: translateY(-5px);
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) {
+  .cta-button:active,
+  .secondary-button:active {
+    transform: scale(0.98);
+  }
+  
+  a:not(.logo):not(.cta-button):not(.secondary-button):active {
+    color: var(--primary-color);
+  }
+  
+  .dark-mode a:not(.logo):not(.cta-button):not(.secondary-button):active {
+    color: var(--accent-color);
+  }
+}
