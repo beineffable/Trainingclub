@@ -1,0 +1,40 @@
+name: Automatic Pull Request Creation
+
+on:
+  push:
+    branches:
+      - 'feature/**'
+      - 'bugfix/**'
+      - 'enhancement/**'
+      - 'icon-enhancements'
+      - 'mobile-responsiveness-improvements'
+      # Add any other development branches you commonly use
+
+jobs:
+  create-pull-request:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: Automated PR from ${{ github.ref_name }}
+          title: 'Automated PR: ${{ github.ref_name }}'
+          body: |
+            ## Automated Pull Request
+            
+            This PR was automatically created from the `${{ github.ref_name }}` branch.
+            
+            ### Changes included:
+            ${{ github.event.head_commit.message }}
+            
+            ### Deployment:
+            Once merged, these changes will be automatically deployed to the Vercel production site.
+          branch: ${{ github.ref_name }}
+          base: main
+          labels: automated-pr

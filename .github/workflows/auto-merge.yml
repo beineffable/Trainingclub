@@ -1,0 +1,26 @@
+name: Auto Merge Pull Requests
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+    branches:
+      - main
+
+jobs:
+  auto-merge:
+    runs-on: ubuntu-latest
+    if: github.actor != 'github-actions[bot]' && contains(github.event.pull_request.labels.*.name, 'automated-pr')
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        
+      - name: Auto-merge pull request
+        uses: pascalgn/automerge-action@v0.15.6
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          MERGE_LABELS: "automated-pr"
+          MERGE_METHOD: "squash"
+          MERGE_COMMIT_MESSAGE: "Auto-merge: {title} (#{number})"
+          MERGE_DELETE_BRANCH: "true"
+          MERGE_RETRY_SLEEP: "60000"
+          MERGE_REQUIRED_APPROVALS: "0"
