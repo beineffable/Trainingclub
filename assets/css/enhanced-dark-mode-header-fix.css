@@ -1,0 +1,133 @@
+/* Enhanced Dark Mode Header Text Fix with Maximum Specificity */
+html body.dark-mode h1,
+html body.dark-mode h2,
+html body.dark-mode h3,
+html body.dark-mode h4,
+html body.dark-mode h5,
+html body.dark-mode h6,
+html body.dark-mode header,
+html body.dark-mode .header,
+html body.dark-mode #header,
+html body.dark-mode .site-header,
+html body.dark-mode #site-header,
+html body.dark-mode .page-header,
+html body.dark-mode #page-header,
+html body.dark-mode .entry-header,
+html body.dark-mode #entry-header,
+html body.dark-mode .site-title,
+html body.dark-mode #site-title,
+html body.dark-mode .header-text,
+html body.dark-mode #header-text,
+html body.dark-mode .main-header,
+html body.dark-mode #main-header,
+html body.dark-mode [class*="header"],
+html body.dark-mode [id*="header"],
+html body.dark-mode .navbar,
+html body.dark-mode #navbar,
+html body.dark-mode .nav,
+html body.dark-mode #nav,
+html body.dark-mode .navigation,
+html body.dark-mode #navigation,
+html body.dark-mode .logo-container,
+html body.dark-mode #logo-container,
+html body.dark-mode .brand,
+html body.dark-mode #brand,
+html body.dark-mode .site-branding,
+html body.dark-mode #site-branding {
+  color: #ffffff !important;
+  text-shadow: 0 0 1px rgba(0,0,0,0.5) !important;
+}
+
+/* Ensure all header links are visible */
+html body.dark-mode header a,
+html body.dark-mode .header a,
+html body.dark-mode #header a,
+html body.dark-mode .site-header a,
+html body.dark-mode #site-header a,
+html body.dark-mode .page-header a,
+html body.dark-mode #page-header a,
+html body.dark-mode .entry-header a,
+html body.dark-mode #entry-header a,
+html body.dark-mode .header-navigation a,
+html body.dark-mode #header-navigation a,
+html body.dark-mode .main-header a,
+html body.dark-mode #main-header a,
+html body.dark-mode [class*="header"] a,
+html body.dark-mode [id*="header"] a,
+html body.dark-mode .navbar a,
+html body.dark-mode #navbar a,
+html body.dark-mode .nav a,
+html body.dark-mode #nav a,
+html body.dark-mode .navigation a,
+html body.dark-mode #navigation a,
+html body.dark-mode .logo-container a,
+html body.dark-mode #logo-container a,
+html body.dark-mode .brand a,
+html body.dark-mode #brand a,
+html body.dark-mode .site-branding a,
+html body.dark-mode #site-branding a,
+html body.dark-mode nav a,
+html body.dark-mode #nav a,
+html body.dark-mode .menu a,
+html body.dark-mode #menu a,
+html body.dark-mode .menu-item a,
+html body.dark-mode .nav-item a {
+  color: #ffffff !important;
+  text-shadow: 0 0 1px rgba(0,0,0,0.5) !important;
+}
+
+/* Add hover effect with maximum specificity */
+html body.dark-mode header a:hover,
+html body.dark-mode .header a:hover,
+html body.dark-mode #header a:hover,
+html body.dark-mode .site-header a:hover,
+html body.dark-mode #site-header a:hover,
+html body.dark-mode .page-header a:hover,
+html body.dark-mode #page-header a:hover,
+html body.dark-mode .entry-header a:hover,
+html body.dark-mode #entry-header a:hover,
+html body.dark-mode .header-navigation a:hover,
+html body.dark-mode #header-navigation a:hover,
+html body.dark-mode .main-header a:hover,
+html body.dark-mode #main-header a:hover,
+html body.dark-mode [class*="header"] a:hover,
+html body.dark-mode [id*="header"] a:hover,
+html body.dark-mode .navbar a:hover,
+html body.dark-mode #navbar a:hover,
+html body.dark-mode .nav a:hover,
+html body.dark-mode #nav a:hover,
+html body.dark-mode .navigation a:hover,
+html body.dark-mode #navigation a:hover,
+html body.dark-mode .logo-container a:hover,
+html body.dark-mode #logo-container a:hover,
+html body.dark-mode .brand a:hover,
+html body.dark-mode #brand a:hover,
+html body.dark-mode .site-branding a:hover,
+html body.dark-mode #site-branding a:hover,
+html body.dark-mode nav a:hover,
+html body.dark-mode #nav a:hover,
+html body.dark-mode .menu a:hover,
+html body.dark-mode #menu a:hover,
+html body.dark-mode .menu-item a:hover,
+html body.dark-mode .nav-item a:hover {
+  color: #f0f0f0 !important;
+  text-decoration: underline !important;
+  text-shadow: 0 0 2px rgba(0,0,0,0.7) !important;
+}
+
+/* Target specific elements that might be in the header */
+html body.dark-mode .logo,
+html body.dark-mode #logo,
+html body.dark-mode .logo-text,
+html body.dark-mode #logo-text,
+html body.dark-mode .site-description,
+html body.dark-mode #site-description,
+html body.dark-mode .tagline,
+html body.dark-mode #tagline,
+html body.dark-mode .site-tagline,
+html body.dark-mode #site-tagline {
+  color: #ffffff !important;
+  text-shadow: 0 0 1px rgba(0,0,0,0.5) !important;
+}
+
+/* JavaScript fallback to ensure header text is visible */
