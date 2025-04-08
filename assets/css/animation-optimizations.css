@@ -1,0 +1,153 @@
+/* Performance and Accessibility Optimizations for Enhanced Animations
+ * This CSS file adds optimizations to ensure animations are performant
+ * and respect accessibility preferences.
+ */
+
+/* ===== PERFORMANCE OPTIMIZATIONS ===== */
+
+/* Use hardware acceleration for animations */
+.cta-button,
+.secondary-button,
+.card,
+.feature,
+.membership-tier,
+.testimonial,
+a:hover,
+.nav-menu li a::before {
+  /* Force GPU acceleration for smoother animations */
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Optimize animations to use only transform and opacity */
+.cta-button:hover,
+.secondary-button:hover {
+  /* Use transform instead of margin/padding for better performance */
+  transform: translateY(-2px) translateZ(0);
+}
+
+.cta-button:active,
+.secondary-button:active {
+  transform: translateY(1px) translateZ(0);
+}
+
+/* Reduce animation complexity for mobile devices */
+@media (max-width: 768px) {
+  .cta-button.featured {
+    /* Reduce animation complexity on mobile */
+    animation-duration: 3s;
+  }
+  
+  /* Simplify hover effects on mobile */
+  .card:hover,
+  .feature:hover,
+  .membership-tier:hover,
+  .testimonial:hover {
+    transform: translateY(-3px) translateZ(0);
+  }
+}
+
+/* ===== ACCESSIBILITY ENHANCEMENTS ===== */
+
+/* Improved focus states for keyboard navigation */
+a:focus,
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+  /* High contrast outline that works in both light and dark modes */
+  outline: 3px solid var(--light-accent, #0d6efd);
+  outline-offset: 3px;
+  /* Remove default browser outline */
+  box-shadow: none;
+}
+
+body.dark-mode a:focus,
+body.dark-mode button:focus,
+body.dark-mode input:focus,
+body.dark-mode select:focus,
+body.dark-mode textarea:focus {
+  outline: 3px solid var(--dark-accent, #FF7D4D);
+}
+
+/* Enhanced reduced motion support */
+@media (prefers-reduced-motion) {
+  *,
+  *::before,
+  *::after {
+    /* Disable all animations and transitions */
+    animation-duration: 0.001s !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001s !important;
+    scroll-behavior: auto !important;
+  }
+  
+  /* Remove all transform effects */
+  .cta-button:hover,
+  .secondary-button:hover,
+  .card:hover,
+  .feature:hover,
+  .membership-tier:hover,
+  .testimonial:hover,
+  a:hover {
+    transform: none !important;
+    box-shadow: none !important;
+  }
+  
+  /* Provide alternative hover indicators */
+  body:not(.dark-mode) .cta-button:hover {
+    border: 2px solid var(--light-accent, #0d6efd) !important;
+  }
+  
+  body.dark-mode .cta-button:hover {
+    border: 2px solid var(--dark-accent, #FF7D4D) !important;
+  }
+  
+  /* Alternative focus indicators */
+  a:focus,
+  button:focus {
+    border: 3px solid currentColor !important;
+  }
+}
+
+/* High contrast mode support */
+@media (forced-colors: active) {
+  .cta-button,
+  .secondary-button {
+    /* Ensure buttons have visible borders in high contrast mode */
+    border: 2px solid currentColor !important;
+  }
+  
+  /* Ensure focus states are visible */
+  a:focus,
+  button:focus,
+  input:focus {
+    outline: 3px solid CanvasText !important;
+  }
+}
+
+/* ===== LOADING OPTIMIZATIONS ===== */
+
+/* Delay non-critical animations */
+.cta-button.featured {
+  /* Delay start of animation to improve page load performance */
+  animation-delay: 0.5s;
+}
+
+/* Reduce initial animation complexity */
+@media (prefers-reduced-motion: no-preference) {
+  /* Progressive enhancement for animations */
+  .card,
+  .feature,
+  .membership-tier,
+  .testimonial {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  /* Add more complex animations only after page load */
+  .js-animation-ready .cta-button::after,
+  .js-animation-ready .secondary-button::after {
+    transition: all 0.5s ease;
+  }
+}

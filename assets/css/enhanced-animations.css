@@ -1,0 +1,367 @@
+/* Enhanced Button and Link Animations
+ * This CSS file adds modern, aesthetic animations to buttons and links
+ * for the Training Club website, including glowing effects and hover interactions.
+ */
+
+/* ===== COMMON VARIABLES ===== */
+:root {
+  /* Animation Speeds */
+  --animation-speed-slow: 2s;
+  --animation-speed-medium: 1s;
+  --animation-speed-fast: 0.3s;
+  
+  /* Glow Colors - Light Mode */
+  --light-glow-primary: rgba(13, 110, 253, 0.6);  /* Blue glow */
+  --light-glow-secondary: rgba(108, 117, 125, 0.5);  /* Gray glow */
+  --light-glow-accent: rgba(255, 193, 7, 0.6);  /* Yellow glow */
+  
+  /* Glow Colors - Dark Mode */
+  --dark-glow-primary: rgba(255, 125, 77, 0.7);  /* Orange glow */
+  --dark-glow-secondary: rgba(173, 181, 189, 0.5);  /* Light gray glow */
+  --dark-glow-accent: rgba(255, 193, 7, 0.6);  /* Yellow glow */
+  
+  /* Glow Sizes */
+  --glow-size-sm: 0 0 5px;
+  --glow-size-md: 0 0 10px;
+  --glow-size-lg: 0 0 15px;
+  --glow-size-xl: 0 0 25px;
+}
+
+/* ===== BUTTON ANIMATIONS ===== */
+
+/* Base Button Styles with Enhanced Transitions */
+.cta-button,
+.secondary-button {
+  position: relative;
+  overflow: hidden;
+  transition: all var(--animation-speed-fast) ease-out;
+  z-index: 1;
+}
+
+/* ===== PRIMARY BUTTON GLOW EFFECT - LIGHT MODE ===== */
+body:not(.dark-mode) .cta-button {
+  box-shadow: 0 0 0 rgba(13, 110, 253, 0);
+}
+
+body:not(.dark-mode) .cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--glow-size-md) var(--light-glow-primary),
+              0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+body:not(.dark-mode) .cta-button:active {
+  transform: translateY(1px);
+  box-shadow: var(--glow-size-sm) var(--light-glow-primary),
+              0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== PRIMARY BUTTON GLOW EFFECT - DARK MODE ===== */
+body.dark-mode .cta-button {
+  box-shadow: 0 0 0 rgba(255, 125, 77, 0);
+}
+
+body.dark-mode .cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--glow-size-md) var(--dark-glow-primary),
+              0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode .cta-button:active {
+  transform: translateY(1px);
+  box-shadow: var(--glow-size-sm) var(--dark-glow-primary),
+              0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* ===== SECONDARY BUTTON GLOW EFFECT - LIGHT MODE ===== */
+body:not(.dark-mode) .secondary-button {
+  box-shadow: 0 0 0 rgba(108, 117, 125, 0);
+}
+
+body:not(.dark-mode) .secondary-button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--glow-size-sm) var(--light-glow-secondary);
+}
+
+/* ===== SECONDARY BUTTON GLOW EFFECT - DARK MODE ===== */
+body.dark-mode .secondary-button {
+  box-shadow: 0 0 0 rgba(173, 181, 189, 0);
+}
+
+body.dark-mode .secondary-button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--glow-size-sm) var(--dark-glow-secondary);
+}
+
+/* ===== BUTTON RIPPLE EFFECT ===== */
+.cta-button::after,
+.secondary-button::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.5);
+  opacity: 0;
+  border-radius: 100%;
+  transform: scale(1, 1) translate(-50%, -50%);
+  transform-origin: 50% 50%;
+}
+
+.cta-button:focus:not(:active)::after,
+.secondary-button:focus:not(:active)::after {
+  animation: ripple 1s ease-out;
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0, 0);
+    opacity: 0.5;
+  }
+  20% {
+    transform: scale(25, 25);
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(40, 40);
+  }
+}
+
+/* ===== PULSING GLOW ANIMATION FOR FEATURED BUTTONS ===== */
+.cta-button.featured {
+  animation: pulse-glow var(--animation-speed-slow) infinite alternate;
+}
+
+body:not(.dark-mode) .cta-button.featured {
+  box-shadow: var(--glow-size-sm) var(--light-glow-primary);
+}
+
+body.dark-mode .cta-button.featured {
+  box-shadow: var(--glow-size-sm) var(--dark-glow-primary);
+}
+
+@keyframes pulse-glow {
+  0% {
+    box-shadow: var(--glow-size-sm) var(--light-glow-primary);
+  }
+  100% {
+    box-shadow: var(--glow-size-md) var(--light-glow-primary);
+  }
+}
+
+body.dark-mode .cta-button.featured {
+  animation: pulse-glow-dark var(--animation-speed-slow) infinite alternate;
+}
+
+@keyframes pulse-glow-dark {
+  0% {
+    box-shadow: var(--glow-size-sm) var(--dark-glow-primary);
+  }
+  100% {
+    box-shadow: var(--glow-size-md) var(--dark-glow-primary);
+  }
+}
+
+/* ===== LINK ANIMATIONS ===== */
+
+/* Base Link Styles with Enhanced Transitions */
+a:not(.cta-button):not(.secondary-button):not(.logo) {
+  position: relative;
+  transition: color var(--animation-speed-fast) ease;
+}
+
+/* Animated Underline Effect for Links */
+a:not(.cta-button):not(.secondary-button):not(.logo):not(.nav-menu a):not(.social-icon) {
+  text-decoration: none;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-position: 0% 100%;
+  background-repeat: no-repeat;
+  background-size: 0% 2px;
+  transition: background-size var(--animation-speed-fast) ease-in-out, 
+              color var(--animation-speed-fast) ease;
+}
+
+a:not(.cta-button):not(.secondary-button):not(.logo):not(.nav-menu a):not(.social-icon):hover,
+a:not(.cta-button):not(.secondary-button):not(.logo):not(.nav-menu a):not(.social-icon):focus {
+  background-size: 100% 2px;
+}
+
+/* Navigation Menu Link Animations - Light Mode */
+body:not(.dark-mode) .nav-menu li a {
+  position: relative;
+  transition: color var(--animation-speed-fast) ease;
+}
+
+body:not(.dark-mode) .nav-menu li a::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: -5px;
+  left: 0;
+  background-color: var(--light-accent);
+  visibility: hidden;
+  transform: scaleX(0);
+  transition: all var(--animation-speed-fast) ease;
+}
+
+body:not(.dark-mode) .nav-menu li a:hover::before,
+body:not(.dark-mode) .nav-menu li a.active::before {
+  visibility: visible;
+  transform: scaleX(1);
+}
+
+body:not(.dark-mode) .nav-menu li a:hover,
+body:not(.dark-mode) .nav-menu li a.active {
+  text-shadow: 0 0 1px var(--light-accent);
+}
+
+/* Navigation Menu Link Animations - Dark Mode */
+body.dark-mode .nav-menu li a {
+  position: relative;
+  transition: color var(--animation-speed-fast) ease;
+}
+
+body.dark-mode .nav-menu li a::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: -5px;
+  left: 0;
+  background-color: var(--dark-accent);
+  visibility: hidden;
+  transform: scaleX(0);
+  transition: all var(--animation-speed-fast) ease;
+}
+
+body.dark-mode .nav-menu li a:hover::before,
+body.dark-mode .nav-menu li a.active::before {
+  visibility: visible;
+  transform: scaleX(1);
+}
+
+body.dark-mode .nav-menu li a:hover,
+body.dark-mode .nav-menu li a.active {
+  text-shadow: 0 0 8px var(--dark-glow-primary);
+}
+
+/* Footer Link Animations */
+footer a:not(.social-icon) {
+  transition: all var(--animation-speed-fast) ease;
+}
+
+body:not(.dark-mode) footer a:hover {
+  color: var(--light-accent);
+  text-shadow: 0 0 1px var(--light-accent);
+}
+
+body.dark-mode footer a:hover {
+  color: var(--dark-accent);
+  text-shadow: 0 0 8px var(--dark-glow-primary);
+}
+
+/* Social Icon Animations */
+.social-icon {
+  transition: all var(--animation-speed-fast) ease;
+}
+
+body:not(.dark-mode) .social-icon:hover {
+  transform: translateY(-3px);
+  color: var(--light-accent);
+  box-shadow: var(--glow-size-sm) var(--light-glow-primary);
+}
+
+body.dark-mode .social-icon:hover {
+  transform: translateY(-3px);
+  color: var(--dark-accent);
+  box-shadow: var(--glow-size-sm) var(--dark-glow-primary);
+}
+
+/* ===== CARD AND FEATURE HOVER ANIMATIONS ===== */
+
+.card,
+.feature,
+.membership-tier,
+.testimonial {
+  transition: transform var(--animation-speed-fast) ease,
+              box-shadow var(--animation-speed-fast) ease;
+}
+
+body:not(.dark-mode) .card:hover,
+body:not(.dark-mode) .feature:hover,
+body:not(.dark-mode) .membership-tier:hover,
+body:not(.dark-mode) .testimonial:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode .card:hover,
+body.dark-mode .feature:hover,
+body.dark-mode .membership-tier:hover,
+body.dark-mode .testimonial:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Featured Membership Tier Glow */
+body:not(.dark-mode) .membership-tier.featured:hover {
+  box-shadow: var(--glow-size-md) var(--light-glow-primary),
+              0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode .membership-tier.featured:hover {
+  box-shadow: var(--glow-size-md) var(--dark-glow-primary),
+              0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* ===== FORM ELEMENT ANIMATIONS ===== */
+
+input,
+textarea,
+select {
+  transition: border-color var(--animation-speed-fast) ease,
+              box-shadow var(--animation-speed-fast) ease;
+}
+
+body:not(.dark-mode) input:focus,
+body:not(.dark-mode) textarea:focus,
+body:not(.dark-mode) select:focus {
+  border-color: var(--light-accent);
+  box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.25);
+}
+
+body.dark-mode input:focus,
+body.dark-mode textarea:focus,
+body.dark-mode select:focus {
+  border-color: var(--dark-accent);
+  box-shadow: 0 0 0 3px rgba(255, 125, 77, 0.25);
+}
+
+/* ===== ACCESSIBILITY CONSIDERATIONS ===== */
+
+/* Reduce animations for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .cta-button.featured {
+    animation: none !important;
+  }
+  
+  .cta-button:hover,
+  .secondary-button:hover,
+  .card:hover,
+  .feature:hover,
+  .membership-tier:hover,
+  .testimonial:hover {
+    transform: none !important;
+  }
+}
