@@ -22,6 +22,155 @@
     <link rel="stylesheet" href="assets/css/aesthetic-improvements.css">
     <!-- Icon Enhancements CSS -->
     <link rel="stylesheet" href="assets/css/icon-enhancements.css">
+    <!-- Testimonial Images CSS -->
+    <style>
+    /* Direct inline CSS for testimonial images and animations */
+    .testimonial-image {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .testimonial-image svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Premium button animations */
+    .btn, button, 
+    .contact-us-btn, 
+    .join-now-btn,
+    .prev-testimonial, 
+    .next-testimonial {
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+    }
+
+    .btn:before, button:before,
+    .contact-us-btn:before, 
+    .join-now-btn:before,
+    .prev-testimonial:before, 
+    .next-testimonial:before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%);
+      transform: scale(0);
+      opacity: 0;
+      transition: transform 0.6s, opacity 0.6s;
+      z-index: -1;
+    }
+
+    .btn:hover, button:hover,
+    .contact-us-btn:hover, 
+    .join-now-btn:hover,
+    .prev-testimonial:hover, 
+    .next-testimonial:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .btn:hover:before, button:hover:before,
+    .contact-us-btn:hover:before, 
+    .join-now-btn:hover:before,
+    .prev-testimonial:hover:before, 
+    .next-testimonial:hover:before {
+      transform: scale(1);
+      opacity: 1;
+    }
+
+    /* Link animations */
+    a:not(.btn) {
+      position: relative;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    a:not(.btn):after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -2px;
+      left: 0;
+      background: currentColor;
+      transition: width 0.3s ease;
+    }
+
+    a:not(.btn):hover {
+      text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+    }
+
+    a:not(.btn):hover:after {
+      width: 100%;
+    }
+
+    /* Dark mode specific animations */
+    .dark-mode .btn:hover, 
+    .dark-mode button:hover,
+    .dark-mode .contact-us-btn:hover, 
+    .dark-mode .join-now-btn:hover {
+      box-shadow: 0 10px 20px rgba(255, 165, 0, 0.3);
+    }
+
+    .dark-mode a:not(.btn):hover {
+      text-shadow: 0 0 8px rgba(255, 165, 0, 0.5);
+    }
+
+    .dark-mode a:not(.btn):after {
+      background: #ff9900;
+    }
+
+    /* Light mode specific animations */
+    .light-mode .btn:hover, 
+    .light-mode button:hover,
+    .light-mode .contact-us-btn:hover, 
+    .light-mode .join-now-btn:hover {
+      box-shadow: 0 10px 20px rgba(52, 152, 219, 0.3);
+    }
+
+    .light-mode a:not(.btn):hover {
+      text-shadow: 0 0 8px rgba(52, 152, 219, 0.5);
+    }
+
+    .light-mode a:not(.btn):after {
+      background: #3498db;
+    }
+
+    /* Pulse animation for CTA buttons */
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(255, 165, 0, 0.7); }
+      70% { box-shadow: 0 0 0 15px rgba(255, 165, 0, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(255, 165, 0, 0); }
+    }
+
+    .join-now-btn, .contact-us-btn {
+      animation: pulse 2s infinite;
+    }
+
+    /* Reduced motion preferences */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+    </style>
     <!-- Vercel-specific fixes -->
     <link rel="stylesheet" href="assets/css/vercel-testimonial-fix.css">
     <link rel="stylesheet" href="assets/css/vercel-animation-fix.css">
